@@ -1,0 +1,18 @@
+Weekly du 21/04/2026
+
+État des lieux : De quoi parle-t-on ? & Faire le point des tâches effectuées.
+La partie marketing a été la seule commencée. La charte graphique et les maquettes sont en cours de création (mais très bien avancées). Quant aux wireframes, ils sont totalement finis.
+
+Problèmes : Identifier s’il y en a et solutionner si ça n’est pas fait
+Aucun problème n’a été recensé.
+
+Tâches : Fixer les nouvelles tâches de la semaine et fixer la date et l’horaire du prochain weekly.
+Marketing :
+finir la charte graphique
+finir les maquettes
+Market et Dev :
+Le project management commence à partir du 23 avril.
+Nous devrons :
+créer le backlog GitHub
+écrire les user stories
+distribuer les tâches de chacune
