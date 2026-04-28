@@ -1,1 +1,19 @@
-A mettre dans le commit: Docs(docs): resume weekly 28/04
+Weekly du 28/04/2026
+
+État des lieux : De quoi parle-t-on ? & Faire le point des tâches effectuées.
+Le bcklog GitHub et les user stories ont été crées
+La partie marketing (charte graphique, maquettes) est finie aujourd'hui. Les livrables doivent être envoyés. 
+Le deisgn system doit être transmis.
+
+Du côté des dev, le CI/CD a été fait.
+
+
+Problèmes : Identifier s’il y en a et solutionner si ça n’est pas fait
+Aucun problème n’a été recensé.
+
+Tâches : Fixer les nouvelles tâches de la semaine et fixer la date et l’horaire du prochain weekly.
+Marketing :
+envoyer livrables
+
+Dev :
+Faire le MCD/MLD
