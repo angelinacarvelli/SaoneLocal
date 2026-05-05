@@ -1,0 +1,13 @@
+Weekly du 05/05/2026
+
+État des lieux : De quoi parle-t-on ? & Faire le point des tâches effectuées.
+Les livrables marketing ont été transmis.
+Le MCD/MLD est réalisé et en attente de validation.
+
+Problèmes : Identifier s’il y en a et solutionner si ça n’est pas fait
+Aucun problème n’a été recensé.
+
+Tâches : Fixer les nouvelles tâches de la semaine et fixer la date et l’horaire du prochain weekly.
+Dev :
+Modifier le MCD/MLD si besoin
+Lancer la phase de déploiement avec l'EC2, certificats de sécurité et pipeline CI/CD.
