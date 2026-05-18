@@ -23,10 +23,10 @@ jobs:
     needs: ci
     steps:
       - name: Connexion au serveur EC2 et Déploiement
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@master #appleboy/ssh-action@master : outil préfabriqué qui permet à GitHub de se connecter au serveur AWS EC2 à distance, master = prendre la version la plus récente de la branche du code
         with:
           host: ${{ secrets.EC2_HOST }}
-          username: ec2-user
+          username: ec2-user # peut etre changer a expliquer a selene comment le faire precisément
           key: ${{ secrets.EC2_SSH_KEY }}
           script: | #run s'exécute sur les serveurs de GitHub, alors que script s'exécute à distance sur ton propre serveur AWS.
             # Installer Git si manquant
