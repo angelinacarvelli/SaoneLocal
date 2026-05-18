@@ -1,29 +1,33 @@
-name: CI docker deployment
+name: Mon Deploiement Simple
 
 on:
   push:
-    branches: [main]
-  pull_request:
     branches: [main]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Deploy to EC2
+      - name: Connexion a l EC2 et lancement des commandes
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
-            sudo systemctl start docker
-            cd /home/ec2-user/mon-projet || git clone https://github.com/angie/saone-project.git /home/ec2-user/mon-projet
-            cd /home/ec2-user/mon-projet
-            git pull origin main
-            docker build -t mon-app .
+          script: | #run s'exécute sur les serveurs de GitHub, alors que script s'exécute à distance sur ton propre serveur AWS.
+            #On supprime l'ancien dossier s'il existe pour repartir à neuf proprement
+            rm -rf SaoneLocal
+
+            #On télécharge ton code depuis ton GitHub
+            git clone https://github.com/angelinacarvelli/SaoneLocal.git
+
+            #On va dans le dossier
+            cd SaoneLocal
+
+            #On nettoie l'ancien Docker qui tourne pour éviter les conflits de nom
             docker stop mon-app || true
             docker rm mon-app || true
+
+            #On fabrique l'image Docker et on la lance
+            docker build -t mon-app .
             docker run -d --name mon-app -p 8080:80 mon-app
