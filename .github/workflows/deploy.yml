@@ -1,33 +1,50 @@
-name: Mon Deploiement Simple
+name: Deploiement EC2
 
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  # 1. On vérifie d'abord que le projet compile bien
+  ci:
     runs-on: ubuntu-latest
     steps:
-      - name: Connexion a l'EC2 et lancement des commandes
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Vérifier le build Docker
+        run: |
+          docker build -t test-build .
+
+  # 2. Si le build est OK, on déploie sur ton EC2
+  deploy:
+    runs-on: ubuntu-latest
+    needs: ci
+    steps:
+      - name: Connexion au serveur EC2 et Déploiement
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
           script: | #run s'exécute sur les serveurs de GitHub, alors que script s'exécute à distance sur ton propre serveur AWS.
-            #On supprime l'ancien dossier s'il existe pour repartir à neuf proprement
+            # Installer Git si manquant
+            if ! command -v git &> /dev/null; then
+              sudo dnf install git -y || sudo apt-get install git -y
+            fi
+
+            # Nettoyer et cloner le dépôt
             rm -rf SaoneLocal
-
-            #On télécharge ton code depuis ton GitHub
             git clone https://github.com/angelinacarvelli/SaoneLocal.git
-
-            #On va dans le dossier
             cd SaoneLocal
 
-            #On nettoie l'ancien Docker qui tourne pour éviter les conflits de nom
-            docker stop mon-app || true
-            docker rm mon-app || true
+            # Arrêter l'ancien conteneur s'il existe
+            sudo docker stop mon-app || true
+            sudo docker rm mon-app || true
 
-            #On fabrique l'image Docker et on la lance
-            docker build -t mon-app .
-            docker run -d --name mon-app -p 8080:80 mon-app
+            # Build de la nouvelle image
+            sudo docker build -t mon-app .
+
+            # Lancement sur le port 8080 (Nginx se chargera du HTTPS)
+            sudo docker run -d --name mon-app -p 8080:80 --restart always mon-app
