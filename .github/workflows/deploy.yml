@@ -8,7 +8,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Connexion a l EC2 et lancement des commandes
+      - name: Connexion a l'EC2 et lancement des commandes
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_HOST }}
