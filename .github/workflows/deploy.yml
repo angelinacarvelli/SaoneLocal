@@ -45,3 +45,8 @@ jobs:
 
             # 4. Lancement sur le port
             sudo docker run -d --name saonelocal -p 80:80 --restart always saonelocal
+            
+            echo "=== STATUT DU CONTENEUR ==="
+            sudo docker ps -a
+            echo "=== LOGS DE L'APPLICATION ==="
+            sudo docker logs saonelocal
