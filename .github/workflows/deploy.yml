@@ -47,8 +47,11 @@ jobs:
 
             # 2. Build de la nouvelle image
             sudo docker build -t mon-app .
+            
+            # 3. Build de la nouvelle image
+            sudo docker build --no-cache -t mon-app .
 
-            # 3. Lancement sur le bon port (80 accessible depuis l'extérieur)
+            # 4. Lancement sur le bon port (80 accessible depuis l'extérieur)
             sudo docker run -d --name mon-app -p 80:80 --restart always mon-app
           
             echo "VÉRIFICATION DES PORTS UTILISÉS SUR L'EC2"
