@@ -50,3 +50,12 @@ jobs:
 
             # 3. Lancement sur le bon port (80 accessible depuis l'extérieur)
             sudo docker run -d --name mon-app -p 80:80 --restart always mon-app
+          
+            echo "VÉRIFICATION DES PORTS UTILISÉS SUR L'EC2"
+            sudo ss -tulnp | grep :80 || true
+            
+            echo "QUELS CONTENEURS TOURNE ?"
+            sudo docker ps -a
+            
+            echo "LOG DE MON-APP "
+            sudo docker logs mon-app || true
