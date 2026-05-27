@@ -38,13 +38,12 @@ jobs:
             rm -rf SaoneLocal
             git clone https://github.com/angelinacarvelli/SaoneLocal.git
             cd SaoneLocal
-
-            # Arrêter l'ancien conteneur s'il existe
-            sudo docker stop SaoneLocal || true
-            sudo docker rm SaoneLocal || true
+            # force le stop et remove
+            sudo docker rm -f SaoneLocal || true
+            sudo docker rm -f saonelocal || true
 
             # Build de la nouvelle image
             sudo docker build -t saonelocal .
 
-            # Lancement sur le port 8080 (Nginx se chargera du HTTPS)
+            # Lancement sur le port 8080
             sudo docker run -d --name saonelocal -p 8080:80 --restart always saonelocal
