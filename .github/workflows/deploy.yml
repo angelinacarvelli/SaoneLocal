@@ -40,8 +40,8 @@ jobs:
             cd SaoneLocal
 
             # Arrêter l'ancien conteneur s'il existe
-            sudo docker stop saonelocal || true
-            sudo docker rm saonelocal || true
+            sudo docker stop SaoneLocal || true
+            sudo docker rm SaoneLocal || true
 
             # Build de la nouvelle image
             sudo docker build -t saonelocal .
