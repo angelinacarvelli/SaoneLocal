@@ -23,12 +23,12 @@ jobs:
     needs: ci
     steps:
       - name: Connexion au serveur EC2 et Déploiement
-        uses: appleboy/ssh-action@master #appleboy/ssh-action@master : outil préfabriqué qui permet à GitHub de se connecter au serveur AWS EC2 à distance, master = prendre la version la plus récente de la branche du code
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_HOST }}
-          username: ec2-user # peut etre changer a expliquer a selene comment le faire precisément
+          username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
-          script: | #run s'exécute sur les serveurs de GitHub, alors que script s'exécute à distance sur ton propre serveur AWS.
+          script: |
             # Installer Git si manquant
             if ! command -v git &> /dev/null; then
               sudo dnf install git -y || sudo apt-get install git -y
@@ -39,12 +39,14 @@ jobs:
             git clone https://github.com/angelinacarvelli/SaoneLocal.git
             cd SaoneLocal
 
-            # Arrêter l'ancien conteneur s'il existe
+            # 1. Supprimer TOUS les anciens conteneurs pour libérer le port 80
+            sudo docker stop saonelocal || true
+            sudo docker rm saonelocal || true
             sudo docker stop mon-app || true
             sudo docker rm mon-app || true
 
-            # Build de la nouvelle image
+            # 2. Build de la nouvelle image
             sudo docker build -t mon-app .
 
-            # Lancement sur le port 80 (Nginx se chargera du HTTPS)
-            sudo docker run -d --name mon-app -p 8080:80 --restart always mon-app
+            # 3. Lancement sur le bon port (80 accessible depuis l'extérieur)
+            sudo docker run -d --name mon-app -p 80:80 --restart always mon-app
