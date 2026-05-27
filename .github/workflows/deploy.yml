@@ -46,4 +46,4 @@ jobs:
             sudo docker build -t saonelocal .
 
             # Lancement sur le port 8080
-            sudo docker run -d --name saonelocal -p 8080:80 --restart always saonelocal
+            sudo docker run -d --name saonelocal -p 80:80 --restart always saonelocal
