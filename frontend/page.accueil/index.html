@@ -2,33 +2,35 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Acceuil</title>
+  <title>Accueil</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <img class="logo" src="images/SaôneLocal-logos_saonelocal-logo-principal.png" alt="logo de saonelocal"/>
-    <a href=""><img class="picto" src="images/picto-accueil.png" alt="picto acceuil"/></a>
+    <header>
+        <img class="logo" src="images/SaôneLocal-logos_saonelocal-logo-principal.png" alt="logo de saonelocal"/>
+        <a href="index.html"><img class="picto" src="images/picto-accueil.png" alt="picto accueil"/></a>
+    </header>
 
     <div class="plus_sur_nous">
-        <h3>Plus sur plus sur nous</h3>
-        <p>Notre association est une association de proximité, nous créeons du lien avec nos clients.
-        Ce ne sont pas de simple produits mais la bourgogne entière que vous mettez en bouche. 
-        SaôneLocal c'est une expérience pour vos papilles</p>
+        <h3>Plus sur nous</h3>
+        <p>Notre association est une association de proximité, nous créons du lien avec nos clients.
+        Ce ne sont pas de simples produits mais la Bourgogne entière que vous mettez en bouche. 
+        SaôneLocal c'est une expérience pour vos papilles.</p>
         <button type="button">Nous connaître</button>
     </div>
 
     <div class="prod_locaux">
         <h3>Nos producteurs locaux</h3>
-        <p>Nos produits sont si savoureux parce qu'ils sont faits avec l'amour de nos producteurs
-            Nos producteurs s'impliquent dans leur travail et ont un véritable savoir-faire dans leur domaine.
+        <p>Nos produits sont si savoureux parce qu'ils sont faits avec l'amour de nos producteurs.
+           Nos producteurs s'impliquent dans leur travail et ont un véritable savoir-faire dans leur domaine.
         </p>
         <button type="button">Voir l'équipe</button>
     </div>
 
     <div class="recommandation">
         <h3>Se laisser tenter</h3>
-        <p>Il faut mettre en bouche ces délices pour ressentir la Bourgogne et tout ce savoir-faire</p>
+        <p>Il faut mettre en bouche ces délices pour ressentir la Bourgogne et tout ce savoir-faire.</p>
 
         <div class="recom_produit">
             <a href=""><img src="images/boulangerie-pain-campagne.jpg" alt="pain_campagne"/></a>
@@ -39,19 +41,20 @@
         <button type="button">Goûter</button>
     </div>
 
-    <div class="naviguation">
+    <nav class="navigation">
         <a href=""><img src="images/picto-a-propos.png" alt="picto-a-propos"/></a>
         <a href=""><img src="images/picto-calendrier.png" alt="picto calendrier"/></a>
         <a href=""><img src="images/picto-catalogue.png" alt="picto catalogue"/></a>
-    </div>
+    </nav>
 
     <div class="connection">
-        <a href="/backend/src/test/home.html"></a>
-    <button>Connection</button>
+        <a href="/backend/src/test/home.html">
+            <button type="button">Connexion</button>
+        </a>
     </div>
 
-    <p class="footer">
-        Fabriqué en Bourgogne. - Nous contacter - <br> Mentions légale
-    </p>
+    <footer class="footer">
+        Fabriqué en Bourgogne. - <a href="#">Nous contacter</a> - <br> <a href="#">Mentions légales</a>
+    </footer>
 </body>
 </html>
