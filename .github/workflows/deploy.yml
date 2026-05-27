@@ -47,4 +47,4 @@ jobs:
             sudo docker build -t mon-app .
 
             # Lancement sur le port 80 (Nginx se chargera du HTTPS)
-            sudo docker run -d --name mon-app -p 80:80 --restart always mon-app
+            sudo docker run -d --name mon-app -p 8080:80 --restart always mon-app
