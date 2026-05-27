@@ -40,11 +40,11 @@ jobs:
             cd SaoneLocal
 
             # Arrêter l'ancien conteneur s'il existe
-            sudo docker stop mon-app || true
-            sudo docker rm mon-app || true
+            sudo docker stop SaoneLocal || true
+            sudo docker rm SaoneLocal || true
 
             # Build de la nouvelle image
-            sudo docker build -t mon-app .
+            sudo docker build -t SaoneLocal .
 
             # Lancement sur le port 8080 (Nginx se chargera du HTTPS)
-            sudo docker run -d --name mon-app -p 8080:80 --restart always mon-app
+            sudo docker run -d --name SaoneLocal -p 8080:80 --restart always SaoneLocal
