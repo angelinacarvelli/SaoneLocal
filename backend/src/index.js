@@ -1,5 +1,4 @@
 import express from "express";
-import { PORT } from './config.js'; // recup du port de co
 import cors from 'cors'; // Permet de gérer les requêtes cross-origin
 import { Client } from 'pg'; // on utilise le client postgres de Sélène
 import path from "path";
@@ -129,8 +128,8 @@ app.post("/login", async (req, res) => {
 // note : une fois sur l'EC2, ce bloc lancera l'app sur le web grace au .env mis a jour !
 db.connect().then(() => {
     console.log(`app connect to database`);
-    app.listen(PORT, () => {
-        console.log(`app is listening to port:${PORT}`);
+   app.listen(process.env.port || 3000, () => {
+    console.log(`app is listening`);
     });
 }).catch((error) => {
     console.log(error);
