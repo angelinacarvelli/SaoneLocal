@@ -7,6 +7,7 @@ import jwt from "jsonwebtoken"; // generation de token de session securisé
 import cookieParser from "cookie-parser"; // tu peut ecrire et lire ez dans les cookies nav
 import bcryptjs from "bcryptjs"; // cryptage pour hacher les passw avant de les stocker
 import dotenv from "dotenv";
+import { fileURLToPath } from "url";
 
 dotenv.config(); // charge les variables d'environnement depuis le fichier .env
 
@@ -26,13 +27,14 @@ const db = new Client({
     port: process.env.port,
 });
 
-// config des dossiers de rendu html dynamiques (hbs)
-const templatePath = path.dirname("./tempelates")
-const publicPath = path.dirname("./public")
+// Configuration de __dirname pour trouver les dossiers
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-res.render("Authentification/home", { name: verify.firstname });
-app.use(express.static(publicPath)) // donne un acces ez aux fichiers du dossier public (css, images)
-
+// Liaison avec ton dossier frontend
+app.set('view engine', 'hbs');
+app.set("views", path.join(__dirname, "../frontend")); 
+app.use(express.static(path.join(__dirname, "../frontend")));
 
 // hachage du passw avec bcrypt (securite bdd)
 async function hashPass(password) { 
@@ -49,18 +51,16 @@ async function compare(userPass, hashPass) {
 // route d'accueil : check si t'es co avec le cookie jwt. si oui home, si non login
 app.get("/", (req, res) => {
     if (req.cookies.jwt) {
-        const verify = jwt.verify(req.cookies.jwt, "HelloAndWelcometoSaoneLocal")
-        res.render("./tempelates/home", { name: verify.firstname }) // Changé par firstname (colonne de Sélène)
+        const verify = jwt.verify(req.cookies.jwt, "HelloAndWelcometoSaoneLocal");
+        res.render("Authentification/home", { name: verify.firstname });
+    } else {
+        res.render("page.accueil/index");
     }
-
-    else {
-        res.render("./tempelates/login")
-    }
-})
+});
 
 // affichage de la page d'inscription
 app.get("/signup", (req, res) => {
-    res.render('./tempelates/signup')
+    res.render('Authentification/signupclient')
 })
 
 // traitement de l'inscription : verif doublon, genere le token cookie et save en bdd
@@ -90,7 +90,7 @@ app.post("/signup", async (req, res) => {
             `
             await db.query(sql, [req.body.firstname, req.body.lastname, req.body.email, hashedPassword])
 
-            res.render("./tempelates/home", { name: req.body.firstname })
+            res.render("Authentification/home", { name: req.body.firstname })
         }
     } catch {
         res.send("wrong details") // catch des erreurs sur la db et/ou reseau
@@ -114,7 +114,7 @@ app.post("/login", async (req, res) => {
                 maxAge: 600000,
                 httpOnly: true
             })
-            // res.render("./tempelates/home",{name:req.body.name})
+            // res.render("Authentification/home", { name: req.body.firstname })
             res.json({ check }) // renvoie les donnees du user au format json
         }
         else {
