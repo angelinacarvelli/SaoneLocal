@@ -30,8 +30,7 @@ const db = new Client({
 const templatePath = path.dirname("./tempelates")
 const publicPath = path.dirname("./public")
 
-app.set('view engine', 'hbs')
-app.set("views", templatePath)
+res.render("Authentification/home", { name: verify.firstname });
 app.use(express.static(publicPath)) // donne un acces ez aux fichiers du dossier public (css, images)
 
 
