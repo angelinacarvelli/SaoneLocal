@@ -1,5 +1,5 @@
 // modifier mon profil
-    //-> lien vers page profil_client_1 
+    //-> lien vers page modifier profil
     //-> récupérer les informations que l'utilisateur met dans les champs
     //-> pour images, ouvrir les fichier de l'utilisateur
     //-> mettre a jour la database et la page apres enregistrement des informations
