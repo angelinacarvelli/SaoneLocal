@@ -1,14 +1,10 @@
-// modifier mon profil
-    //-> lien vers page modifier profil
-    //-> récupérer les informations que l'utilisateur met dans les champs
-    //-> pour images, ouvrir les fichier de l'utilisateur
-    //-> mettre a jour la database et la page apres enregistrement des informations
-    //-> si supprimer le compte, supprime le compte et info liée de la database
 import express from "express";
 
 import {
     customer_profile,
     update_customerProfile,
+    customer_orders,
+    customer_purchase_History
 } from "../controller/client_controller.js";
 
 const router = express.Router();
@@ -16,6 +12,10 @@ const router = express.Router();
 // Profil client
 router.get('/profile', customer_profile);
 router.put('/profile', update_customerProfile);
+
+// Commandes / historique
+router.get('/orders', customer_orders);
+router.get('/purchases', customer_purchase_History);
 
 
 // acceder aux favoris 

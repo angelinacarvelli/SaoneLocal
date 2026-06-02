@@ -14,7 +14,7 @@ const db = new Client({
 db.connect();
 
 
-/////// modifier le profil//////
+////// Profil //////
 
 export const Customer = {
 
@@ -29,7 +29,7 @@ export const Customer = {
         return result.rows[0];
     },
 
-    
+
 // Modifier le profil
     update_profil: async (id, firstname, lastname, phone) => {
         const sql = `UPDATE users
@@ -43,5 +43,28 @@ export const Customer = {
             phone,
             id
         ]);
-    }
+    },
+
+////// Commandes //////
+
+    // Suivi des commandes
+    traking_order: async (id) => {
+        const sql = `SELECT *
+            FROM orders
+            WHERE customer_id = $1`;
+
+        const result = await db.query(sql, [id]);
+        return result.rows;
+    },
+
+    // Historique des commandes
+    purchase_history: async (id) => {
+        const sql = `SELECT *
+            FROM orders
+            WHERE customer_id = $1
+            AND status = "livré"`;
+
+        const result = await db.query(sql, [id]);
+        return result.rows;
+    },
 }
