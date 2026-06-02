@@ -6,10 +6,9 @@ export const Product_info = async (req, res) => {
 
         const productId = req.params.id;
 
-        const product = await ProductDetailsModel.get_productId(productId);
-        const rating = await ProductDetailsModel.rating_moyenne(productId);
-        ///comment
-        ///rating
+        const product = await Product_info.get_productId(productId);
+        const rating = await Product_info.rating_moyenne(productId);
+        const comments = await Product_info.getComments(productId);
 
         res.status(200).json({
             product,
@@ -23,3 +22,29 @@ export const Product_info = async (req, res) => {
         });
     }
 };
+
+// FAVORIS //
+export const addToFavorites = async (req, res) => {
+    try {
+
+        const customerId = get_customerId(req);
+        const productId = req.params.id;
+
+        await Product_info.favorites_product(
+            customerId,
+            productId
+        );
+
+        res.status(201).json({
+            message: "Produit ajouté aux favoris"
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            error: "Erreur ajout favoris"
+        });
+    }
+};
+
+///// Panier //////
+//......

@@ -38,4 +38,39 @@ export const Product = {
         const result = await db.query(sql, [productId]);
         return result.rows[0];
     },
+
+    
+// COMMENTAIRES
+    comment_product: async (productId) => {
+        const sql = `SELECT 
+                r.id,
+                r.comment,
+                r.rating,
+                r.date,
+                u.firstname,
+                u.lastname
+            FROM "review" r
+            JOIN "users" u ON u.id = r.users_id
+            WHERE r.product_id = $1
+            ORDER BY r.date DESC
+        `;
+
+        const result = await db.query(sql, [productId]);
+        return result.rows;
+    },
+
+//////Panier///////
+//......
+
+// FAVORIS
+    favorites_product: async (userId, productId) => {
+        const sql = `INSERT INTO "favorite_product" (user_id, product_id)
+            VALUES ($1, $2)
+        `;
+
+        return await db.query(sql, [
+            userId,
+            productId
+        ]);
+    }
 };

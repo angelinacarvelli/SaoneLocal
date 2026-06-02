@@ -1,13 +1,16 @@
 import express from "express";
 
 import {
-    Product_info
+    Product_info,
+    addToFavorites
 } from "../controller/produit_controller.js";
 
 const router = express.Router();
 
 router.get("/:id", Product_info);
 
-export default router;
+///panier///
 
-/// Rajouter rating / comment / favoris / panier
+router.post("/:id/favorite", addToFavorites);
+
+export default router;
