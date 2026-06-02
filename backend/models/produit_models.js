@@ -23,5 +23,19 @@ export const Product = {
 
         const result = await db.query(sql, [productId]);
         return result.rows[0];
-    }
+    },
+
+// RATING
+    rating_moyenne: async (productId) => {
+        const sql = `
+            SELECT 
+                COALESCE(ROUND(AVG(rating), 1), 0) AS average_rating,
+                COUNT(*) AS total_reviews
+            FROM review
+            WHERE product_id = $1
+        `;
+
+        const result = await db.query(sql, [productId]);
+        return result.rows[0];
+    },
 };

@@ -1,7 +1,7 @@
 const get_customerID = (req) => 1;
 
 // FICHE PRODUIT //
-export const getProductDetails = async (req, res) => {
+export const Product_info = async (req, res) => {
     try {
 
         const productId = req.params.id;
