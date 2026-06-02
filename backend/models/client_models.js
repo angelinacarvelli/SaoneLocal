@@ -67,4 +67,18 @@ export const Customer = {
         const result = await db.query(sql, [id]);
         return result.rows;
     },
+
+//////// Favoris //////////:
+//......
+
+////// Recommandation //////
+    product_recommendations: async () => {
+        const sql = `SELECT *
+            FROM product
+            ORDER BY RANDOM()
+            LIMIT 3`;
+
+        const result = await db.query(sql);
+        return result.rows;
+    },
 }

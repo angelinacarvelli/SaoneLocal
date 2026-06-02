@@ -63,8 +63,7 @@ export const customer_purchase_History = async (req, res) => {
     try {
         const customerId = get_customerID(req);
 
-        const purchases =
-            await Customer. purchase_history(customerId);
+        const purchases = await Customer.purchase_history(customerId);
 
         res.status(200).json(purchases);
 
@@ -75,5 +74,22 @@ export const customer_purchase_History = async (req, res) => {
     }
 };
 
+//Favoris
+//......
+
+// Recommandations
+export const get_recommendations = async (req, res) => {
+    try {
+
+        const recommendations = await Customer.product_recommendations();
+
+        res.status(200).json(recommendations);
+
+    } catch (error) {
+        res.status(500).json({
+            error: "Erreur recommandations"
+        });
+    }
+};
 
 //acceder panier

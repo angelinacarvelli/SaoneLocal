@@ -4,7 +4,8 @@ import {
     customer_profile,
     update_customerProfile,
     customer_orders,
-    customer_purchase_History
+    customer_purchase_History,
+    get_recommendations
 } from "../controller/client_controller.js";
 
 const router = express.Router();
@@ -17,25 +18,17 @@ router.put('/profile', update_customerProfile);
 router.get('/orders', customer_orders);
 router.get('/purchases', customer_purchase_History);
 
-
+//////// Favoris //////////:
+//......
 // acceder aux favoris 
     //-> lien vers la page favoris
     //-> affiche les produits mis en favoris
     //->peut appuiyer sur le coeur pour les enlevés
 
+// Recommandations
+router.get('/recommendations', get_recommendations);
+
 // acceder aux événement
     //-> lien vers la page des evenement
     //-> affiche les evenement auquel il participe
     //-> bouton pour enlever l'evenement (comme favoris) ?
-
-// suivre le statut de mes commandes
-    //-> affiche texte dans database de la commande la plus récente
-
-// historique de mes commandes
-    //-> affiche les informations des commandes passer 
-    //-> (supprimer au bout d'un an ?)
-
-// recommandation
-    //-> affiche 3 produit aléatoire en suggestion cliquable
-    //->peut les mettre en favoris
-    //->peut les ajouter au panier
