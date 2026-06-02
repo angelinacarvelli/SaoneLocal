@@ -77,6 +77,12 @@ export const customer_purchase_History = async (req, res) => {
 //Favoris
 //......
 
+//Panier
+//......
+
+//Event
+//......
+
 // Recommandations
 export const get_recommendations = async (req, res) => {
     try {

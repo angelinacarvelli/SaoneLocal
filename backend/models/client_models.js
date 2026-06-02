@@ -71,6 +71,13 @@ export const Customer = {
 //////// Favoris //////////:
 //......
 
+//////// Panier //////////:
+//......
+
+//////// Event //////////:
+//......
+
+
 ////// Recommandation //////
     product_recommendations: async () => {
         const sql = `SELECT *

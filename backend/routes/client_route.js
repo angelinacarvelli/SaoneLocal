@@ -25,10 +25,14 @@ router.get('/purchases', customer_purchase_History);
     //-> affiche les produits mis en favoris
     //->peut appuiyer sur le coeur pour les enlevés
 
-// Recommandations
-router.get('/recommendations', get_recommendations);
+//////// Panier //////////
+//......
 
+//////// Event //////////:
+//......
 // acceder aux événement
     //-> lien vers la page des evenement
     //-> affiche les evenement auquel il participe
     //-> bouton pour enlever l'evenement (comme favoris) ?
+// Recommandations
+router.get('/recommendations', get_recommendations);
