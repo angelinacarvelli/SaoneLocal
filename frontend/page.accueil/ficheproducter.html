@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche Producteur - SaôneLocal</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="btn-home">🏠 Accueil</a>
+            <div class="nav-icons">🛒 Mon Panier</div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="producer-card">
+            <img id="producer-img" src="" alt="Photo du producteur" class="producer-img" style="max-width: 200px; display: none; border-radius: 50%;">
+            
+            <h1 id="producer-compagny">Chargement...</h1>
+            <p class="artisan-name">Artisan : <span id="producer-name">...</span></p>
+            
+            <div class="description">
+                <p id="producer-presentation">Veuillez patienter pendant le chargement des informations...</p>
+            </div>
+
+            <div id="event-badge" class="event-badge" style="display: none; background: #eafaf1; padding: 10px; margin-top: 15px; border-left: 4px solid #2ecc71;">
+                📍 Retrouvez-moi au : <strong id="event-title"></strong> (<span id="event-location"></span>)
+            </div>
+        </section>
+
+        <section class="products-section">
+            <h2>Nos produits les plus vendus</h2>
+            <div id="products-grid" class="products-grid">
+                </div>
+        </section>
+    </main>
+
+    <footer class="footer" style="margin-top: 50px; text-align: center; padding: 20px; border-top: 1px solid #ddd;">
+        <p>© 2026 Association SaôneLocal - Tous droits réservés.</p>
+        <a href="#">Contactez l'association</a>
+    </footer>
+
+    <script>
+        // 1. Extraction de l'ID depuis l'adresse du navigateur (ex: ?id=1)
+        const urlParams = new URLSearchParams(window.location.search);
+        const producerId = urlParams.get('id') || 1; 
+
+        // 2. Appel de l'API REST
+        fetch(`/api/producers?id=${producerId}`)
+            .then(response => {
+                if (!response.ok) throw new Error("Impossible de trouver ce producteur");
+                return response.json();
+            })
+            .then(data => {
+                const producer = data.producer;
+                const products = data.products;
+
+                // 3. Remplissage des éléments textuels de la fiche
+                document.getElementById('producer-compagny').textContent = producer.compagnyname;
+                document.getElementById('producer-name').textContent = `${producer.firstname} ${producer.lastname}`;
+                document.getElementById('producer-presentation').textContent = producer.presentation;
+
+                // Gestion de l'image de profil de l'artisan
+                const imgElement = document.getElementById('producer-img');
+                if (producer.producer_image || producer.image) {
+                    imgElement.src = producer.producer_image || producer.image;
+                    imgElement.style.display = 'block';
+                }
+
+                // Gestion de l'affichage du badge d'événement
+                if (producer.event_title) {
+                    document.getElementById('event-title').textContent = producer.event_title;
+                    document.getElementById('event-location').textContent = producer.event_location;
+                    document.getElementById('event-badge').style.display = 'block';
+                }
+
+                // 4. Génération dynamique des cartes produits
+                const productsGrid = document.getElementById('products-grid');
+                productsGrid.innerHTML = ""; 
+
+                if (products.length === 0) {
+                    productsGrid.innerHTML = "<p>Cet artisan n'a pas encore de produits en vente.</p>";
+                } else {
+                    products.forEach(product => {
+                        const productCard = `
+                            <div class="product-card" style="border: 1px solid #eee; padding: 15px; border-radius: 8px; text-align: center;">
+                                <img src="${product.image || 'images/default.jpg'}" alt="${product.name}" class="product-img" style="width: 100%; max-height: 150px; object-cover: cover; border-radius: 4px;">
+                                <h3 style="margin: 10px 0 5px;">${product.name}</h3>
+                                <p class="category-tag" style="font-size: 0.85em; color: #7f8c8d;">${product.category_label || 'Produit local'}</p>
+                                <p class="price" style="color: #27ae60; font-weight: bold; margin: 5px 0 15px;">${product.price} €</p>
+                                
+                                <div class="product-actions" style="display: flex; gap: 10px; justify-content: center;">
+                                    <form action="/cart/add" method="POST" style="margin:0;">
+                                        <input type="hidden" name="productId" value="${product.id}">
+                                        <button type="submit" class="btn-cart" style="background:#2ecc71; color:white; border:none; padding:5px 10px; border-radius:4px; cursor:pointer;">🛒 Ajouter</button>
+                                    </form>
+                                    <form action="/favorites/add" method="POST" style="margin:0;">
+                                        <input type="hidden" name="productId" value="${product.id}">
+                                        <button type="submit" class="btn-fav" style="background:#e74c3c; color:white; border:none; padding:5px 10px; border-radius:4px; cursor:pointer;">❤️ Favoris</button>
+                                    </form>
+                                </div>
+                            </div>
+                        `;
+                        productsGrid.innerHTML += productCard;
+                    });
+                }
+            })
+            .catch(error => {
+                console.error("Erreur d'affichage :", error);
+                document.getElementById('producer-compagny').textContent = "Erreur de chargement";
+                document.getElementById('producer-presentation').textContent = "Impossible de récupérer les données du producteur. Vérifie l'ID ou ta base de données.";
+            });
+    </script>
+</body>
+</html>
