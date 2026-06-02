@@ -1,6 +1,26 @@
 import { ProducterModel } from "../models/producter_models.js"; // Import du modèle
 
-// Simule la récupération de l'ID du producteur connecté
+export const getProducerProfilePublic = async (req, res) => {
+    try {
+        const producerId = req.params.id; // On capte l'id dans l'URL
+        const producer = await ProducterModel.getProfilePublic(producerId);
+        const products = await ProducterModel.getProductsPublic(producerId);
+
+        if (!producer) {
+            return res.status(404).json({error: "Producteur introuvable" });
+        }
+
+        // Envoi de la réponse combinée en JSON pur
+        return res.status(200).json({
+            producer: producer,
+            products: products
+        });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: "Erreur serveur lors de la récupération du profil public." });
+    }
+};
+
 const getProducerId = (req) => 1; 
 
 // Modifier le profil
@@ -13,6 +33,35 @@ export const updateProducerProfile = async (req, res) => {
         res.status(200).json({ message: "Profil mis à jour" }); // Réponse Succès
     } catch (error) {
         res.status(500).json({ error: "Erreur modification profil" }); // Réponse Erreur
+    }
+};
+
+export const getAllProducersPublic = async (req, res) => {
+    const client = new Client(dbConfig);
+    try {
+        await client.connect();
+
+        // On demande à la base de données le nom, l'image et le nom de l'artisan
+        const query = `
+            SELECT 
+                p.id AS producer_id,
+                p.compagnyname,
+                p.image AS producer_image,
+                u.firstname,
+                u.lastname
+            FROM producer p
+            JOIN users u ON p.user_id = u.id;
+        `;
+        
+        const result = await client.query(query);
+        // On renvoie le résultat au format JSON
+        res.status(200).json(result.rows);
+
+    } catch (error) {
+        console.error("Erreur catalogue :", error);
+        res.status(500).json({ error: "Erreur serveur" });
+    } finally {
+        await client.end();
     }
 };
 
