@@ -4,6 +4,19 @@
     //-> pour images, ouvrir les fichier de l'utilisateur
     //-> mettre a jour la database et la page apres enregistrement des informations
     //-> si supprimer le compte, supprime le compte et info liée de la database
+import express from "express";
+
+import {
+    customer_profile,
+    update_customerProfile,
+} from "../controller/client_controller.js";
+
+const router = express.Router();
+
+// Profil client
+router.get('/profile', customer_profile);
+router.put('/profile', update_customerProfile);
+
 
 // acceder aux favoris 
     //-> lien vers la page favoris

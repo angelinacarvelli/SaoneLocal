@@ -1,3 +1,0 @@
-//modifier profil
-
-//acceder panier
