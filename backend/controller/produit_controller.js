@@ -7,6 +7,7 @@ export const Product_info = async (req, res) => {
         const productId = req.params.id;
 
         const product = await ProductDetailsModel.get_productId(productId);
+        const rating = await ProductDetailsModel.rating_moyenne(productId);
         ///comment
         ///rating
 
