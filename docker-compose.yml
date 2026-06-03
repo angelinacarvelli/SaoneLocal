@@ -1,5 +1,20 @@
 services:
-    ia-prompt-library :
-      build: .
-      ports: 
-        - "8080:80"
+  saonelocal:
+    build: .
+    ports:
+      "8080:80"
+    depends_on:
+      postgres
+    env_file:
+      .env
+  postgres:
+    image: postgres:16
+    restart: always
+    env_file:
+      .env
+  volumes:
+    postgres_data:/var/lib/postgresql/data
+    ./database/shema.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  postgres_data:

@@ -5,11 +5,11 @@ dotenv.config(); // Charge les variables d'environnement (.env)
 
 // Configuration de la connexion DB
 const db = new Client({
-    user: process.env.user,
-    host: process.env.host,
-    database: process.env.name,
-    password: process.env.password,
-    port: process.env.port,
+    user: process.env.POSTGRES_USER,
+    host: process.env.POSTGRES_HOST,
+    database: process.env.POSTGRES_NAME,
+    password: process.env.POSTGRES_PASSWORD,
+    port: process.env.POSTGRES_PORT,
 });
 db.connect(); // Connexion à la DB
 
