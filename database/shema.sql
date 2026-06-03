@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS "users"(
     firstname VARCHAR(255),
     lastname VARCHAR(255),
     email VARCHAR(255),
-    phone INT,
+    phone VARCHAR(100),
     password VARCHAR(255),
     event_id INT,
     inscription DATE,
@@ -25,7 +25,8 @@ CREATE TABLE IF NOT EXISTS "event"(
     title VARCHAR(100),
     date DATE,
     description VARCHAR(255),
-    location VARCHAR(255)
+    location VARCHAR(255),
+    UNIQUE (title)
 );
 
 
@@ -86,7 +87,7 @@ CREATE TABLE IF NOT EXISTS "favorite_producer"(
 CREATE TABLE IF NOT EXISTS "producer"(
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     user_id INT,
-    siret INT,
+    siret VARCHAR(100),
     presentation VARCHAR(255),
     compagnyName VARCHAR(255),
     event_id INT,
@@ -105,11 +106,12 @@ CREATE TABLE IF NOT EXISTS "product"(
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name VARCHAR(255),
     description VARCHAR(255),
-    price INT,
+    price MONEY,
     image VARCHAR(255),
     producer_id INT,
     category_id INT,
-    subcategory_id INT
+    subcategory_id INT,
+    UNIQUE (image)
 );
 
 
