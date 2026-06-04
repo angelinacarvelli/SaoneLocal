@@ -69,13 +69,55 @@ export const Customer = {
     },
 
 //////// Favoris //////////:
-//......
+    list_favorites: async (id) => {
+        const sql = `SELECT p.*
+            FROM product p
+            JOIN favorite_product fp
+                ON fp.product_id = product.id
+            WHERE fp.user_id = $1`;
+
+        const result = await db.query(sql, [id]);
+        return result.rows;
+    },
 
 //////// Panier //////////:
-//......
+    list_basket: async (id) => {
+        const sql = `SELECT p.*
+            FROM product p
+            JOIN basket_item bi
+                ON bi.product_id = product.id
+            JOIN basket b
+                ON bi.basket_id = basket.id
+            WHERE b.user_id = $1`;
 
-//////// Event //////////:
-//......
+        const result = await db.query(sql, [id]);
+        return result.rows;
+    },
+
+//////// Evenement //////////:
+
+    // Participer à un événement
+    joinEvent: async (id, event_id) => {
+        const sql = `INSERT INTO my_event(user_id, event_id)
+            VALUES ($1, $2)`;
+
+        return await db.query(sql, [
+            id,
+            event_id
+        ]);
+    },
+
+    // Mes événements
+    list_events: async (id) => {
+        const sql = `SELECT e.*
+            FROM event e
+            JOIN my_event me
+                ON me.event_id = e.id
+            WHERE me.user_id = $1`;
+
+        const result = await db.query(sql, [id]);
+        return result.rows;
+    },
 
 
 ////// Recommandation //////

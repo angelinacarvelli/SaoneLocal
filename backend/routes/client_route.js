@@ -5,7 +5,9 @@ import {
     update_customerProfile,
     customer_orders,
     customer_purchase_History,
-    get_recommendations
+    get_recommendations,
+    get_favorites,
+    get_basket
 } from "../controller/client_controller.js";
 
 const router = express.Router();
@@ -18,21 +20,15 @@ router.put('/profile', update_customerProfile);
 router.get('/orders', customer_orders);
 router.get('/purchases', customer_purchase_History);
 
-//////// Favoris //////////:
-//......
-// acceder aux favoris 
-    //-> lien vers la page favoris
-    //-> affiche les produits mis en favoris
-    //->peut appuiyer sur le coeur pour les enlevés
+// Favoris
+router.get('/favorites', get_favorites);
 
-//////// Panier //////////
-//......
+//Panier
+router.get('/basket', get_basket);
 
-//////// Event //////////:
-//......
-// acceder aux événement
-    //-> lien vers la page des evenement
-    //-> affiche les evenement auquel il participe
-    //-> bouton pour enlever l'evenement (comme favoris) ?
+// Événements
+router.get('/events', MyEvents);
+router.post('/events/:id/join', joinEvent);
+
 // Recommandations
 router.get('/recommendations', get_recommendations);

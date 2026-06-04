@@ -74,14 +74,80 @@ export const customer_purchase_History = async (req, res) => {
     }
 };
 
-//Favoris
-//......
+// Favoris
+export const get_favorites = async (req, res) => {
+    try {
+        const customerId = get_customerId(req);
+
+        const favorites =
+            await Customer.list_favorites(customerId);
+
+        res.status(200).json(favorites);
+
+    } catch (error) {
+        res.status(500).json({
+            error: "Erreur favoris"
+        });
+    }
+};
 
 //Panier
-//......
+export const get_basket = async (req, res) => {
+    try {
+        const customerId = get_customerId(req);
 
-//Event
-//......
+        const basket_items =
+            await Customer.list_basket(customerId);
+
+        res.status(200).json(basket_items);
+
+    } catch (error) {
+        res.status(500).json({
+            error: "Erreur favoris"
+        });
+    }
+};
+
+// Participer à un événement
+export const joinEvent = async (req, res) => {
+    try {
+
+        const customerId = get_customerId(req);
+        const eventId = req.params.id;
+
+        await Customer.joinEvent(
+            customerId,
+            eventId
+        );
+
+        res.status(201).json({
+            message: "Participation enregistrée"
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            error: "Erreur participation événement"
+        });
+    }
+};
+
+// Mes événements
+export const MyEvents = async (req, res) => {
+    try {
+
+        const customerId = get_customerId(req);
+
+        const events =
+            await Customer.list_events(customerId);
+
+        res.status(200).json(events);
+
+    } catch (error) {
+        res.status(500).json({
+            error: "Erreur récupération événements"
+        });
+    }
+};
 
 // Recommandations
 export const get_recommendations = async (req, res) => {
