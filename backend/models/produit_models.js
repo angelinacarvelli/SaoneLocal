@@ -59,8 +59,20 @@ export const Product = {
         return result.rows;
     },
 
-//////Panier///////
-//......
+//Panier
+    addToBasket: async (id, product_id, quantity) => {
+        const sql = `FROM basket_item bi
+            INSERT INTO "basket_item" (product_id, quantity)
+            VALUES ($2, $3)
+            JOIN basket b ON b.id = bi.basket_id
+            WHERE b.user_id = $1`;
+
+        return await db.query(sql, [
+            id,
+            product_id,
+            quantity
+        ]);
+    },
 
 // FAVORIS
     favorites_product: async (userId, productId) => {

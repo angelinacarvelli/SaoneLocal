@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.get("/:id", Product_info);
 
-///panier///
+router.post("/:id/cart", addProductToCart);
 
 router.post("/:id/favorite", addToFavorites);
 
