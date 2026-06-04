@@ -22,13 +22,15 @@ export const update_customerProfile = async (req, res) => {
     try {
         const customerId = get_customerID(req);
 
-        const {firstname, lastname, phone,} = req.body;
+        const {firstname, lastname, email, phone, image} = req.body;
 
         await Customer.update_profile(
             customerId,
             firstname,
             lastname,
+            email,
             phone,
+            image
         );
 
         res.status(200).json({

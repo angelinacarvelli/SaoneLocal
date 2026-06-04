@@ -20,7 +20,7 @@ export const Customer = {
 
 // Informations du profil pris de la table users
     info_profil: async (id) => {
-        const sql = `SELECT id, firstname, lastname, email, phone
+        const sql = `SELECT id, firstname, lastname, email, phone, image
             FROM users
             WHERE id = $1
         `;
@@ -31,16 +31,18 @@ export const Customer = {
 
 
 // Modifier le profil
-    update_profil: async (id, firstname, lastname, phone) => {
+    update_profil: async (id, firstname, lastname, email, phone, image) => {
         const sql = `UPDATE users
-            SET firstname = $1, lastname = $2, phone = $3,
-            WHERE id = $4
+            SET firstname = $1, lastname = $2, email = $3, phone = $4, image = $5
+            WHERE id = $6
         `;
 
         return await db.query(sql, [
             firstname,
             lastname,
+            email,
             phone,
+            image,
             id
         ]);
     },
