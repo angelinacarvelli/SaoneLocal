@@ -44,16 +44,16 @@ try {
 
 
     // USERS :
-    const users = [{firstname: "Clémence", lastname: "Langlais", password: process.env.MDP_ADMIN, email: "clemencel@gmail.com", phone: "06 94 48 30 24", inscription: "2026-02-16", lastconnexion: "2026-05-20", event_id: null, role_id: roleMap["admin"]},
-        {firstname: "Karim", lastname: "Benchouia", password: process.env.MDP_PRODUCER1, email: "karimeb@outlook.com", phone: "06 11 22 33 44", inscription: "2026-06-14", lastconnexion: "2026-05-22", event_id: eventMap["petit marché"], role_id: roleMap["producer"]},
-        {firstname: "Michel", lastname: "Durand", password: process.env.MDP_PRODUCER2, email: "mdurand@gmail.com", phone: "06 98 76 54 32", inscription: "2026-04-11", lastconnexion: "2026-05-17", event_id: eventMap["vente de noël"], role_id: roleMap["producer"]}]
+    const users = [{firstname: "Clémence", lastname: "Langlais", password: process.env.MDP_ADMIN, email: "clemencel@gmail.com", phone: "06 94 48 30 24", inscription: "2026-02-16", lastconnexion: "2026-05-20", event_id: null, role_id: roleMap["admin"], image: "front_base/images/saonelocal-sophie-client.jpg"},
+        {firstname: "Karim", lastname: "Benchouia", password: process.env.MDP_PRODUCER1, email: "karimeb@outlook.com", phone: "06 11 22 33 44", inscription: "2026-06-14", lastconnexion: "2026-05-22", event_id: eventMap["petit marché"], role_id: roleMap["producer"], image: "front_base/images/saonelocal-karim-producteur.png"},
+        {firstname: "Michel", lastname: "Durand", password: process.env.MDP_PRODUCER2, email: "mdurand@gmail.com", phone: "06 98 76 54 32", inscription: "2026-04-11", lastconnexion: "2026-05-17", event_id: eventMap["vente de noël"], role_id: roleMap["producer"], image: "front_base/images/saonelocal-michel-producteur.png"}]
 
     
 
     for (const user of users) {
     const protected_password = await bcrypt.hash(user.password, 10)
 
-    await client.query("INSERT INTO users (firstname, lastname, password, email, phone, inscription, last_connexion, event_id, role_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) ON CONFLICT (email) DO NOTHING", [
+    await client.query("INSERT INTO users (firstname, lastname, password, email, phone, inscription, last_connexion, event_id, role_id, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $0) ON CONFLICT (email) DO NOTHING", [
     user.firstname,
     user.lastname,
     protected_password,
@@ -62,7 +62,8 @@ try {
     user.inscription,
     user.lastconnexion,
     user.event_id,
-    user.role_id
+    user.role_id,
+    user.image
     ])}
 
     const users_info = await client.query("SELECT id, email FROM users")
