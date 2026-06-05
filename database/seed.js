@@ -53,7 +53,7 @@ try {
     for (const user of users) {
     const protected_password = await bcrypt.hash(user.password, 10)
 
-    await client.query("INSERT INTO users (firstname, lastname, password, email, phone, inscription, last_conexion, event_id, role_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) ON CONFLICT (email) DO NOTHING", [
+    await client.query("INSERT INTO users (firstname, lastname, password, email, phone, inscription, last_conexion, event_id, role_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) ON CONFLICT (email) DO NOTHING", [
     user.firstname,
     user.lastname,
     protected_password,
@@ -62,7 +62,9 @@ try {
     user.inscription,
     user.lastconnexion,
     user.event_id,
-    user.role_id
+    user.role_id,
+    user.image,
+
     ])}
 
     const users_info = await client.query("SELECT id, email FROM users")
