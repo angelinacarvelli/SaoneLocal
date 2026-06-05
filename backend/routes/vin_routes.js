@@ -3,7 +3,7 @@ import {
     wine_by_subcategory,
     wine_by_producer
 }
-from "../controller/wine_catalog_controller.js";
+from "../controller/vin_controller.js";
 
 const router = express.Router();
 
