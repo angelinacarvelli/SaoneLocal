@@ -70,3 +70,22 @@ export const addProductToBasket = async (req, res) => {
         });
     }
 };
+import db from "../config/db.js";
+
+export const getAllProducts = async (req, res) => {
+    try {
+        const { category_id } = req.query;
+        let query = 'SELECT * FROM "product"';
+        let params = [];
+
+        if (category_id) {
+            query += ' WHERE category_id = $1';
+            params.push(category_id);
+        }
+
+        const result = await db.query(query, params);
+        res.status(200).json(result.rows);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};

@@ -73,14 +73,16 @@ CREATE TABLE IF NOT EXISTS "basket_item"(
 
 
 CREATE TABLE IF NOT EXISTS "favorite_product"(
-    id INT,
-    product_id INT
+    user_id INT,
+    product_id INT,
+    PRIMARY KEY (user_id, product_id)
 );
 
 
 CREATE TABLE IF NOT EXISTS "favorite_producer"(
-    id INT,
-    producer_id INT
+    user_id INT,
+    producer_id INT,
+    PRIMARY KEY (user_id, producer_id)
 );
 
 
@@ -111,6 +113,7 @@ CREATE TABLE IF NOT EXISTS "product"(
     producer_id INT,
     category_id INT,
     subcategory_id INT,
+    sales_count INT DEFAULT 0,
     UNIQUE (image)
 );
 

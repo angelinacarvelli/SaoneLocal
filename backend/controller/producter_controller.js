@@ -135,3 +135,28 @@ export const updateOrderStatus = async (req, res) => {
         res.status(500).json({ error: "Erreur statut" });
     }
 };
+import db from "../config/db.js";
+
+export const getAllProducers = async (req, res) => {
+    try {
+        const result = await db.query('SELECT * FROM "producer"');
+        res.status(200).json(result.rows);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+export const getProducerTopProducts = async (req, res) => {
+    const producerId = req.params.id;
+    try {
+        const query = `
+            SELECT * FROM "product" 
+            WHERE producer_id = $1 
+            ORDER BY sales_count DESC 
+            LIMIT 4`;
+        const result = await db.query(query, [producerId]);
+        res.status(200).json(result.rows);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
