@@ -9,8 +9,6 @@ services:
       - .env
   postgres:
     image: postgres:16
-    ports:
-      - "5432:5431"
     restart: always
     env_file:
       - .env
