@@ -31,7 +31,7 @@
     </footer>
 
     <script>
-        fetch('/api/producers/all')  // <- route fetch a modifier stp sélène
+        fetch('/api/producer/all')
             .then(response => response.json())
             .then(producers => {
                 const grid = document.getElementById('catalogue-grid');

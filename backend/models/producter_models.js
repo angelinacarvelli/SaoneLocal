@@ -1,4 +1,17 @@
-import db from "../config/db.js";
+import { Client } from 'pg';
+import dotenv from "dotenv";
+
+dotenv.config(); // Charge les variables d'environnement (.env)
+
+// Configuration de la connexion DB
+const db = new Client({
+    user: process.env.POSTGRES_USER,
+    host: process.env.POSTGRES_HOST,
+    database: process.env.POSTGRES_DB,
+    password: process.env.POSTGRES_PASSWORD,
+    port: process.env.POSTGRES_PORT,
+});
+db.connect(); // Connexion à la DB
 
 export const ProducterModel = {
     // modifier le nom et la présentation
