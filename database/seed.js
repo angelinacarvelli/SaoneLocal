@@ -64,9 +64,7 @@ try {
     user.event_id,
     user.role_id,
 
-    ])
-        console.log("user créé : %s, %s", user.firstname, protected_password)
-    }
+    ])}
 
     const users_info = await client.query("SELECT id, email FROM users")
     const userMap = {}
