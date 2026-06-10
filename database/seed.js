@@ -65,7 +65,7 @@ try {
     user.role_id,
 
     ])
-        console.log("user créé : %s, %s, %s", user.firstname, user[lastname], protected_password)
+        console.log("user créé : %s, %s", user.firstname, protected_password)
     }
 
     const users_info = await client.query("SELECT id, email FROM users")
