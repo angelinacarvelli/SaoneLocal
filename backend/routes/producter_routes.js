@@ -31,7 +31,6 @@ router.get('/producers', (req, res) => {
 
 // Route API appelée en arrière-plan par le script de ta page
 router.get('/api/producers/:id', getProducerProfilePublic);
-
 router.put('/profile', updateProducerProfile);
 router.get('/stats/monthly', getProducerStats);
 router.get('/products', getProducerProducts);
@@ -39,7 +38,6 @@ router.post('/products', addProducerProduct);
 router.post('/events', addProducerEvent);
 router.get('/orders', getProducerOrders);
 router.patch('/orders/:id/status', updateOrderStatus);
-router.patch('/events/:id/status', updateEventStatus);
 
 router.get('/catalog', getAllProducers); // C'est cette route qui donne tous les producteurs !
 router.get('/:id/top-products', getProducerTopProducts);
