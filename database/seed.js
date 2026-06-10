@@ -44,9 +44,9 @@ try {
 
 
     // USERS :
-    const users = [{firstname: "Clémence", lastname: "Langlais", password: process.env.MDP_ADMIN, email: "clemencel@gmail.com", phone: "06 94 48 30 24", inscription: "2026-02-16", lastconnexion: "2026-05-20", event_id: null, role_id: roleMap["admin"]},
-        {firstname: "Karim", lastname: "Benchouia", password: process.env.MDP_PRODUCER1, email: "karimeb@outlook.com", phone: "06 11 22 33 44", inscription: "2026-06-14", lastconnexion: "2026-05-22", event_id: eventMap["petit marché"], role_id: roleMap["producer"],},
-        {firstname: "Michel", lastname: "Durand", password: process.env.MDP_PRODUCER2, email: "mdurand@gmail.com", phone: "06 98 76 54 32", inscription: "2026-04-11", lastconnexion: "2026-05-17", event_id: eventMap["vente de noël"], role_id: roleMap["producer"]}]
+    const users = [{firstname: "Clémence", lastname: "Langlais", password: process.env.MDP_ADMIN, email: "clemencel@gmail.com", phone: "06 94 48 30 24", inscription: "2026-02-16", last_connexion: "2026-05-20", event_id: null, role_id: roleMap["admin"]},
+        {firstname: "Karim", lastname: "Benchouia", password: process.env.MDP_PRODUCER1, email: "karimeb@outlook.com", phone: "06 11 22 33 44", inscription: "2026-06-14", last_conexion: "2026-05-22", event_id: eventMap["petit marché"], role_id: roleMap["producer"],},
+        {firstname: "Michel", lastname: "Durand", password: process.env.MDP_PRODUCER2, email: "mdurand@gmail.com", phone: "06 98 76 54 32", inscription: "2026-04-11", last_conexion: "2026-05-17", event_id: eventMap["vente de noël"], role_id: roleMap["producer"]}]
 
     
 

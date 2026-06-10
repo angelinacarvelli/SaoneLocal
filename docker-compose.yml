@@ -1,12 +1,12 @@
 services:
   saonelocal:
-    image: nginx:alpine
+    build: .
     ports:
       - "8080:80"
-    volumes:
-      - ./frontend/page.accueil:/usr/share/nginx/html/
     depends_on:
       - postgres
+    env_file:
+      - .env
 
   postgres:
     image: postgres:16
