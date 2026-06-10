@@ -1,17 +1,4 @@
-import { Client } from 'pg';
-import dotenv from "dotenv";
-
-dotenv.config(); // Charge les variables d'environnement (.env)
-
-// Configuration de la connexion DB
-const db = new Client({
-    user: process.env.POSTGRES_USER,
-    host: process.env.POSTGRES_HOST,
-    database: process.env.POSTGRES_NAME,
-    password: process.env.POSTGRES_PASSWORD,
-    port: process.env.POSTGRES_PORT,
-});
-db.connect(); // Connexion à la DB
+import db from "../config/db.js";
 
 export const ProducterModel = {
     // modifier le nom et la présentation
@@ -23,15 +10,12 @@ export const ProducterModel = {
     //  le CHIFFRE D'AFFAIRES et le nombre de commandes du mois
     getStats: async (id) => {
         const sql = `
-            SELECT COALESCE(SUM("order_item".quantity * "order_item".unit_price), 0) AS "chiffreAffaires", //somme de tous les articles vendus (quantité \times prix), affiche 0 au lieu de vide si rien n'a été vendu.
-    COUNT(DISTINCT "orders".id) AS "nombreCommandes"
-    FROM "orders"
-    JOIN "order_item" ON "orders".id = "order_item".order_id
-    JOIN "product" ON "order_item".product_id = "product".id
-    WHERE 
-        "product".producer_id = $1
-        AND EXTRACT(MONTH FROM "orders".date) = EXTRACT(MONTH FROM CURRENT_DATE)
-        AND EXTRACT(YEAR FROM "orders".date) = EXTRACT(YEAR FROM CURRENT_DATE);
+            SELECT COALESCE(SUM(oi.quantity * oi.unit_price), 0) AS "chiffreAffaires",
+            COUNT(DISTINCT o.id) AS "nombreCommandes"
+            FROM "orders" o
+            JOIN "order_item" oi ON o.id = oi.order_id
+            JOIN "product" p ON oi.product_id = p.id
+            WHERE p.producer_id = $1;
         `;
         const result = await db.query(sql, [id]);
         return result.rows[0]; // Retourne la première ligne de résultat

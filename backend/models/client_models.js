@@ -1,18 +1,4 @@
-import { Client } from 'pg';
-import dotenv from "dotenv";
-
-dotenv.config();
-
-const db = new Client({
-    user: process.env.POSTGRES_USER,
-    host: process.env.POSTGRES_HOST,
-    database: process.env.POSTGRES_NAME,
-    password: process.env.POSTGRES_PASSWORD,
-    port: process.env.POSTGRES_PORT,
-});
-
-db.connect();
-
+import db from "../config/db.js";
 
 ////// Profil //////
 
@@ -29,9 +15,28 @@ export const Customer = {
         return result.rows[0];
     },
 
+    // Historique complet (ajout)
+    purchase_history: async (id) => {
+        const sql = `SELECT * FROM orders WHERE user_id = $1 AND status = 'livré'`;
+        const result = await db.query(sql, [id]);
+        return result.rows;
+    },
 
-// Modifier le profil
-    update_profil: async (id, firstname, lastname, email, phone, image) => {
+    // Catalogue complet événements (ajout)
+    listAllEvents: async () => {
+        const sql = `SELECT * FROM event`;
+        const result = await db.query(sql);
+        return result.rows;
+    },
+
+    // Inscription événement (ajout)
+    joinEvent: async (id, event_id) => {
+        const sql = `UPDATE users SET event_id = $2 WHERE id = $1`;
+        return await db.query(sql, [id, event_id]);
+    },
+
+    // Modifier le profil
+    update_profile: async (id, firstname, lastname, email, phone, image) => {
         const sql = `UPDATE users
             SET firstname = $1, lastname = $2, email = $3, phone = $4, image = $5
             WHERE id = $6
@@ -53,7 +58,7 @@ export const Customer = {
     traking_order: async (id) => {
         const sql = `SELECT *
             FROM orders
-            WHERE customer_id = $1`;
+            WHERE user_id = $1`;
 
         const result = await db.query(sql, [id]);
         return result.rows;
@@ -63,8 +68,8 @@ export const Customer = {
     purchase_history: async (id) => {
         const sql = `SELECT *
             FROM orders
-            WHERE customer_id = $1
-            AND status = "livré"`;
+            WHERE user_id = $1
+            AND status = 'livré'`;
 
         const result = await db.query(sql, [id]);
         return result.rows;
@@ -75,7 +80,7 @@ export const Customer = {
         const sql = `SELECT p.*
             FROM product p
             JOIN favorite_product fp
-                ON fp.product_id = product.id
+                ON fp.product_id = p.id
             WHERE fp.user_id = $1`;
 
         const result = await db.query(sql, [id]);
@@ -84,12 +89,12 @@ export const Customer = {
 
 //////// Panier //////////:
     list_basket: async (id) => {
-        const sql = `SELECT p.*
+        const sql = `SELECT p.*, bi.quantity
             FROM product p
             JOIN basket_item bi
-                ON bi.product_id = product.id
+                ON bi.product_id = p.id
             JOIN basket b
-                ON bi.basket_id = basket.id
+                ON bi.basket_id = b.id
             WHERE b.user_id = $1`;
 
         const result = await db.query(sql, [id]);
@@ -100,8 +105,7 @@ export const Customer = {
 
     // Participer à un événement
     joinEvent: async (id, event_id) => {
-        const sql = `INSERT INTO my_event(user_id, event_id)
-            VALUES ($1, $2)`;
+        const sql = `UPDATE users SET event_id = $2 WHERE id = $1`;
 
         return await db.query(sql, [
             id,
@@ -113,9 +117,9 @@ export const Customer = {
     list_events: async (id) => {
         const sql = `SELECT e.*
             FROM event e
-            JOIN my_event me
-                ON me.event_id = e.id
-            WHERE me.user_id = $1`;
+            JOIN users u
+                ON u.event_id = e.id
+            WHERE u.id = $1`;
 
         const result = await db.query(sql, [id]);
         return result.rows;
@@ -132,4 +136,4 @@ export const Customer = {
         const result = await db.query(sql);
         return result.rows;
     },
-}
+};

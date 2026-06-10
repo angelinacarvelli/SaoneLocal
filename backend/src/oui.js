@@ -17,10 +17,9 @@ app.use(express.urlencoded({ extended: false })) // permet de parser les donnees
 app.use(cors()); // active la securite cors pour l'api
 
 // Connexion Postgres avec les variables d'environnement de Sélène
-// note : sur l'EC2 y aura juste a modifier le .env, le code bouge pas !
 const db = new Client({
     user: process.env.user,
-    host: process.env.host, // ip de l'EC2 a mettre ici dans le .env plus tard
+    host: process.env.host,
     database: process.env.name,
     password: process.env.password,
     port: process.env.port,
@@ -30,7 +29,7 @@ const db = new Client({
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Liaison avec ton dossier frontend
+// Liaison avec dossier frontend
 app.set('view engine', 'hbs');
 app.set("views", path.join(__dirname, "../frontend")); 
 app.use(express.static(path.join(__dirname, "../frontend")));
@@ -47,7 +46,7 @@ async function compare(userPass, hashPass) {
     return res;
 }
 
-// route d'accueil : check si t'es co avec le cookie jwt. si oui home, si non login
+// route d'accueil : check si co avec le cookie jwt. si oui home, si non login
 app.get("/", (req, res) => {
     if (req.cookies.jwt) {
         const verify = jwt.verify(req.cookies.jwt, "HelloAndWelcometoSaoneLocal");

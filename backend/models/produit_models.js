@@ -1,17 +1,4 @@
-import { Client } from "pg";
-import dotenv from "dotenv";
-
-dotenv.config();
-
-const db = new Client({
-    user: process.env.POSTGRES_USER,
-    host: process.env.POSTGRES_HOST,
-    database: process.env.POSTGRES_NAME,
-    password: process.env.POSTGRES_PASSWORD,
-    port: process.env.POSTGRES_PORT,
-});
-
-db.connect();
+import db from "../config/db.js";
 
 export const Product = {
 
@@ -50,7 +37,7 @@ export const Product = {
                 u.firstname,
                 u.lastname
             FROM "review" r
-            JOIN "users" u ON u.id = r.users_id
+            JOIN "users" u ON u.id = r.user_id
             WHERE r.product_id = $1
             ORDER BY r.date DESC
         `;
@@ -61,11 +48,9 @@ export const Product = {
 
 //Panier
     addToBasket: async (id, product_id, quantity) => {
-        const sql = `FROM basket_item bi
-            INSERT INTO "basket_item" (product_id, quantity)
-            VALUES ($2, $3)
-            JOIN basket b ON b.id = bi.basket_id
-            WHERE b.user_id = $1`;
+        const sql = `
+            INSERT INTO "basket_item" (basket_id, product_id, quantity)
+            VALUES ((SELECT id FROM basket WHERE user_id = $1), $2, $3)`;
 
         return await db.query(sql, [
             id,
@@ -84,5 +69,32 @@ export const Product = {
             userId,
             productId
         ]);
+    },
+
+// CATALOGUE
+    getCommonCatalogBySubcategory: async (categoryLabel) => {
+        const sql = `SELECT
+                p.id, p.name, p.description, p.price, p.image,
+                s.id AS subcategory_id, s.label AS subcategory_label
+            FROM product p
+            JOIN category c ON p.category_id = c.id
+            JOIN subcategory s ON p.subcategory_id = s.id
+            WHERE LOWER(c.label) = LOWER($1)
+            ORDER BY s.label, p.name`;
+        const result = await db.query(sql, [categoryLabel]);
+        return result.rows;
+    },
+
+    getCommonCatalogByProducer: async (categoryLabel) => {
+        const sql = `SELECT
+                p.id, p.name, p.description, p.price, p.image,
+                pr.id AS producer_id, pr."compagnyName" AS producer_name
+            FROM product p
+            JOIN category c ON p.category_id = c.id
+            JOIN producer pr ON p.producer_id = pr.id
+            WHERE LOWER(c.label) = LOWER($1)
+            ORDER BY pr."compagnyName", p.name`;
+        const result = await db.query(sql, [categoryLabel]);
+        return result.rows;
     }
 };

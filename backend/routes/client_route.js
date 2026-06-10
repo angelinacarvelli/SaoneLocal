@@ -7,7 +7,9 @@ import {
     customer_purchase_History,
     get_recommendations,
     get_favorites,
-    get_basket
+    get_basket,
+    MyEvents,
+    joinEvent
 } from "../controller/client_controller.js";
 
 const router = express.Router();
@@ -32,3 +34,5 @@ router.post('/events/:id/join', joinEvent);
 
 // Recommandations
 router.get('/recommendations', get_recommendations);
+
+export default router;

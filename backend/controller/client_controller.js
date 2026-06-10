@@ -1,169 +1,128 @@
-//modifier profil
-import {Customer} from "../models/client_models.js";
+import { Customer } from "../models/customer_models.js";
 
-//récupere le client connecter
+// ID client simulé en dur (id = 1) comme convenu dans votre architecture actuelle
 const get_customerID = (req) => 1;
 
-// Prend le profil
+// PROFIL CLIENT
 export const customer_profile = async (req, res) => {
     try {
-        const customerId = get_customerID(req);
-
-        const profile = await Customer.info_profil(customerId);
-
-        res.status(200).json(profile);} 
-        catch (error) {
-        res.status(500).json({ error: "Erreur profil" });
+        const id = get_customerID(req);
+        const profile = await Customer.info_profil(id);
+        res.status(200).json(profile);
+    } catch (error) {
+        res.status(500).json({ error: "Erreur récupération profil client" });
     }
 };
 
-// Modifier le profil
 export const update_customerProfile = async (req, res) => {
     try {
-        const customerId = get_customerID(req);
-
-        const {firstname, lastname, email, phone, image} = req.body;
-
-        await Customer.update_profile(
-            customerId,
-            firstname,
-            lastname,
-            email,
-            phone,
-            image
-        );
-
-        res.status(200).json({
-            message: "Profil mise à jour"
-        });
-
+        const id = get_customerID(req);
+        const { firstname, lastname, email, phone, image } = req.body;
+        await Customer.update_profile(id, firstname, lastname, email, phone, image);
+        res.status(200).json({ message: "Profil mis à jour avec succès" });
     } catch (error) {
-        res.status(500).json({
-            error: "Erreur modification profil"
-        });
+        res.status(500).json({ error: "Erreur modification profil client" });
     }
 };
 
-// Récupérer les commandes
+// COMMANDES
 export const customer_orders = async (req, res) => {
     try {
-        const customerId = get_customerID(req);
-
-        const orders = await Customer.traking_order(customerId);
-
+        const id = get_customerID(req);
+        const orders = await Customer.traking_order(id);
         res.status(200).json(orders);
-
     } catch (error) {
-        res.status(500).json({
-            error: "Erreur commandes"
-        });
+        res.status(500).json({ error: "Erreur suivi des commandes" });
     }
 };
 
-// Historique des commandes
 export const customer_purchase_History = async (req, res) => {
     try {
-        const customerId = get_customerID(req);
-
-        const purchases = await Customer.purchase_history(customerId);
-
-        res.status(200).json(purchases);
-
+        const id = get_customerID(req);
+        const history = await Customer.purchase_history(id);
+        res.status(200).json(history);
     } catch (error) {
-        res.status(500).json({
-            error: "Erreur historique achats"
-        });
+        res.status(500).json({ error: "Erreur historique d'achats" });
     }
 };
 
-// Favoris
+// FAVORIS (La fonction qui résout votre problème)
 export const get_favorites = async (req, res) => {
     try {
-        const customerId = get_customerId(req);
-
-        const favorites =
-            await Customer.list_favorites(customerId);
-
-        res.status(200).json(favorites);
-
+        const id = get_customerID(req);
+        const favorites = await Customer.list_favorites(id);
+        res.status(200).json(favorites); // Envoie le tableau p.* de la table product
     } catch (error) {
-        res.status(500).json({
-            error: "Erreur favoris"
-        });
+        res.status(500).json({ error: "Erreur lors du chargement des favoris" });
     }
 };
 
-//Panier
+// PANIER
 export const get_basket = async (req, res) => {
     try {
-        const customerId = get_customerId(req);
-
-        const basket_items =
-            await Customer.list_basket(customerId);
-
-        res.status(200).json(basket_items);
-
+        const id = get_customerID(req);
+        const basket = await Customer.list_basket(id);
+        res.status(200).json(basket);
     } catch (error) {
-        res.status(500).json({
-            error: "Erreur favoris"
-        });
+        res.status(500).json({ error: "Erreur récupération du panier" });
     }
 };
+export const customer_purchase_History = async (req, res) => {
+    try {
+        const history = await Customer.purchase_history(get_customerID(req));
+        res.status(200).json(history);
+    } catch (error) { res.status(500).json({ error: "Erreur" }); }
+};
 
-// Participer à un événement
+export const get_favorites = async (req, res) => {
+    try {
+        const favorites = await Customer.list_favorites(get_customerID(req));
+        res.status(200).json(favorites);
+    } catch (error) { res.status(500).json({ error: "Erreur" }); }
+};
+
+export const getAllEvents = async (req, res) => {
+    try {
+        const events = await Customer.listAllEvents();
+        res.status(200).json(events);
+    } catch (error) { res.status(500).json({ error: "Erreur" }); }
+};
+
 export const joinEvent = async (req, res) => {
     try {
-
-        const customerId = get_customerId(req);
-        const eventId = req.params.id;
-
-        await Customer.joinEvent(
-            customerId,
-            eventId
-        );
-
-        res.status(201).json({
-            message: "Participation enregistrée"
-        });
-
-    } catch (error) {
-        res.status(500).json({
-            error: "Erreur participation événement"
-        });
-    }
+        await Customer.joinEvent(get_customerID(req), req.body.event_id);
+        res.status(200).json({ message: "Inscrit" });
+    } catch (error) { res.status(500).json({ error: "Erreur" }); }
 };
 
-// Mes événements
+// ÉVÉNEMENTS
 export const MyEvents = async (req, res) => {
     try {
-
-        const customerId = get_customerId(req);
-
-        const events =
-            await Customer.list_events(customerId);
-
+        const id = get_customerID(req);
+        const events = await Customer.list_events(id);
         res.status(200).json(events);
-
     } catch (error) {
-        res.status(500).json({
-            error: "Erreur récupération événements"
-        });
+        res.status(500).json({ error: "Erreur récupération des événements" });
     }
 };
 
-// Recommandations
+export const joinEvent = async (req, res) => {
+    try {
+        const id = get_customerID(req);
+        const eventId = req.params.id;
+        await Customer.joinEvent(id, eventId);
+        res.status(200).json({ message: "Inscription à l'événement validée" });
+    } catch (error) {
+        res.status(500).json({ error: "Erreur lors de l'inscription à l'événement" });
+    }
+};
+
+// RECOMMANDATIONS
 export const get_recommendations = async (req, res) => {
     try {
-
         const recommendations = await Customer.product_recommendations();
-
         res.status(200).json(recommendations);
-
     } catch (error) {
-        res.status(500).json({
-            error: "Erreur recommandations"
-        });
+        res.status(500).json({ error: "Erreur récupération des recommandations" });
     }
 };
-
-//acceder panier

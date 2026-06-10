@@ -1,29 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../public/css/login.css">
+    <title>SaôneLocal - Connexion Client</title>
+    <style>
+        body {
+            font-family: 'Caveat Brush Regular', Tahoma, Geneva, Verdana, Caveat Brush Regular, sans-serif;
+            background-color: #f9f6ef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h2 { color: #2b5148; margin-bottom: 10px; }
+        p { color: #666; font-size: 0.9em; margin-bottom: 25px; }
+        .form-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            background-color: #2b5148;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+        button:hover { background-color: #1e3a33; }
+        .signup-text {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .signup-text a {
+            color: #a53f32;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            color: #7f8c8d;
+            text-decoration: none;
+            font-size: 0.85em;
+        }
+    </style>
 </head>
 <body>
-    <h1>Login</h1>
 
-    <form action="/login" method="POST">
-    
-    <input type="email" name="email" placeholder="email" autocomplete="off">
-    <br>
-    <input type="password" name="password" placeholder="Password" autocomplete="off">
-    <br>
-    <input type="submit" class="sub">
+    <div class="login-container">
+        <h2>Connexion Client </h2>
+        <p>Accède à ton panier et à tes favoris</p>
+        
+        <form id="formClient">
+            <div class="form-group">
+                <label>Adresse Email</label>
+                <input type="email" required placeholder="" value="">
+            </div>
+            <div class="form-group">
+                <label>Mot de passe</label>
+                <input type="password" required placeholder="••••••••" value="">
+            </div>
+            <button type="submit">Se connecter</button>
+        </form>
 
-    <h3>Vous n'avez pas de compte?</h3>
-    <a href="./signupclient.html">Inscrivez-vous</a>
+        <p class="signup-text">Pas encore de compte ? <a href="./signupclient.html">Inscris-toi ici</a></p>
 
+        <a href="home.html" class="back-link">← Retour au choix des espaces</a>
+    </div>
 
+    <script>
+        document.getElementById('formClient').addEventListener('submit', (e) => {
+            e.preventDefault(); // On bloque l'envoi vers Node (éteint)
 
-    </form>
-    
+            // Redirection logique sous Go Live vers l'espace personnel du client
+            window.location.href = "ficheclient.html";
+        });
+    </script>
 </body>
 </html>
