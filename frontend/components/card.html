@@ -1,0 +1,28 @@
+<div class="w-full bg-saone-green text-saone-cream rounded-[22px] p-5 shadow-md flex flex-col justify-between mb-5">
+    <div>
+        <h2 class="font-title text-xl tracking-wide mb-2 opacity-95">
+            {{title}}
+        </h2>
+        <p class="text-[12.5px] font-medium leading-relaxed opacity-85 text-left">
+            {{description}}
+        </p>
+        
+        <div class="grid-cols-3 gap-2.5 mt-4 mb-2 {{images-class}}">
+            <a href="/api/products/1" class="aspect-square rounded-xl overflow-hidden shadow-sm active:opacity-90 transition-opacity">
+                <img src="../image/boulangerie-pain-campagne.jpg" alt="Pain" class="w-full h-full object-cover">
+            </a>
+            <a href="/api/products/2" class="aspect-square rounded-xl overflow-hidden shadow-sm active:opacity-90 transition-opacity">
+                <img src="../image/legumes-patates.jpg" alt="Patates" class="w-full h-full object-cover">
+            </a>
+            <a href="/api/products/3" class="aspect-square rounded-xl overflow-hidden shadow-sm active:opacity-90 transition-opacity">
+                <img src="../image/boulangerie-croissants.jpg" alt="Vin" class="w-full h-full object-cover">
+            </a>
+        </div>
+    </div>
+    
+    <div class="flex justify-end mt-2">
+        <a href="{{btn-link}}" class="bg-saone-terracotta text-saone-cream text-[12px] font-semibold px-4 py-1.5 rounded-full shadow-md transition-all border border-transparent active:bg-saone-cream active:text-saone-terracotta active:border-saone-terracotta">
+            {{btn-text}}
+        </a>
+    </div>
+</div>
