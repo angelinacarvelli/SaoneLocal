@@ -13,7 +13,6 @@ import producterRoutes from "./routes/producter_routes.js";
 import produitRoutes from "./routes/produit_routes.js";
 import boulangerieRoutes from "./routes/boulangerie_routes.js";
 
-
 dotenv.config(); // charge les variables d'environnement depuis le fichier .env
 
 const app = express();
@@ -44,10 +43,10 @@ async function compare(userPass, hashPass) {
 app.get("/", (req, res) => {
     if (req.cookies.jwt) {
         // Si connecté, on l'envoie sur la page home.html dans page.accueil
-        res.sendFile(path.join(__dirname, "../frontend/page.accueil/home.html"));
+        res.sendFile(path.join(__dirname, "../frontend/pages/home.html"));
     } else {
         // Sinon, page d'accueil déconnectée classique
-        res.sendFile(path.join(__dirname, "../frontend/page.accueil/index.html"));
+        res.sendFile(path.join(__dirname, "../frontend/pages/home.html"));
     }
 });
 
