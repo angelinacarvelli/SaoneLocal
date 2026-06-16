@@ -1,0 +1,151 @@
+body {
+    background-color: #f9f6ef;
+}
+
+div {
+    background-color: #2b5148;
+}
+
+img {
+    width: 50px;
+}
+
+button {
+    background-color: #a53f32;
+}
+
+p {
+    color: #f9f6ef;
+    font-family: Montserrat;
+}
+
+h3 {
+    color: #f9f6ef;
+    font-family: Caveat Brush;
+}
+
+.naviguation {
+    background-color: #f9f6ef;
+}
+
+.footer {
+    color: #2b5148;
+}
+
+.Heart-start {
+	height: 20px;
+	width: 20px;
+	position: relative;
+	margin: auto;
+	background-color: #978d8d;
+	transform: rotate(-45deg);
+	cursor: pointer;
+}
+.Heart-start:after {
+	content: '';
+	background-color: #978d8d;
+	height: 20px;
+	width: 20px;
+	position: absolute;
+	border-radius: 50%;
+	top: -50%;
+	left: 0;
+}
+.Heart-start:before {
+	content: '';
+	background-color: #978d8d;
+	height: 20px;
+	width: 20px;
+	position: absolute;
+	border-radius: 50%;
+	top: 0%;
+	right: -50%;
+}
+
+.Heart-beat {
+	height: 20px;
+	width: 20px;
+	position: relative;
+	margin: auto;
+	background-color: #dd1c4b;
+	transform: rotate(-45deg);
+	animation: heart 0.6s;
+	cursor: pointer;
+}
+@keyframes heart {
+	0% {
+		transform: rotate(-45deg) scale(1);
+	}
+
+	60% {
+		transform: rotate(-45deg) scale(1.3);
+	}
+	100% {
+		transform: rotate(-45deg) scale(1);
+	}
+}
+.Heart-beat:after {
+	background-color: #dd1c4b;
+}
+.Heart-beat:before {
+	background-color: #dd1c4b;
+}
+
+.fav-start {
+	height: 20px;
+	width: 20px;
+	position: relative;
+	margin: auto;
+	background-color: #978d8d;
+	transform: rotate(-45deg);
+	cursor: pointer;
+}
+.fav-start:after {
+	content: '';
+	background-color: #978d8d;
+	height: 20px;
+	width: 20px;
+	position: absolute;
+	border-radius: 50%;
+	top: -50%;
+	left: 0;
+}
+.fav-start:before {
+	content: '';
+	background-color: #978d8d;
+	height: 20px;
+	width: 20px;
+	position: absolute;
+	border-radius: 50%;
+	top: 0%;
+	right: -50%;
+}
+
+.fav-beat {
+	height: 20px;
+	width: 20px;
+	position: relative;
+	margin: auto;
+	background-color: #dd1c4b;
+	transform: rotate(-45deg);
+	animation: heart 0.6s;
+	cursor: pointer;
+}
+@keyframes heart {
+	0% {
+		transform: rotate(-45deg) scale(1);
+	}
+
+	60% {
+		transform: rotate(-45deg) scale(1.3);
+	}
+	100% {
+		transform: rotate(-45deg) scale(1);
+	}
+}
+.fav-beat:after {
+	background-color: #dd1c4b;
+}
+.fav-beat:before {
+	background-color: #dd1c4b;
+}

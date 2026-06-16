@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaôneLocal - Connexion Producteur</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f6ef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h2 { color: #a53f32; margin-bottom: 10px; }
+        p { color: #666; font-size: 0.9em; margin-bottom: 25px; }
+        .form-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            background-color: #a53f32;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+        button:hover { background-color: #8a3328; }
+        .signup-text {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .signup-text a {
+            color: #2b5148;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            color: #7f8c8d;
+            text-decoration: none;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Espace Producteur </h2>
+        <p>Gère tes infos et tes fiches produits</p>
+        
+        <form id="formProducer">
+            <div class="form-group">
+                <label>Adresse Email Professionnelle</label>
+                <input type="email" required placeholder="boulanger@test.fr" value="boulanger@test.fr">
+            </div>
+            <div class="form-group">
+                <label>Mot de passe</label>
+                <input type="password" required placeholder="••••••••" value="">
+            </div>
+            <button type="submit">Se connecter à ma vitrine</button>
+        </form>
+
+        <p class="signup-text">Nouveau producteur ? <a href="./signupproducter.html">Crée ton profil </a></p>
+
+        <a href="pages/home.html" class="back-link">← Retour au choix des espaces</a>
+    </div>
+
+    <script>
+        document.getElementById('formProducer').addEventListener('submit', (e) => {
+            e.preventDefault(); 
+
+            // Redirection logique sous Go Live vers la fiche modifiable de l'artisan
+            window.location.href = "ficheproducter.html";
+        });
+    </script>
+</body>
+</html>
