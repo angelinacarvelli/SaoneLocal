@@ -95,15 +95,14 @@
 
         <p class="signup-text">Pas encore de compte ? <a href="./signupclient.html">Inscris-toi ici</a></p>
 
-        <a href="home.html" class="back-link">← Retour au choix des espaces</a>
+        <a href="pages/home.html" class="back-link">← Retour au choix des espaces</a>
     </div>
 
     <script>
         document.getElementById('formClient').addEventListener('submit', (e) => {
             e.preventDefault(); // On bloque l'envoi vers Node (éteint)
 
-            // Redirection logique sous Go Live vers l'espace personnel du client
-            window.location.href = "ficheclient.html";
+            window.location.href = "/ficheclient.html";
         });
     </script>
 </body>

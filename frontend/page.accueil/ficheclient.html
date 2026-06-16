@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SaôneLocal - Mon Profil Client</title>
+    <link rel="stylesheet" href="style.css" />
     <style>
         body { font-family: 'Caveat Brush Regular', sans-serif; background: #f9f6ef; margin: 0; padding: 20px; }
         .box { max-width: 800px; margin: 30px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
@@ -20,6 +21,7 @@
         .btn { display: inline-block; background: #2b5148; color: white; padding: 10px 15px; text-decoration: none; border-radius: 6px; font-weight: bold; border: none; cursor: pointer; margin-top: 10px; }
         .btn:hover { background: #1e3a33; }
         .btn-secondary { background: #7f8c8d; }
+        
     </style>
 </head>
 <body>
@@ -47,8 +49,11 @@
          <h3> Mes Favoris </h3>
         <div style="display: flex; gap: 10px;" id="favoritesList">
             <div class="section-item" style="flex: 1;"><strong>Baguette</strong><br><small>Boulangerie : La Mie Dorée</small></div>
+                    <div class="Heart-start"></div>
             <div class="section-item" style="flex: 1;"><strong>Carottes</strong><br><small>Maraîcher : Le Verger du Coin</small></div>
-        </div>
+                    <div class="fav-start"></div>
+                    </div>
+            </div>
 
         <h3>Événements & Marchés (Catalogue)</h3>
         <div id="eventsCatalog">
@@ -92,6 +97,15 @@
             });
         });
 
+		var el = document.querySelector('.Heart-start');
+		el.onclick = function () {
+			el.classList.toggle('Heart-beat');
+		};
+        var el = document.querySelector('.fav-start');
+		el.onclick = function () {
+			el.classList.toggle('fav-beat');
+		};
+
         async function joinEvent(id) {
             await fetch('/api/client/events/join', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({event_id: id}) });
             alert('Inscription validée !');
@@ -109,11 +123,11 @@
         // 2. Feedback utilisateur
         alert('Inscription validée ! Vous faites partie des ' + count + ' participants.');
         
-        // Optionnel : mise à jour visuelle immédiate si besoin
+        // 3. Mise à jour visuelle immédiate si besoin
         location.reload(); 
     }
     </script>
 </body>
 </html>
 
-// FAVORIS A RAJOUTER + RECOMMENDATIONS + pouvoir annuler quand on a cliquer sur participer a un événement + faire en sorte que le changement de statut de la commande soit visible en temps réel pour le client
+// FAVORIS a lier a fonction RECOMMENDATIONS + pouvoir annuler quand on a cliquer sur participer a un événement + faire en sorte que le changement de statut de la commande soit visible en temps réel pour le client
