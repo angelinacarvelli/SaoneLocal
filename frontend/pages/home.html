@@ -11,72 +11,61 @@
             theme: {
                 extend: {
                     colors: {
-                        'saone-green': '#2B5148',       // Vert fleuve
-                        'saone-terracotta': '#A53F32',  // Rouge Terracota
-                        'saone-cream': '#F9F6EF',       // Blanc farineux
-                        'saone-info': '#50A898',        // Information
-                        'saone-miel': '#F3C451',        // Miel
-                        'saone-coquelicot': '#AB2B28',  // Coquelicot
-                        'saone-pomme': '#82AA43',       // Pomme
+                        'saone-green': '#2B5148',
+                        'saone-terracotta': '#A53F32',
+                        'saone-cream': '#F9F6EF',
+                    },
+                    fontFamily: {
+                        'title': ['Caveat Brush', 'cursive'],
+                        'body': ['Montserrat', 'sans-serif']
                     }
                 }
             }
         }
     </script>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Montserrat:wght@400;500;600;700&display=swap');
-        body { font-family: 'Montserrat', sans-serif; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #F9F6EF; }
         .font-title { font-family: 'Caveat Brush', cursive; }
-        
-        /* Supprime les barres de défilement pour le look application mobile */
         ::-webkit-scrollbar { display: none; }
     </style>
 </head>
-<body class="bg-saone-cream min-h-screen flex flex-col items-center justify-start text-saone-green p-4 w-[375px] max-w-[375px] mx-auto relative select-none overflow-y-auto overflow-x-hidden">
 
-    <html-include src="../components/header.html" class="w-full"></html-include>
+<body class="w-[375px] mx-auto min-h-screen flex flex-col items-center p-4">
 
-    <main class="w-full flex-1 mt-2 pb-32">
+    <header class="w-full pt-[60px] pb-[42px]">
+        <html-include src="../components/header.jsx"></html-include>
+    </header>
+
+    <main class="w-full flex-1 space-y-[22px] pb-[120px]">
         
         <saone-card 
             title="Plus sur nous" 
-            description="Notre association est une association de proximité, nous créons du lien avec nos clients. Ce ne sont pas de simples produits mais la Bourgogne entière que vous mettez en bouche. SaôneLocal c'est une expérience pour vos papilles." 
-            btn-text="Nous connaître" 
-            btn-link="/signup">
+            description="Notre association est une association de proximité, nous créons du lien avec nos clients. Ce ne sont pas de simples produits mais la Bourgogne entière que vous mettez en bouche." 
+            btn-text="Nous connaître">
         </saone-card>
 
         <saone-card 
             title="Nos producteurs locaux" 
-            description="Nos produits sont si savoureux parce qu'ils sont faits avec l'amour de nos producteurs. Nos producteurs s'impliquent dans leur travail et ont un véritable savoir-faire dans leur domaine." 
-            btn-text="Voir l'équipe" 
-            btn-link="/catalogue">
+            description="Nos produits sont si savoureux parce qu'ils sont faits avec l'amour de nos producteurs. Nos producteurs s'impliquent dans leur travail." 
+            btn-text="Voir l'équipe">
         </saone-card>
 
         <saone-card 
             title="Se laisser tenter" 
             description="Il faut mettre en bouche ces délices pour ressentir la Bourgogne et tout ce savoir-faire." 
             btn-text="Goûter" 
-            btn-link="/api/products"
             has-images>
         </saone-card>
 
     </main>
 
-    <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[375px] px-4 pb-4 bg-gradient-to-t from-saone-cream via-saone-cream/95 to-transparent pt-6 flex flex-col items-center gap-3 pointer-events-none z-50">
-        
-        <html-include src="../components/navbar.html" class="w-full pointer-events-auto"></html-include>
-        
-        <footer class="w-full text-center text-[11px] text-saone-green/60 tracking-wide font-medium pointer-events-auto">
-            <p>
-                <span class="font-bold text-saone-green/80">Fabriqué en Bourgogne.</span> - 
-                <a href="#" class="transition-colors duration-150 active:text-saone-terracotta focus:text-saone-terracotta">Nous contacter</a> - 
-                <a href="#" class="transition-colors duration-150 active:text-saone-terracotta focus:text-saone-terracotta">Mentions légales</a>
-            </p>
-        </footer>
-        
+    <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[375px] px-4 pb-4 bg-gradient-to-t from-saone-cream via-saone-cream/95 to-transparent pt-6 flex flex-col items-center gap-3 z-50">
+        <html-include src="../components/navbar.jsx" class="w-full"></html-include>
+        <div class="w-full">
+            <html-include src="../components/footer.jsx"></html-include>
+        </div>
     </div>
 
     <script src="../js/layout-engine.js"></script>
