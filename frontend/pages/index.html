@@ -1,5 +1,3 @@
-Import {Card} from ../components/card.js
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -41,11 +39,29 @@ Import {Card} from ../components/card.js
     </header>
 
     <main class="w-full flex-1 space-y-[22px] pb-[120px]">
-        <saone-card 
+        <!-- <saone-card 
             title="Plus sur nous" 
             description="Notre association est une association de proximité, nous créons du lien avec nos clients. Ce ne sont pas de simples produits mais la Bourgogne entière que vous mettez en bouche." 
             btn-text="Nous connaître">
-        </saone-card>
+        </saone-card> -->
+        <script>
+            import Card from "./components/Card";
+                export default function App() {
+                return (
+                    <main>
+                    <h1>Ma page</h1>
+
+                    <Card
+                        title="Plus sur nous"
+                        description="Notre association est une association de proximité..."
+                        btntext="Nous connaître"
+                    />
+
+                    <p>Du contenu après la carte</p>
+                    </main>
+                );
+                }  
+        </script>
 
         <saone-card 
             title="Nos producteurs locaux" 
