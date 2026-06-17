@@ -1,20 +1,11 @@
-export default function Card({ title, description, btnText, images = [] }) {
+export default function Card({ title, description, btnText }) {
   return (
-    <div className="bg-[#2B5148] text-[#F9F6EF] rounded-[20px] p-5 shadow-lg w-full mb-4">
-      <h2 className="font-bold text-sm uppercase mb-2 tracking-wide">{title}</h2>
-      <p className="text-xs leading-snug opacity-90 mb-4">{description}</p>
-      
-      {images.length > 0 && (
-        <div className="grid grid-cols-3 gap-2 mb-4">
-          {images.map((img, i) => (
-            <img key={i} src={img} className="aspect-square rounded-lg object-cover bg-white/10" alt="prod" />
-          ))}
-        </div>
-      )}
-      
-      <button className="bg-[#A53F32] text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-md">
+    <div className="bg-[#2B5148] text-[#F9F6EF] rounded-2xl p-5 mb-4 shadow-md">
+      <h2 className="font-bold text-sm uppercase mb-2">{title}</h2>
+      <p className="text-xs opacity-90 mb-4">{description}</p>
+      <button className="bg-[#A53F32] text-white px-4 py-1 rounded-full text-xs">
         {btnText}
       </button>
     </div>
   );
-}
+} 

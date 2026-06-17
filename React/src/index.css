@@ -2,11 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Optionnel : appliquer une couleur de fond globale */
 body {
-  background-color: #F9F6EF; 
   margin: 0;
   padding: 0;
-  overflow: hidden;
   background-color: #e5e7eb;
 }
