@@ -1,11 +1,7 @@
-function Video({ video }) {
+export default function Footer() {
   return (
-    <footer class="w-full text-center text-[12.5px] text-saone-green/60 tracking-wide font-medium pb-1">
-        <p>
-            <span class="font-bold text-saone-green/80">Fabriqué en Bourgogne.</span> - 
-            <a href="#" class="transition-colors duration-150 active:text-saone-terracotta focus:text-saone-terracotta outline-none">Nous contacter</a> - 
-            <a href="#" class="transition-colors duration-150 active:text-saone-terracotta focus:text-saone-terracotta outline-none">Mentions légales</a>
-        </p>
+    <footer className="text-center text-[11px] text-gray-500 py-3">
+      <p><span className="font-bold text-[#2B5148]">Fabriqué en Bourgogne.</span> - <a href="#">Nous contacter</a> - <a href="#">Mentions légales</a></p>
     </footer>
   );
 }
