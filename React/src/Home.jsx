@@ -2,6 +2,7 @@ import Card from './components/Card';
 import pain from './assets/image/boulangerie-pain-levain.jpg';
 import pdt from './assets/image/legumes-patates.jpg';
 import vin from './assets/image/vins-mercurey-blanc.jpg';
+import sophie from './assets/image/saonelocal-sophie-client.jpg';
 
 export default function Home() {
   return (
