@@ -1,0 +1,83 @@
+import React from 'react';
+import { ArrowLeft, Home, BookOpen, Search, Calendar, ShoppingBag, User } from 'lucide-react';
+
+const AboutUs = () => {
+  return (
+    <div style={styles.container}>
+      {/* Header */}
+      <header style={styles.header}>
+        <ArrowLeft size={24} />
+        <h1 style={styles.title}>PLUS SUR NOUS</h1>
+        <Home size={24} />
+      </header>
+
+      {/* Main Content */}
+      <main style={styles.content}>
+        <div style={styles.logoContainer}>
+          <img src="saone-local-logo.png" alt="SaôneLocal Logo" style={styles.logo} />
+        </div>
+
+        <section>
+          <h2 style={styles.sectionTitle}>NOTRE HISTOIRE</h2>
+          <p style={styles.text}>
+            <strong>SaôneLocal</strong> est une association regroupant une <strong>cinquantaine de producteurs locaux</strong> du bassin chalonnais (vignerons, maraîchers, apiculteurs, fromagers).
+          </p>
+          <p style={styles.text}>
+            Nous l'avons créée pour mettre davantage en lumière la Bourgogne et surtout <strong>faire briller Chalon-sur-Saône</strong>.
+          </p>
+          <p style={styles.text}>
+            Nous sommes une association chaleureuse et familiale. Lorsque vous achetez chez SaôneLocal, vous n'achetez pas que des produits. Nous vous livrons le <strong>terroir</strong> et un <strong>véritable savoir-faire</strong>.
+          </p>
+        </section>
+
+        <section style={styles.profileSection}>
+          <img src="francoise-photo.png" alt="Françoise, la présidente" style={styles.profileImage} />
+          <div>
+            <h3 style={styles.profileTitle}>Françoise, la présidente</h3>
+            <p style={styles.text}>
+              L'idée est simple : relier les habitants de la Saône à ceux qui produisent, fabriquent et transforment à deux pas de chez eux. Derrière chaque producteur, il y a une rencontre, une confiance, un engagement.
+            </p>
+          </div>
+        </section>
+
+        <p style={styles.quote}>
+          Manger local, c'est bien mais savoir pourquoi et avec qui, c'est mieux.
+        </p>
+      </main>
+
+      {/* Navigation Footer */}
+      <nav style={styles.navbar}>
+        <div style={styles.navItem}><div style={styles.iconWrapper}><div style={styles.plantIcon}>🌱</div></div></div>
+        <div style={styles.navItem}><BookOpen size={24} style={styles.activeIcon} /></div>
+        <div style={styles.navItem}><Search size={24} /></div>
+        <div style={styles.navItem}><Calendar size={24} /></div>
+        <div style={styles.navItem}><ShoppingBag size={24} /></div>
+        <div style={styles.navItem}><User size={24} /></div>
+      </nav>
+
+      {/* Footer Info */}
+      <footer style={styles.footer}>
+        <p>Fabriqué en Bourgogne. - Nous contacter - Mentions légales</p>
+      </footer>
+    </div>
+  );
+};
+
+const styles = {
+  container: { backgroundColor: '#fdfbf7', padding: '20px', fontFamily: 'sans-serif', maxWidth: '400px', margin: 'auto' },
+  header: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' },
+  title: { fontSize: '1.2rem', color: '#a04020' },
+  logoContainer: { textAlign: 'center', marginBottom: '20px' },
+  logo: { width: '150px' },
+  sectionTitle: { color: '#305030', fontSize: '1.1rem' },
+  text: { lineHeight: '1.5', color: '#333' },
+  profileSection: { display: 'flex', gap: '15px', alignItems: 'center', margin: '20px 0' },
+  profileImage: { width: '80px', height: '80px', borderRadius: '15px', objectFit: 'cover' },
+  profileTitle: { color: '#305030', margin: '0 0 5px 0' },
+  quote: { fontStyle: 'italic', textAlign: 'center', fontWeight: 'bold', color: '#305030' },
+  navbar: { display: 'flex', justifyContent: 'space-around', backgroundColor: '#a04020', padding: '15px', borderRadius: '15px', color: 'white', marginTop: '20px' },
+  activeIcon: { borderBottom: '2px solid white' },
+  footer: { textAlign: 'center', fontSize: '0.8rem', color: '#666', marginTop: '15px' }
+};
+
+export default AboutUs;
