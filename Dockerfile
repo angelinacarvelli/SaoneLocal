@@ -1,3 +1,3 @@
 FROM nginx:alpine
-COPY ./React /usr/share/nginx/html/
+COPY ./realfrontend /usr/share/nginx/html/
 EXPOSE 80
