@@ -102,13 +102,13 @@ export default function Profil_Producteur() {
             </section>
         </div>
 
-        <script>
+        {/* <script>
         function toggleProduit(){
         document.getElementById("produit").classList.toggle("hidden")}
 
         function toggleEvent(){
         document.getElementById("event").classList.toggle("hidden")}
-        </script>
+        </script> */}
     </body>
   );
 }
