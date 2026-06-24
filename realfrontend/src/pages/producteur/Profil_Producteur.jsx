@@ -4,7 +4,7 @@ import Footer from '../../component/Footer';
 
 export default function Profil_Producteur() {
   return (
-    <body class="bg-saone-cream font-montserrat">
+    <main class="bg-saone-cream font-montserrat">
         <div class="max-w-[375px] mx-auto px-4 pb-24">
 
                 <header class="pt-[60px]">
@@ -109,6 +109,6 @@ export default function Profil_Producteur() {
         function toggleEvent(){
         document.getElementById("event").classList.toggle("hidden")}
         </script> */}
-    </body>
+    </main>
   );
 }

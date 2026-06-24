@@ -4,7 +4,7 @@ import Footer from '../../component/Footer';
 
 export default function Profil_Client() {
   return (
-    <body class="bg-saone-cream font-montserrat text-[#2E2E2E]">
+    <main class="bg-saone-cream font-montserrat text-[#2E2E2E]">
         <div class="max-w-[375px] mx-auto min-h-screen px-4 pb-[140px]">
 
             <section class="mt-[42px] flex items-center gap-3">
@@ -92,6 +92,6 @@ export default function Profil_Client() {
                 </div>
             </section>
         </div>
-    </body>
+    </main>
   );
 }

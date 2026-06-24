@@ -4,7 +4,7 @@ import Footer from '../../component/Footer';
 
 export default function Mentions_Legales() {
   return (
-    <body class="w-[375px] mx-auto min-h-screen flex flex-col gap-4 bg-saone-cream">
+    <main class="w-[375px] mx-auto min-h-screen flex flex-col gap-4 bg-saone-cream">
         <div class="flex flex-col items-center">
             <img src="../realfrontend/assets/Logo-principal.png" alt="Logo" class="w-[130px] h-[130px] object-cover mb-[40px] mt-[30px]"/>
         </div>
@@ -52,6 +52,6 @@ export default function Mentions_Legales() {
                 social de l'association SaôneLocal.
             </p>
         </div>
-    </body>
+    </main>
   );
 }

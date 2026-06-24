@@ -4,7 +4,7 @@ import Footer from '../../component/Footer';
 
 export default function Plus_sur_Nous() {
   return (
-    <body class="w-[375px] mx-auto min-h-screen flex flex-col text-[14px] bg-saone-cream font-montserrat">
+    <main class="w-[375px] mx-auto min-h-screen flex flex-col text-[14px] bg-saone-cream font-montserrat">
         <div class="flex flex-col items-center">
             <img src="../realfrontend/assets/Logo-principal.png" alt="Logo" class="w-[130px] h-[130px] object-cover mb-[40px] mt-[30px]"/>
         </div>
@@ -22,6 +22,6 @@ export default function Plus_sur_Nous() {
         <p class="font-caveat text-[18px] text-saone-green flex gap-3 items-center text-center mt-[20px]">Manger local, c'est bien mais savoir pourquoi et avec qui, c'est mieux</p>
         
 
-    </body>
+    </main>
   );
 }

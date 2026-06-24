@@ -4,7 +4,7 @@ import Footer from '../../component/Footer';
 
 export default function Modif_Producteur() {
   return (
-    <body class="bg-saone-cream font-montserrat">
+    <main class="bg-saone-cream font-montserrat">
         <div class="max-w-[375px] mx-auto px-4 pb-24">
 
             <h1 class="pt-[60px] text-center font-caveat text-[20px] text-saone-terracotta uppercase">Modifier mon profil</h1>
@@ -75,6 +75,6 @@ export default function Modif_Producteur() {
             image.src = URL.createObjectURL(event.target.files[0]);
             }
         </script> */}
-    </body>
+    </main>
   );
 }
