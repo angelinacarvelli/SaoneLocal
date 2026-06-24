@@ -5,6 +5,8 @@ import { Profil_Client } from './pages/client/Profil_Client';
 import { Modif_Client } from './pages/client/Modif_Client';
 import { Profil_Producteur } from './pages/producteur/Profil_Producteur';
 import { Modif_Producteur } from './pages/producteur/Modif_Producteur';
+import { Plus_sur_Nous } from "./pages/global/Plus_sur_Nous.jsx";
+
 
 export const routes = [
   {
@@ -48,4 +50,10 @@ export const routes = [
     component: Modif_Producteur,
     showInNav: true,
   },
+  {
+    path: "/plus_sur_nous",
+    label: "Plus sur Nous",
+    component: Plus_sur_Nous,
+    showInNav: true,
+  }
 ];
