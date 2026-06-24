@@ -8,6 +8,7 @@ import { Modif_Producteur } from './pages/producteur/Modif_Producteur';
 import { Plus_sur_Nous } from "./pages/global/Plus_sur_Nous.jsx";
 import { Mentions_Legales } from "./pages/global/Mentions_Legales.jsx";
 import { Contact } from "./pages/global/Contact.jsx";
+import { Compte_Acceuil } from "./pages/global/Compte_Acceuil.jsx";
 
 export const routes = [
   {
@@ -67,6 +68,12 @@ export const routes = [
     path: "/contact",
     label: "Contact",
     component: Contact,
+    showInNav: true,
+  },
+  {
+    path: "/compte_acceuil",
+    label: "Compte Acceuil",
+    component: Compte_Acceuil,
     showInNav: true,
   }
 ];
