@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon compte client</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "saone-green": '#2B5148',
+                        "saone-terracotta": '#A53F32',
+                        "saone-cream": '#F9F6EF',
+                    },
+                    fontFamily: {
+                        caveat: ['Caveat Brush', 'cursive'],
+                        montserrat: ['Montserrat', 'sans-serif']
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="w-[375px] mx-auto min-h-screen flex flex-col gap-4 bg-saone-cream">
+    <div class="flex flex-col items-center">
+           <img src="../realfrontend/assets/Logo-principal.png" alt="Logo" class="w-[130px] h-[130px] object-cover mb-[40px] mt-[30px]">
+    </div>
+    <div class="text-[13px] text-saone-green font-montserrat">
+        <h2 class="font-caveat text-[18px] text-saone-green uppercase">1. éditeur de l'application</h2>
+        <p>L'application SaôneLocal est éditée par l'association SaôneLocal, association loi 1901.<br>
+        Présidente : Françoise<br>
+        Siège social : 54 rue d'Autun - 71100 Chalon-sur-Saône<br>
+        Email : contact@saonelocal.fr<br>
+        SIRET : 894 237 651 00014</p>
+    </div>
+
+    <div class="text-[13px] text-saone-green font-montserrat">
+        <h2 class="font-caveat text-[18px] text-saone-green uppercase">2. hébergement</h2>
+        <p>L'application est hébergée par : <br>
+            Amazon Web Services (AWS),<br>
+            Amazon Web Services, Inc. P.O. Box 81226, Seattle, WA 98108-1226, USA <br>
+            https://aws.amazon.com</p>
+    </div>
+
+    <div class="text-[13px] text-saone-green font-montserrat">
+        <h2 class="font-caveat text-[18px] text-saone-green uppercase">3. propriété intellectuelle</h2>
+        <p>L'ensemble des contenus présent sur l'application SaôneLocal (texte,images, logos, visuels) est la propriété exclusive de l'association
+            SaôneLocal ou de ses contributeurs, et est protégé par les lois françaises et internationals relatives à la propriété intellectuelle.
+            Toute reproduction, même partielle, est interdite sans autorisation préalable</p>
+    </div>
+
+    <div class="text-[13px] text-saone-green font-montserrat">
+        <h2 class="font-caveat text-[18px] text-saone-green uppercase">4. données personnelles</h2>
+        <p>Les données personnelles collectées via l'application (nom, adresse email, adresse de livraison) sont 
+            utilisées exclusivement dans le cadre du fonctionnement de SaôneLocal. Elles ne sont ni vendues, ni transmisent à des tiers.
+            Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposer d'un droit d'accès, de rectification et de suppression 
+            de vos données en contactant : [contact@saonelocal.fr]</p>
+    </div>
+
+    <div class="text-[13px] text-saone-green font-montserrat">
+        <h2 class="font-caveat text-[18px] text-saone-green uppercase">5. responsabilité</h2>
+        <p>SaôneLocal s'efforce de maintenir les informations de l'application à jour et exactes. L'association ne saurait être tenue responsable
+            des erreurs ou omissions dans les contenus publiés par les producteurs, ni des éventuelles intéruptions de service liées à des causes extérieures.</p>
+    </div>
+
+    <div class="text-[13px] text-saone-green font-montserrat">
+        <h2 class="font-caveat text-[18px] text-saone-green uppercase">6. droit applicable</h2>
+        <p>Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux compétant sont ceux du ressort du siège
+            social de l'association SaôneLocal.
+        </p>
+    </div>
+</body>
+</html>

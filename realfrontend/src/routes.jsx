@@ -6,7 +6,7 @@ import { Modif_Client } from './pages/client/Modif_Client';
 import { Profil_Producteur } from './pages/producteur/Profil_Producteur';
 import { Modif_Producteur } from './pages/producteur/Modif_Producteur';
 import { Plus_sur_Nous } from "./pages/global/Plus_sur_Nous.jsx";
-
+import { Mentions_Legales } from "./pages/global/Mentions_Legales.jsx";
 
 export const routes = [
   {
@@ -54,6 +54,12 @@ export const routes = [
     path: "/plus_sur_nous",
     label: "Plus sur Nous",
     component: Plus_sur_Nous,
+    showInNav: true,
+  },
+  {
+    path: "/mentions_legales",
+    label: "Mentions Légales",
+    component: Mentions_Legales,
     showInNav: true,
   }
 ];
