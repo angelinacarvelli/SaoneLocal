@@ -2,7 +2,7 @@ import Header from '../../component/Header';
 import Navbar from '../../component/Navbar';
 import Footer from '../../component/Footer';
 
-export default function Profil_Client() {
+export default function Profile_Client() {
   return (
     <main class="bg-saone-cream font-montserrat text-[#2E2E2E]">
         <div class="max-w-[375px] mx-auto min-h-screen px-4 pb-[140px]">

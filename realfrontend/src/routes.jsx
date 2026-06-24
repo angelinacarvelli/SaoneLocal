@@ -1,7 +1,7 @@
 import { HomePage } from "./pages/global/Home.jsx";
 import { NotFoundPage } from "./pages/global/Not-foundjsx";
 import { AboutPage } from "./pages/global/About-us.js"
-import { Profil_Client } from './pages/client/Profil_Client';
+import { Profile_Client } from './pages/client/Profile-Client.jsx';
 import { Modif_Client } from './pages/client/Modif_Client';
 import { Profil_Producteur } from './pages/producteur/Profil_Producteur';
 import { Modif_Producteur } from './pages/producteur/Modif_Producteur';
@@ -31,9 +31,9 @@ export const routes = [
     component: NotFoundPage,
   },
     {
-    path: "/profil_client",
+    path: "/profile_client",
     label: "Mon compte client",
-    component: Profil_Client,
+    component: Profile_Client,
     showInNav: true,
   },  
   {
