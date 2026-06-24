@@ -9,6 +9,7 @@ import { Plus_sur_Nous } from "./pages/global/Plus_sur_Nous.jsx";
 import { Mentions_Legales } from "./pages/global/Mentions_Legales.jsx";
 import { Contact } from "./pages/global/Contact.jsx";
 import { Compte_Acceuil } from "./pages/global/Compte_Acceuil.jsx";
+import { Commande_Success } from "./pages/global/Commande_Success.jsx";
 
 export const routes = [
   {
@@ -74,6 +75,12 @@ export const routes = [
     path: "/compte_acceuil",
     label: "Compte Acceuil",
     component: Compte_Acceuil,
+    showInNav: true,
+  },
+  {
+    path: "/commande_success",
+    label: "Commande Succes",
+    component: Commande_Success,
     showInNav: true,
   }
 ];
