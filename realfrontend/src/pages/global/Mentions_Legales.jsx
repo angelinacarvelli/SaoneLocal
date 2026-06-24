@@ -2,7 +2,7 @@ import Header from '../../component/Header';
 import Navbar from '../../component/Navbar';
 import Footer from '../../component/Footer';
 
-export default function mentions_Legales() {
+export default function Mentions_Legales() {
   return (
     <body class="w-[375px] mx-auto min-h-screen flex flex-col gap-4 bg-saone-cream">
         <div class="flex flex-col items-center">

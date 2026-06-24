@@ -7,6 +7,7 @@ import { Profil_Producteur } from './pages/producteur/Profil_Producteur';
 import { Modif_Producteur } from './pages/producteur/Modif_Producteur';
 import { Plus_sur_Nous } from "./pages/global/Plus_sur_Nous.jsx";
 import { Mentions_Legales } from "./pages/global/Mentions_Legales.jsx";
+import { Contact } from "./pages/global/Contact.jsx";
 
 export const routes = [
   {
@@ -60,6 +61,12 @@ export const routes = [
     path: "/mentions_legales",
     label: "Mentions Légales",
     component: Mentions_Legales,
+    showInNav: true,
+  },
+  {
+    path: "/contact",
+    label: "Contact",
+    component: Contact,
     showInNav: true,
   }
 ];
