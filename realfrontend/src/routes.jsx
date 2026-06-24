@@ -10,6 +10,7 @@ import { Mentions_Legales } from "./pages/global/Mentions_Legales.jsx";
 import { Contact } from "./pages/global/Contact.jsx";
 import { Compte_Acceuil } from "./pages/global/Compte_Acceuil.jsx";
 import { Commande_Success } from "./pages/global/Commande_Success.jsx";
+import { Producer_List } from './pages/producteur/Producer-List';
 
 export const routes = [
   {
@@ -81,6 +82,12 @@ export const routes = [
     path: "/commande_success",
     label: "Commande Succes",
     component: Commande_Success,
+    showInNav: true,
+  },
+  {
+    path: "/producer-list",
+    label: "Fiches Producteurs",
+    component: Producer_List,
     showInNav: true,
   }
 ];
