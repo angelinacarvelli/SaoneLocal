@@ -2,7 +2,7 @@ import Header from '../../component/Header';
 import Navbar from '../../component/Navbar';
 import Footer from '../../component/Footer';
 
-export default function Compte_Acceuil() {
+export default function Account_Home() {
   return (
     <main class="w-[375px] mx-auto min-h-screen bg-saone-cream flex flex-col items-center text-center text-[#383C40]">
         <h1 class="font-caveat text-[24px] mt-[250px]">BIENVENUE</h1>

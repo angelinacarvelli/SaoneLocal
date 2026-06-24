@@ -2,7 +2,7 @@ import Header from '../../component/Header';
 import Navbar from '../../component/Navbar';
 import Footer from '../../component/Footer';
 
-export default function Commande_Success() {
+export default function Success_Order() {
   return (
     <main class="w-[375px] mx-auto min-h-screen bg-saone-cream">
         <h1 class="text-[#383C40] font-montserrat text-[18px] mt-[20px] mb-[70px] mt-[10px] font-medium">Commande CC-2304-038</h1>

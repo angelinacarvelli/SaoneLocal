@@ -2,15 +2,15 @@ import { HomePage } from "./pages/global/Home.jsx";
 import { NotFoundPage } from "./pages/global/Not-foundjsx";
 import { AboutPage } from "./pages/global/About-us.js"
 import { Profile_Client } from './pages/client/Profile-Client.jsx';
-import { Modif_Client } from './pages/client/Modif_Client';
-import { Profil_Producteur } from './pages/producteur/Profil_Producteur';
-import { Modif_Producteur } from './pages/producteur/Modif_Producteur';
-import { Plus_sur_Nous } from "./pages/global/Plus_sur_Nous.jsx";
-import { Mentions_Legales } from "./pages/global/Mentions_Legales.jsx";
+import { Modif_Client } from './pages/client/Modif-Client.jsx';
+import { Profile_Producer } from './pages/producer/Profile-Producer.jsx';
+import { Modif_Producer } from './pages/producer/Modif-Producer.jsx';
+import { More_On_Us } from "./pages/global/More-On-Us.jsx";
+import { Legal_Notice } from "./pages/global/Legal-Notice.jsx";
 import { Contact } from "./pages/global/Contact.jsx";
-import { Compte_Acceuil } from "./pages/global/Compte_Acceuil.jsx";
-import { Commande_Success } from "./pages/global/Commande_Success.jsx";
-import { Producer_List } from './pages/producteur/Producer-List';
+import { Account_Home } from "./pages/global/Account-Home.jsx";
+import { Success_Order } from "./pages/global/Success-Order.jsx";
+import { Producer_List } from './pages/producer/Producer-List.jsx';
 
 export const routes = [
   {
@@ -43,27 +43,27 @@ export const routes = [
     showInNav: true,
   },  
   {
-    path: "/profil_producteur",
+    path: "/profile_producer",
     label: "Mon compte producteur",
-    component: Profil_Producteur,
+    component: Profile_Producer,
     showInNav: true,
   },  
   {
-    path: "/modif_producteur",
+    path: "/modif_producer",
     label: "Modifier mon compte",
-    component: Modif_Producteur,
+    component: Modif_Producer,
     showInNav: true,
   },
   {
-    path: "/plus_sur_nous",
+    path: "/more-on-us",
     label: "Plus sur Nous",
-    component: Plus_sur_Nous,
+    component: More_On_Us,
     showInNav: true,
   },
   {
-    path: "/mentions_legales",
+    path: "/legal-notice",
     label: "Mentions Légales",
-    component: Mentions_Legales,
+    component: Legal_Notice,
     showInNav: true,
   },
   {
@@ -73,15 +73,15 @@ export const routes = [
     showInNav: true,
   },
   {
-    path: "/compte_acceuil",
+    path: "/account-home",
     label: "Compte Acceuil",
-    component: Compte_Acceuil,
+    component: Account_Home,
     showInNav: true,
   },
   {
-    path: "/commande_success",
+    path: "/success-order",
     label: "Commande Succes",
-    component: Commande_Success,
+    component: Success_Order,
     showInNav: true,
   },
   {

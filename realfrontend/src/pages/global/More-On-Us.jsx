@@ -2,7 +2,7 @@ import Header from '../../component/Header';
 import Navbar from '../../component/Navbar';
 import Footer from '../../component/Footer';
 
-export default function Plus_sur_Nous() {
+export default function More_On_Us() {
   return (
     <main class="w-[375px] mx-auto min-h-screen flex flex-col text-[14px] bg-saone-cream font-montserrat">
         <div class="flex flex-col items-center">
