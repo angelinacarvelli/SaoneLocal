@@ -11,6 +11,7 @@ import { Contact } from "./pages/global/Contact.jsx";
 import { Account_Home } from "./pages/global/Account-Home.jsx";
 import { Success_Order } from "./pages/global/Success-Order.jsx";
 import { Producer_List } from './pages/producer/Producer-List.jsx';
+import { Home_Catalog } from './pages/catalog/Home-Catalog.jsx';
 
 export const routes = [
   {
@@ -88,6 +89,12 @@ export const routes = [
     path: "/producer-list",
     label: "Fiches Producteurs",
     component: Producer_List,
+    showInNav: true,
+  },
+  {
+    path: "/home-catalog",
+    label: "Catalogue de nos Produits",
+    component: Home_Catalog,
     showInNav: true,
   }
 ];

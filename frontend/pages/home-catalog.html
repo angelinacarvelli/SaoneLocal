@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue de nos produits</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "saone-green": '#2B5148',
+                        "saone-terracotta": '#A53F32',
+                        "saone-cream": '#F9F6EF',
+                    },
+                    fontFamily: {
+                        caveat: ['Caveat Brush', 'cursive'],
+                        montserrat: ['Montserrat', 'sans-serif']
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="w-[375px] mx-auto min-h-screen bg-saone-cream flex flex-col items-center gap-3">
+    <button type="button" class="w-full py-[20px] mt-[30px] bg-saone-green text-center rounded-2xl">  
+        <h2 class="text-[12px] text-saone-cream font-montserrat">Fiches producteurs</h2>
+    </button>
+
+    <div class="w-full flex flex-row gap-2 items-center mb-[30px]">
+        <button type="button" class="bg-saone-green text-center rounded-2xl py-[20px] w-full">
+            <h2 class="text-[12px] text-saone-cream font-montserrat">Favoris</h2>
+        </button>
+
+        <button type="button" class="bg-saone-green text-center rounded-2xl py-[20px] w-full">
+            <h2 class="text-[12px] text-saone-cream font-montserrat">Compte</h2>
+        </button>
+    </div>
+
+    <div class="flex flex-col gap-4 items-center">
+        <button type="button">            
+            <div class="bg-[url(../images/catalogue-categorie-boulangerie.jpg)] bg-cover text-center rounded-2xl py-[40px] px-[80px]">
+                <h2 class=" text-[12px] text-saone-cream font-montserrat bg-saone-terracotta opacity-90">BOULANGERIE</h2>
+            </div>
+        </button>
+
+        <button type="button">
+            <div class="bg-[url(../images/catalogue-categorie.jpg-fruits-legumes.jpg)] bg-cover text-center rounded-2xl py-[40px] px-[65px]">
+                <h2 class=" text-[12px] text-saone-cream font-montserrat bg-saone-terracotta opacity-90">FRUITS & LÉGUMES</h2>
+            </div>
+        </button>
+
+        <button type="button">
+            <div class="bg-[url(../images/catalogue-categorie-vins.jpg)] bg-cover text-center rounded-2xl py-[40px] px-[110px]">
+                <h2 class=" text-[12px] text-saone-cream font-montserrat bg-saone-terracotta opacity-90">VINS</h2>
+            </div>
+        </button>
+    </div>
+</body>
+</html>
