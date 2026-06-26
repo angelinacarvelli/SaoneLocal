@@ -1,11 +1,22 @@
 import React from 'react';
-import Home from './pages/global/Home';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { routes } from './routes';
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          {routes.map((route, index) => (
+            <Route 
+              key={index} 
+              path={route.path} 
+              element={<route.component />} 
+            />
+          ))}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

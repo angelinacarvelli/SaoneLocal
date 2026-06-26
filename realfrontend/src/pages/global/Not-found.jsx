@@ -1,3 +1,5 @@
+import React from 'react';
+
 export function NotFoundPage() {
   return (
     <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-4 py-16">
@@ -14,3 +16,5 @@ export function NotFoundPage() {
     </div>
   );
 }
+
+export default NotFoundPage;

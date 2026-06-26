@@ -1,17 +1,17 @@
-import { HomePage } from "./pages/global/Home.jsx";
-import { NotFoundPage } from "./pages/global/Not-foundjsx";
-import { AboutPage } from "./pages/global/About-us.js"
-import { Profile_Client } from './pages/client/Profile-Client.jsx';
-import { Modif_Client } from './pages/client/Modif-Client.jsx';
-import { Profile_Producer } from './pages/producer/Profile-Producer.jsx';
-import { Modif_Producer } from './pages/producer/Modif-Producer.jsx';
-import { More_On_Us } from "./pages/global/More-On-Us.jsx";
-import { Legal_Notice } from "./pages/global/Legal-Notice.jsx";
-import { Contact } from "./pages/global/Contact.jsx";
-import { Account_Home } from "./pages/global/Account-Home.jsx";
-import { Success_Order } from "./pages/global/Success-Order.jsx";
-import { Producer_List } from './pages/producer/Producer-List.jsx';
-import { Home_Catalog } from './pages/catalog/Home-Catalog.jsx';
+import  HomePage  from "./pages/global/Home.jsx";
+import  NotFoundPage  from "./pages/global/Not-found.jsx";
+import  AboutPage  from "./pages/global/About-us.jsx"
+import  Profile_Client  from './pages/client/Profile-Client.jsx';
+import  Modif_Client  from './pages/client/Modif-Client.jsx';
+import  Profile_Producer  from './pages/producer/Profile-Producer.jsx';
+import  Modif_Producer  from './pages/producer/Modif-Producer.jsx';
+import   More_On_Us  from "./pages/global/More-On-Us.jsx";
+import  Legal_Notice  from "./pages/global/Legal-Notice.jsx";
+import  Contact  from "./pages/global/Contact.jsx";
+import  Account_Home  from "./pages/global/Account-Home.jsx";
+import  Success_Order  from "./pages/global/Success-Order.jsx";
+import  Producer_List  from './pages/producer/Producer-List.jsx';
+import  Home_Catalog  from './pages/catalog/Home-Catalog.jsx';
 
 export const routes = [
   {
@@ -26,11 +26,6 @@ export const routes = [
     component: AboutPage,
     showInNav: true,
   },
-  {
-    path: "*",
-    label: "Page introuvable",
-    component: NotFoundPage,
-  },
     {
     path: "/profile_client",
     label: "Mon compte client",
@@ -38,7 +33,7 @@ export const routes = [
     showInNav: true,
   },  
   {
-    path: "/modif_client",
+    path: "/modif-client",
     label: "Modifier mon compte",
     component: Modif_Client,
     showInNav: true,
@@ -96,5 +91,10 @@ export const routes = [
     label: "Catalogue de nos Produits",
     component: Home_Catalog,
     showInNav: true,
+  },
+    {
+    path: "*",
+    label: "Page introuvable",
+    component: NotFoundPage,
   }
 ];
