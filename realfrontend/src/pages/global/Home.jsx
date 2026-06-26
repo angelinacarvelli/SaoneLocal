@@ -27,7 +27,7 @@ export default function Home() {
             title="SE LAISSER TENTER" 
             description="Il faut mettre en bouche ces délices pour ressentir la Bourgogne et tout ce savoir-faire." 
             btnText="Goûter" 
-            link="/catalog"
+            link="/home-catalog"
           />
         </main>
         

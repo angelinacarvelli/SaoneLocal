@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export function NotFoundPage() {
   return (
@@ -10,9 +11,9 @@ export function NotFoundPage() {
       <p className="mt-4 max-w-xl text-lg leading-8 text-coffee-beans/75">
         Cette adresse ne correspond à aucune page publique de SaôneLocal.
       </p>
-      <Button as="a" className="mt-6 w-fit" href="/">
+      <Link to="/" className="mt-6 w-fit bg-saone-terracotta text-saone-cream px-6 py-2 rounded-full">
         Retour à l'accueil
-      </Button>
+      </Link>
     </div>
   );
 }
