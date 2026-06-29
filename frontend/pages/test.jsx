@@ -3,24 +3,32 @@ import Card from "./components/Card";
 export default function Test() {
     return (
     <>
-    <meta charSet="UTF-8" />
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <title>SaôneLocal - Accueil</title>
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Montserrat:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    />
-    <header classname="w-full pt-[60px] pb-[42px]">
-        <html-include src="../components/header.jsx" />
-    </header>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "saone-green": '#2B5148',
+                        "saone-terracotta": '#A53F32',
+                        "saone-cream": '#F9F6EF',
+                    },
+                    fontFamily: {
+                        caveat: ['Caveat Brush', 'cursive'],
+                        montserrat: ['Montserrat', 'sans-serif']
+                    },
+                }
+            }
+        }
+    </script>
+</>
     <main classname="w-full flex-1 space-y-[22px] pb-[120px]">
         <card
         title="Plus sur nous"
