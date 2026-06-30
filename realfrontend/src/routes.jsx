@@ -1,6 +1,6 @@
 import  HomePage  from "./pages/global/Home.jsx";
 import  NotFoundPage  from "./pages/global/Not-found.jsx";
-import  AboutPage  from "./pages/global/About-us.jsx"
+import  AboutPage  from "./pages/global/About-Us.jsx"
 import  Profile_Client  from './pages/client/Profile-Client.jsx';
 import  Modif_Client  from './pages/client/Modif-Client.jsx';
 import  Profile_Producer  from './pages/producer/Profile-Producer.jsx';
