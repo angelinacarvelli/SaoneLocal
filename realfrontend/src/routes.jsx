@@ -12,6 +12,7 @@ import  Account_Home  from "./pages/global/Account-Home.jsx";
 import  Success_Order  from "./pages/global/Success-Order.jsx";
 import  Producer_List  from './pages/producer/Producer-List.jsx';
 import  Home_Catalog  from './pages/catalog/Home-Catalog.jsx';
+import  Profile_Admin  from './pages/producer/Profile-Admin.jsx';
 
 export const routes = [
   {
@@ -92,7 +93,13 @@ export const routes = [
     component: Home_Catalog,
     showInNav: true,
   },
-    {
+  {
+    path: "/profile-admin",
+    label: "Mon compte administrateur",
+    component: Profile_Admin,
+    showInNav: true,
+  },
+  {
     path: "*",
     label: "Page introuvable",
     component: NotFoundPage,
