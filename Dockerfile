@@ -1,3 +1,4 @@
 FROM nginx:alpine
-COPY ./realfrontend /usr/share/nginx/html/
+COPY ./realfrontend/dist /usr/share/nginx/html
 EXPOSE 80
+CMD ["nginx"]

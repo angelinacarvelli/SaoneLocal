@@ -6,7 +6,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  # 1. On vérifie d'abord que le projet compile bien
   ci:
     runs-on: ubuntu-latest
     steps:
@@ -15,9 +14,8 @@ jobs:
 
       - name: Vérifier le build Docker
         run: |
-          docker build -t test-build .
+          docker build -t saonelocal-test .
 
-  # 2. Si le build est OK, on déploie sur ton EC2
   deploy:
     runs-on: ubuntu-latest
     needs: ci
@@ -29,36 +27,21 @@ jobs:
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            # Installer Git si manquant
-            if ! command -v git &> /dev/null; then
-              sudo dnf install git -y || sudo apt-get install git -y
-            fi
-
             # Nettoyer et cloner le dépôt
             rm -rf SaoneLocal
             git clone https://github.com/angelinacarvelli/SaoneLocal.git
             cd SaoneLocal
 
-            # 1. Supprimer TOUS les anciens conteneurs pour libérer le port 80
+            # 1. Supprimer l'ancien conteneur s'il existe
             sudo docker stop saonelocal || true
             sudo docker rm saonelocal || true
-            sudo docker stop mon-app || true
-            sudo docker rm mon-app || true
 
             # 2. Build de la nouvelle image
-            sudo docker build -t mon-app .
+            sudo docker build --no-cache -t saonelocal .
             
-            # 3. Build de la nouvelle image
-            sudo docker build --no-cache -t mon-app .
-
-            # 4. Lancement sur le bon port (80 accessible depuis l'extérieur)
-            sudo docker run -d --name mon-app -p 80:80 --restart always mon-app
-          
-            echo "VÉRIFICATION DES PORTS UTILISÉS SUR L'EC2"
-            sudo ss -tulnp | grep :80 || true
+            # 3. Lancement sur le port 80
+            sudo docker run -d --name saonelocal -p 80:80 --restart always saonelocal
             
-            echo "QUELS CONTENEURS TOURNE ?"
+            echo "VÉRIFICATION DU DÉPLOIEMENT"
             sudo docker ps -a
-            
-            echo "LOG DE MON-APP "
-            sudo docker logs mon-app || true
+            sudo docker logs saonelocal
