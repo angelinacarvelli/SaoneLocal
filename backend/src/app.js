@@ -26,7 +26,7 @@ app.use(cookieParser()); // active l'analyse auto des cookies nav
 app.use(express.urlencoded({ extended: false })); // permet de parser les donnees des formulaires html
 
 // Liaison avec ton dossier frontend pour servir tous tes fichiers HTML, CSS et images statiques
-app.use(express.static(path.join(__dirname, "../frontend")));
+app.use(express.static(path.join(__dirname, "../realfrontend/dist")));
 
 // Hachage du passw avec bcrypt (securite bdd)
 async function hashPass(password) { 
