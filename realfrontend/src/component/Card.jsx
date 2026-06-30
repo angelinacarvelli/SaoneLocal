@@ -16,7 +16,7 @@ export default function Card({ title, description, btnText, children, link }) {
       {}
       {btnText && link && (
         <Link to={link}>
-          <button className="bg-saone-terracotta text-saone-cream px-6 py-2 rounded-full text-sm font-montserrat shadow-md hover:bg-[#8e362b] transition-colors">
+          <button className="bg-saone-terracotta text-saone-cream px-6 py-2 rounded-full text-sm font-montserrat shadow-md hover:bg-[#8e362b] transition-colors ml-[220px]">
             {btnText}
           </button>
         </Link>

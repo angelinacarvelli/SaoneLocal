@@ -28,12 +28,23 @@ export default function Home() {
             btnText="Voir l'équipe" 
             link="/producer-list"
           />
-          <Card 
-            title="SE LAISSER TENTER" 
-            description="Il faut mettre en bouche ces délices pour ressentir la Bourgogne et tout ce savoir-faire." 
-            btnText="Goûter" 
-            link="/home-catalog"
-          />
+
+          <div className="bg-saone-green text-saone-cream rounded-3xl p-6 mb-4 shadow-lg w-full max-w-md mx-auto">
+            <h2 className="font-bold text-lg uppercase tracking-wider mb-3 font-caveat">Se laisser tenter</h2>
+            <p className="text-sm opacity-90 mb-5 leading-relaxed font-montserrat">Il faut mettre en bouche ces délices pour ressentir la Bourgogne et tout ce savoir-faire.</p>
+
+            <div class="flex flex-row gap-2">
+              <img src="../../../assets//products/Boulangerie/boulangerie-pain-campagne.jpg" alt="pain-campagne" class="w-[120px] h-[120px] object-cover rounded-3xl"/>
+              <img src="../../../assets/products/Fruits & légumes/legumes-patates.jpg" alt="patates" class="w-[120px] h-[120px] object-cover rounded-3xl"/>
+              <img src="../../../assets/products/Vins/vins-mercurey-blanc.jpg" alt="mercurey-blanc" class="w-[120px] h-[120px] object-cover rounded-3xl"/>
+            </div>
+
+            <button href="/"
+              className="bg-saone-terracotta text-saone-cream px-6 py-2 mt-[20px] rounded-full text-sm font-montserrat shadow-md hover:bg-[#8e362b] transition-colors ml-[65%]">
+                Goûter
+            </button>
+          </div>
+
         </main>
         
         <Footer />
