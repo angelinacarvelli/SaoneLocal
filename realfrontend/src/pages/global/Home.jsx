@@ -1,4 +1,3 @@
-import Header from '../../component/Header';
 import Navbar from '../../component/Navbar';
 import Footer from '../../component/Footer';
 import Card from '../../component/Card';
@@ -8,9 +7,15 @@ export default function Home() {
     <div className="bg-[#F5F3E7] min-h-screen flex flex-col items-center">
       {/* Conteneur type téléphone */}
       <div className="w-full max-w-md bg-[#F5F3E7] min-h-screen relative shadow-2xl">
-        <Header />
+
+        <header>
+            <img class="w-[180px] h-[180px] object-cover" src="../../assets/Logo-principal.png" alt="logo"/>
+            <a href="/" class="absolute w-[40px] top-0 right-0 mt-[65px] mr-[30px]">
+              <img src="../../assets/icon/picto-acceuil.png" alt="acceuil"/>
+            </a>
+        </header>
         
-        <main className="p-4">
+        <main className="p-2">
           <Card 
             title="PLUS SUR NOUS" 
             description="Notre association est une association de proximité, nous créons du lien avec nos clients. Ce sont pas de simples produits mais la Bourgogne entière que vous mettez en bouche. SaôneLocal c'est une expérience pour vos papilles." 
