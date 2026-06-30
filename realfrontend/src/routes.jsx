@@ -14,6 +14,9 @@ import  Producer_List  from './pages/producer/Producer-List.jsx';
 import  Home_Catalog  from './pages/catalog/Home-Catalog.jsx';
 import  Profile_Admin  from './pages/producer/Profile-Admin.jsx';
 import  Event  from "./pages/global/Event.jsx";
+import  Search1  from "./pages/search/Search1.jsx";
+import  Search2  from "./pages/search/Search2.jsx";
+import  Search3  from "./pages/search/Search3.jsx";
 
 export const routes = [
   {
@@ -104,6 +107,24 @@ export const routes = [
     path: "/event",
     label: "Calendrier",
     component: Event,
+    showInNav: true,
+  },
+  {
+    path: "/search1",
+    label: "Rechercher",
+    component: Search1,
+    showInNav: true,
+  },
+  {
+    path: "/search2",
+    label: "Rechercher",
+    component: Search2,
+    showInNav: true,
+  },
+  {
+    path: "/search3",
+    label: "Rechercher",
+    component: Search3,
     showInNav: true,
   },
   {
