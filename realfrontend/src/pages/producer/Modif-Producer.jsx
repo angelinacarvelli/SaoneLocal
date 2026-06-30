@@ -69,12 +69,12 @@ export default function Modif_Producer() {
             </form>
         </div>
 
-        {/* <script>
+        {
             function changePhoto(event){
             const image = document.getElementById("preview");
             image.src = URL.createObjectURL(event.target.files[0]);
             }
-        </script> */}
+        }
     </main>
   );
 }

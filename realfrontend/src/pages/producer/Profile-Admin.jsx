@@ -76,10 +76,10 @@ export default function Profile_Admin() {
             </section>
         </div>
 
-        {/* <script>
+        {
         function toggleProduit(){
         document.getElementById("produit").classList.toggle("hidden");}
-        </script> */}
+        }
     </main>
   );
 }
