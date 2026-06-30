@@ -1,4 +1,3 @@
-import Head from '../../component/Head';
 import Header from '../../component/Header';
 import Navbar from '../../component/Navbar';
 import Footer from '../../component/Footer';
@@ -10,7 +9,6 @@ export default function Home() {
       {/* Conteneur type téléphone */}
       <Head />
       <div className="w-full max-w-md bg-[#F5F3E7] min-h-screen relative shadow-2xl">
-        <Header />
         
         <main className="p-4">
           <Card 
