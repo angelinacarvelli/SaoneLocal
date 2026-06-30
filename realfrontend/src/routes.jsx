@@ -13,6 +13,7 @@ import  Success_Order  from "./pages/global/Success-Order.jsx";
 import  Producer_List  from './pages/producer/Producer-List.jsx';
 import  Home_Catalog  from './pages/catalog/Home-Catalog.jsx';
 import  Profile_Admin  from './pages/producer/Profile-Admin.jsx';
+import  Event  from "./pages/global/Event.jsx";
 
 export const routes = [
   {
@@ -97,6 +98,12 @@ export const routes = [
     path: "/profile-admin",
     label: "Mon compte administrateur",
     component: Profile_Admin,
+    showInNav: true,
+  },
+  {
+    path: "/event",
+    label: "Calendrier",
+    component: Event,
     showInNav: true,
   },
   {
