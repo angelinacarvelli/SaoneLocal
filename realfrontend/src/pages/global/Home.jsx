@@ -35,14 +35,15 @@ export default function Home() {
 
             <div class="flex flex-row gap-2">
               <img src="../../../assets//products/Boulangerie/boulangerie-pain-campagne.jpg" alt="pain-campagne" class="w-[120px] h-[120px] object-cover rounded-3xl"/>
-              <img src="../../../assets/products/Fruits & légumes/legumes-patates.jpg" alt="patates" class="w-[120px] h-[120px] object-cover rounded-3xl"/>
+              <img src="../../../assets/products/Fruits-légumes/legumes-patates.jpg" alt="patates" class="w-[120px] h-[120px] object-cover rounded-3xl"/>
               <img src="../../../assets/products/Vins/vins-mercurey-blanc.jpg" alt="mercurey-blanc" class="w-[120px] h-[120px] object-cover rounded-3xl"/>
             </div>
 
-            <button href="/"
-              className="bg-saone-terracotta text-saone-cream px-6 py-2 mt-[20px] rounded-full text-sm font-montserrat shadow-md hover:bg-[#8e362b] transition-colors ml-[65%]">
-                Goûter
-            </button>
+            <a href="/home-catalog">
+              <button className="bg-saone-terracotta text-saone-cream px-6 py-2 mt-[20px] rounded-full text-sm font-montserrat shadow-md hover:bg-[#8e362b] transition-colors ml-[65%]">
+                  Goûter
+              </button>
+            </a>
           </div>
 
         </main>
