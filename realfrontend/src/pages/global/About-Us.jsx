@@ -9,7 +9,7 @@ const AboutPage = () => {
         <div class="flex flex-col items-center">
             <img src="../realfrontend/assets/Logo-principal.png" alt="Logo" class="w-[130px] h-[130px] object-cover mb-[40px] mt-[30px]"/>
         </div>
-        <h2 class="font-caveat text-[18px] text-saone-green">NOTRE HISTOIRE</h2>
+        <h2 class="font-caveat text-[18px] text-saone-green">Notre histoire</h2>
         <p>SaôneLocal est une association regroupant une <b>cinquantaine de producteurs locaux</b> du bassin chalonnais(vignerons, maraîchers, apiculteurs, fromagers)." </p>
         <p> <br/>Nous l'avons crée pour mettre davantage en lumière la Bourgogne et surtout <b>faire briller Chalon-sur-Saône.</b></p>
         <p><br/> Nous sommes une association chaleureuse et familiale. Lorsque vous acheter chez SaôneLocal, vous n'acheter pas que des produits. Nois vous livrons le <b>terroir</b> et un <b>véritable savoir-faire;</b></p>
