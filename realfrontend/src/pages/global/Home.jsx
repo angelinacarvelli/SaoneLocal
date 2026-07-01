@@ -15,7 +15,7 @@ export default function Home() {
             </a>
         </header>
         
-        <main className="p-2">
+        <main className="p-2 flex flex-col items-center">
           <Card 
             title="PLUS SUR NOUS" 
             description="Notre association est une association de proximité, nous créons du lien avec nos clients. Ce sont pas de simples produits mais la Bourgogne entière que vous mettez en bouche. SaôneLocal c'est une expérience pour vos papilles." 
@@ -29,18 +29,18 @@ export default function Home() {
             link="/producer-list"
           />
 
-          <div className="bg-saone-green text-saone-cream rounded-3xl p-6 mb-4 shadow-lg w-full max-w-md mx-auto">
+          <div className="bg-saone-green text-saone-cream rounded-3xl p-6 mb-4 shadow-lg w-[90%]">
             <h2 className="font-bold text-lg uppercase tracking-wider mb-3 font-caveat">Se laisser tenter</h2>
             <p className="text-sm opacity-90 mb-5 leading-relaxed font-montserrat">Il faut mettre en bouche ces délices pour ressentir la Bourgogne et tout ce savoir-faire.</p>
 
-            <div class="flex flex-row gap-2">
-              <img src="../../../assets//products/Boulangerie/boulangerie-pain-campagne.jpg" alt="pain-campagne" class="w-[120px] h-[120px] object-cover rounded-3xl"/>
-              <img src="../../../assets/products/Fruits-légumes/legumes-patates.jpg" alt="patates" class="w-[120px] h-[120px] object-cover rounded-3xl"/>
-              <img src="../../../assets/products/Vins/vins-mercurey-blanc.jpg" alt="mercurey-blanc" class="w-[120px] h-[120px] object-cover rounded-3xl"/>
+            <div class="flex flex-row gap-2 justify-center">
+              <img src="../../../assets//products/Boulangerie/boulangerie-pain-campagne.jpg" alt="pain-campagne" class="w-[105px] h-[105px] object-cover rounded-3xl"/>
+              <img src="../../../assets/products/Fruits-légumes/legumes-patates.jpg" alt="patates" class="w-[105px] h-[105px] object-cover rounded-3xl"/>
+              <img src="../../../assets/products/Vins/vins-mercurey-blanc.jpg" alt="mercurey-blanc" class="w-[105px] h-[105px] object-cover rounded-3xl"/>
             </div>
 
             <a href="/home-catalog">
-              <button className="bg-saone-terracotta text-saone-cream px-6 py-2 mt-[20px] rounded-full text-sm font-montserrat shadow-md hover:bg-[#8e362b] transition-colors ml-[67%]">
+              <button className="bg-saone-terracotta text-saone-cream px-6 py-2 mt-[20px] rounded-full text-sm font-montserrat shadow-md hover:bg-[#8e362b] transition-colors ml-[220px]">
                   Goûter
               </button>
             </a>

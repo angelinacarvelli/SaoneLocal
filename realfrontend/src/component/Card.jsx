@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function Card({ title, description, btnText, children, link }) {
   return (
-    <div className="bg-saone-green text-saone-cream rounded-3xl p-6 mb-4 shadow-lg w-full max-w-md mx-auto">
+    <div className="bg-saone-green text-saone-cream rounded-3xl p-6 mb-4 shadow-lg w-[90%]">
       <h2 className="font-bold text-lg uppercase tracking-wider mb-3 font-caveat">
         {title}
       </h2>
