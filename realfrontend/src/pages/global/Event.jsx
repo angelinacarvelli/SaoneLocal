@@ -6,8 +6,9 @@ export default function Event() {
   return (
     <div class="bg-saone-cream min-h-screen flex flex-col items-center">
         <main class="w-full max-w-md min-h-screen relative shadow-2xl bg-saone-cream font-montserrat">
-                <section class="mt-[22px] space-y-3">
-
+        <Header title="calendrier"/>
+            <div class="flex flex-col items-center">
+                <section class="mt-[22px] space-y-3 w-[90%]">
                     <div class="bg-saone-green text-saone-cream rounded-[16px] p-3">
                         <h3 class="font-caveat text-[14px]">Oenologue junior - Vendredi 15 mai 2026  à 18H</h3>
                         <p class="text-[11px] mt-1">Atelier découverte des saveurs du vin et dégustation de vins bourguignons.</p>
@@ -26,12 +27,13 @@ export default function Event() {
                         </div>
                     </div>
                 </section>
+            </div>
 
+                <div class="w-80% items-center h-[1px] bg-saone-green fs-0 mt-[30px] mx-[20px]"></div>
+                <h2 class="mt-[22px] ml-[20px] font-caveat text-[16px] text-saone-green uppercase">Vos événements enregistrés</h2>
 
-                <div class="w-80% items-center h-[1px] bg-saone-green fs-0 mt-[30px]"></div>
-                <h2 class="mt-[22px] font-caveat text-[16px] text-saone-green uppercase">Vos événements enregistrés</h2>
-
-                <section class="mt-[13px] space-y-3">
+            <div class="flex flex-col items-center">
+                <section class="mt-[13px] space-y-3 w-[90%]">
                     <div class="bg-saone-green text-saone-cream rounded-[16px] p-3 relative">
                         <h3 class="font-montserrat text-[14px]">Mercredi 29 avril 2026 - 13h30/17h</h3>
                         <p class="text-[11px] mt-5">Atelier pâtisserie en famille.</p>
@@ -44,6 +46,9 @@ export default function Event() {
                         <button class="absolute right-3 top-3 text-saone-terracotta text-xl"><img/></button>
                     </div>
                 </section>
+            </div>
+            <Navbar />
+            <Footer />
         </main>
     </div>
   );

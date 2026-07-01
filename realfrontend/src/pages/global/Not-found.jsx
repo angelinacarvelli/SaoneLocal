@@ -3,18 +3,20 @@ import { Link } from 'react-router-dom';
 
 export function NotFoundPage() {
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-4 py-16">
-      <p className="mb-4 inline-flex w-fit rounded-card bg-golden-glow px-3 py-1 font-display text-sm text-coffee-beans">
-        Erreur 404
-      </p>
-      <h1 className="font-display text-4xl text-coffee-beans">Page introuvable</h1>
-      <p className="mt-4 max-w-xl text-lg leading-8 text-coffee-beans/75">
-        Cette adresse ne correspond à aucune page publique de SaôneLocal.
-      </p>
-      <Link to="/" className="mt-6 w-fit bg-saone-terracotta text-saone-cream px-6 py-2 rounded-full">
-        Retour à l'accueil
-      </Link>
-    </div>
+    <div class="bg-saone-cream min-h-screen flex flex-col items-center">
+      <div className="w-full max-w-md min-h-screen relative shadow-2xl flex-1 flex-col justify-center px-4 py-16">
+        <p className="mb-4 inline-flex w-fit rounded-card bg-golden-glow px-3 py-1 font-display text-sm text-coffee-beans">
+          Erreur 404
+        </p>
+        <h1 className="font-display text-4xl text-coffee-beans">Page introuvable</h1>
+        <p className="mt-4 max-w-xl text-lg leading-8 text-coffee-beans/75">
+          Cette adresse ne correspond à aucune page publique de SaôneLocal.
+        </p>
+        <Link to="/" className="mt-[30px] w-fit bg-saone-terracotta text-saone-cream px-6 py-2 rounded-full">
+          Retour à l'accueil
+        </Link>
+      </div>
+    </div> 
   );
 }
 
