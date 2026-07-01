@@ -13,7 +13,7 @@ export default function Account_Home() {
         <p className="font-montserrat text-[18px] mb-[20px]">Je suis</p>
         <div className="flex flex-row gap-3 text-saone-cream font-montserrat text-[14px]">
             <Link to="/login-client" className="flex-1 bg-saone-terracotta rounded-full w-[90px] py-3 px-1 text-center">Client</Link>
-            <Link to="/login-producteur" className="flex-1 bg-saone-terracotta rounded-full w-[90px] py-3 px-2 text-center">Producteur</Link>
+            <Link to="/login-producter" className="flex-1 bg-saone-terracotta rounded-full w-[90px] py-3 px-2 text-center">Producteur</Link>
         </div>
         <Navbar />
         <Footer />

@@ -13,6 +13,10 @@ import  Success_Order  from "./pages/global/Success-Order.jsx";
 import  Producer_List  from './pages/producer/Producer-List.jsx';
 import  Home_Catalog  from './pages/catalog/Home-Catalog.jsx';
 import  Profile_Admin  from './pages/producer/Profile-Admin.jsx';
+import LoginPage from './pages/client/login-client.jsx';
+import ProducerLoginPage from './pages/producer/login-producter.jsx';
+import SignupProducerPage from './pages/producer/signup-producter.jsx';
+import SignupClientPage from './pages/client/signup-client.jsx';
 import  Event  from "./pages/global/Event.jsx";
 import  Search1  from "./pages/search/Search1.jsx";
 import  Search2  from "./pages/search/Search2.jsx";
@@ -44,6 +48,17 @@ export const routes = [
     showInNav: true,
   },  
   {
+    path: "/login-client",
+    label: "Connexion Client", 
+    component: LoginPage,
+    showInNav: true,
+  },
+    {
+    path: "/signup-client",
+    label: "Inscription Client",
+    component: SignupClientPage,
+  },
+  {
     path: "/profile_producer",
     label: "Mon compte producteur",
     component: Profile_Producer,
@@ -54,6 +69,17 @@ export const routes = [
     label: "Modifier mon compte",
     component: Modif_Producer,
     showInNav: true,
+  },
+    {
+    path: "/login-producter",
+    label: "Connexion Producteur",
+    component: ProducerLoginPage,
+    showInNav: true,
+  },
+      {
+    path: "/signup-producer",
+    label: "Inscription Producteur",
+    component: SignupProducerPage,
   },
   {
     path: "/more-on-us",
