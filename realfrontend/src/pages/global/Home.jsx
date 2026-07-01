@@ -40,7 +40,7 @@ export default function Home() {
             </div>
 
             <a href="/home-catalog">
-              <button className="bg-saone-terracotta text-saone-cream px-6 py-2 mt-[20px] rounded-full text-sm font-montserrat shadow-md hover:bg-[#8e362b] transition-colors ml-[65%]">
+              <button className="bg-saone-terracotta text-saone-cream px-6 py-2 mt-[20px] rounded-full text-sm font-montserrat shadow-md hover:bg-[#8e362b] transition-colors ml-[67%]">
                   Goûter
               </button>
             </a>

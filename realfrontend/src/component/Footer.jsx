@@ -4,7 +4,7 @@ export default function Footer() {
       <p className="font-bold">Fabriqué en Bourgogne.</p>
       <div className="flex justify-center gap-4 mt-2">
         <a href="/contact">Nous contacter</a>
-        <a href="/mentions">Mentions légales</a>
+        <a href="/legal-notice">Mentions légales</a>
       </div>
       <p className="mt-4 opacity-70">© {new Date().getFullYear()} SaôneLocal</p>
     </footer>

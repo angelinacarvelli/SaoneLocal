@@ -5,13 +5,13 @@ import Footer from '../../component/Footer';
 
 export default function Home_Catalog() {
   return (
-    <main className="w-[375px] mx-auto min-h-screen bg-saone-cream flex flex-col items-center gap-3">
+    <main className="w-[375px] mx-auto min-h-screen flex flex-col gap-3 bg-saone-cream">
         <Header title="catalogue de nos produits"/>
         <Link to="/producer-list" className="w-full py-[20px] mt-[30px] bg-saone-green text-center rounded-2xl">  
             <h2 className="text-[12px] text-saone-cream font-montserrat">Fiches producteurs</h2>
         </Link>
 
-        <div className="w-full flex flex-row gap-2 items-center mb-[30px] mr-[20px] ml-[20px]">
+        <div className="w-full flex flex-row gap-2 items-center mb-[30px]">
             <Link to="/favoris" className="bg-saone-green text-center rounded-2xl py-[20px] w-full">
                 <h2 className="text-[12px] text-saone-cream font-montserrat">Favoris</h2>
             </Link>
