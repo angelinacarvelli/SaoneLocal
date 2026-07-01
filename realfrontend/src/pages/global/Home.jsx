@@ -33,10 +33,10 @@ export default function Home() {
             <h2 className="font-bold text-lg uppercase tracking-wider mb-3 font-caveat">Se laisser tenter</h2>
             <p className="text-sm opacity-90 mb-5 leading-relaxed font-montserrat">Il faut mettre en bouche ces délices pour ressentir la Bourgogne et tout ce savoir-faire.</p>
 
-            <div class="flex flex-row gap-2">
-              <img src="../../../assets//products/Boulangerie/boulangerie-pain-campagne.jpg" alt="pain-campagne" class="w-[120px] h-[120px] object-cover rounded-3xl"/>
-              <img src="../../../assets/products/Fruits-légumes/legumes-patates.jpg" alt="patates" class="w-[120px] h-[120px] object-cover rounded-3xl"/>
-              <img src="../../../assets/products/Vins/vins-mercurey-blanc.jpg" alt="mercurey-blanc" class="w-[120px] h-[120px] object-cover rounded-3xl"/>
+            <div class="flex flex-row gap-2 justify-center">
+              <img src="../../../assets//products/Boulangerie/boulangerie-pain-campagne.jpg" alt="pain-campagne" class="w-[105px] h-[105px] object-cover rounded-3xl"/>
+              <img src="../../../assets/products/Fruits-légumes/legumes-patates.jpg" alt="patates" class="w-[105px] h-[105px] object-cover rounded-3xl"/>
+              <img src="../../../assets/products/Vins/vins-mercurey-blanc.jpg" alt="mercurey-blanc" class="w-[105px] h-[105px] object-cover rounded-3xl"/>
             </div>
 
             <a href="/home-catalog">
