@@ -27,21 +27,19 @@ jobs:
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            # Nettoyer et cloner le dépôt
             rm -rf SaoneLocal
             git clone https://github.com/angelinacarvelli/SaoneLocal.git
             cd SaoneLocal
 
-            # 1. Supprimer l'ancien conteneur s'il existe
+            sudo docker stop mon-app || true
+            sudo docker rm mon-app || true
             sudo docker stop saonelocal || true
             sudo docker rm saonelocal || true
 
-            # 2. Build de la nouvelle image
             sudo docker build --no-cache -t saonelocal .
-            
-            # 3. Lancement sur le port 80
             sudo docker run -d --name saonelocal -p 80:80 --restart always saonelocal
-            
+
             echo "VÉRIFICATION DU DÉPLOIEMENT"
             sudo docker ps -a
             sudo docker logs saonelocal
+            
