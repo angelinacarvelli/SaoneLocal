@@ -4,9 +4,9 @@ import Card from '../../component/Card';
 
 export default function Home() {
   return (
-    <div className="bg-[#F5F3E7] min-h-screen flex flex-col items-center">
-      {/* Conteneur type téléphone */}
-      <div className="w-full max-w-md bg-[#F5F3E7] min-h-screen relative shadow-2xl">
+    <div className="bg-saone-cream min-h-screen flex flex-col items-center">
+      {/* Conteneur taille téléphone */}
+      <div className="w-full max-w-md min-h-screen relative shadow-2xl">
 
         <header>
             <img class="w-[180px] h-[180px] object-cover" src="../../assets/Logo-principal.png" alt="logo"/>
