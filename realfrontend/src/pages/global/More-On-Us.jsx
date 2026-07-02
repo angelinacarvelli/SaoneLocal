@@ -9,7 +9,7 @@ export default function More_On_Us() {
     <main class="w-full max-w-md min-h-screen relative shadow-2xl flex flex-col text-[14px] bg-saone-cream font-montserrat">
       <Header title="plus sur nous"/>
       <div class="flex flex-col items-center">
-        <img src="../../../public/assets/Logo-principal.png" alt="Logo" class="w-[220px] h-[220px] object-cover"/>
+        <img src="../../../assets/Logo-principal.png" alt="Logo" class="w-[220px] h-[220px] object-cover"/>
       </div>
 
       <div class="mr-[20px] ml-[20px]">
