@@ -131,7 +131,6 @@ app.post("/login", async (req, res) => {
 app.use("/api/client", clientRoutes);
 app.use("/api/producer", producterRoutes); // Gère le catalogue et les fiches producteurs
 app.use("/api/products", produitRoutes); // Gère les fiches produits et le catalogue commun
-app.use('/api/producer', router); // Gère les routes spécifiques aux producteurs (profil, stats, commandes, etc.)
 
 const PORT = process.env.PORT || process.env.port || 3000;
 
