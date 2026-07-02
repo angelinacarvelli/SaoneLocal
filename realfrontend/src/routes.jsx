@@ -21,7 +21,7 @@ import  Search1  from "./pages/search/Search1.jsx";
 import  Search2  from "./pages/search/Search2.jsx";
 import  Search3  from "./pages/search/Search3.jsx";
 import ProductDetail from './pages/catalog/fiche_produit.jsx';
-import ProducerDetail from './pages/producer/fiche-producter.jsx';
+import ProducerDetail from './pages/fiche-producer.jsx/Karim.jsx';
 
 export const routes = [
   {
