@@ -1,6 +1,5 @@
 import  HomePage  from "./pages/global/Home.jsx";
 import  NotFoundPage  from "./pages/global/Not-found.jsx";
-import  AboutPage  from "./pages/global/About-Us.jsx"
 import  Profile_Client  from './pages/client/Profile-Client.jsx';
 import  Modif_Client  from './pages/client/Modif-Client.jsx';
 import  Profile_Producer  from './pages/producer/Profile-Producer.jsx';
@@ -21,6 +20,8 @@ import  Event  from "./pages/global/Event.jsx";
 import  Search1  from "./pages/search/Search1.jsx";
 import  Search2  from "./pages/search/Search2.jsx";
 import  Search3  from "./pages/search/Search3.jsx";
+import ProductDetail from './pages/catalog/fiche_produit.jsx';
+import ProducerDetail from './pages/producer/fiche-producter.jsx';
 
 export const routes = [
   {
@@ -32,7 +33,7 @@ export const routes = [
   {
     path: "/a-propos",
     label: "À propos",
-    component: AboutPage,
+    component: More_On_Us,
     showInNav: true,
   },
     {
@@ -121,6 +122,18 @@ export const routes = [
     path: "/home-catalog",
     label: "Catalogue de nos Produits",
     component: Home_Catalog,
+    showInNav: true,
+  },
+    {
+    path: "/ProductDetail-Pain-aux-céréales",
+    label: "Détails du produit",
+    component: ProductDetail,
+    showInNav: true,
+  },
+      {
+    path: "/ProducerDetail-Karim-Benchouia",
+    label: "Détails du producteur",
+    component: ProducerDetail,
     showInNav: true,
   },
   {
