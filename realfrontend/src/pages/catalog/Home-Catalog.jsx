@@ -24,17 +24,17 @@ export default function Home_Catalog() {
 
                 <div className="flex flex-col gap-4 items-center">
                     <button type="button">            
-                        <div className="bg-[url(../../../assets/products/Boulangerie/catalogue-categorie-boulangerie.jpg)] bg-cover text-center rounded-2xl py-[40px] px-[80px]">
+                        <div className="bg-[url(../../../public/assets/products/Boulangerie/catalogue-categorie-boulangerie.jpg)] bg-cover text-center rounded-2xl py-[40px] px-[80px]">
                             <h2 className="text-[12px] text-saone-cream font-montserrat bg-saone-terracotta opacity-90">BOULANGERIE</h2>
                         </div>
                     </button>
                     <button type="button">
-                        <div className="bg-[url(../../../assets/products/Fruits-légumes/fruits-legumes-catalogue.jpg)] bg-cover text-center rounded-2xl py-[40px] px-[65px]">
+                        <div className="bg-[url(../../../public/assets/products/Fruits-légumes/fruits-legumes-catalogue.jpg)] bg-cover text-center rounded-2xl py-[40px] px-[65px]">
                             <h2 className="text-[12px] text-saone-cream font-montserrat bg-saone-terracotta opacity-90">FRUITS & LÉGUMES</h2>
                         </div>
                     </button>
                     <button type="button">
-                        <div className="bg-[url(../../../assets/products/Vins/catalogue-categorie-vins.jpg)] bg-cover text-center rounded-2xl py-[40px] px-[110px]">
+                        <div className="bg-[url(../../../public/assets/products/Vins/catalogue-categorie-vins.jpg)] bg-cover text-center rounded-2xl py-[40px] px-[110px]">
                             <h2 className="text-[12px] text-saone-cream font-montserrat bg-saone-terracotta opacity-90">VINS</h2>
                         </div>
                     </button>

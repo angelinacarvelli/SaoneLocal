@@ -46,9 +46,9 @@ export default function Profile_Admin() {
 
                     <section class="mt-[18px] bg-saone-green rounded-[16px] px-2 text-saone-cream flex flex-col gap-2 items-center">
                         <div class="flex flex-row gap-2">
-                            <img src="../image/saonelocal-karim-producteur.jpg" class="w-[90px] h-[90px] rounded-[18px] object-cover"/>
-                            <img src="../image/saonelocal-michel-producteur.jpg" class="w-[90px] h-[90px] rounded-[18px] object-cover"/>
-                            <img src="../image/saonelocal-isabelle-producteur.jpg" class="w-[90px] h-[90px] rounded-[18px] object-cover"/>
+                            <img src="../../../public/assets/users/saonelocal-karim-producteur.jpg" class="w-[90px] h-[90px] rounded-[18px] object-cover"/>
+                            <img src="../../../public/assets/users/saonelocal-michel-producteur.jpg" class="w-[90px] h-[90px] rounded-[18px] object-cover"/>
+                            <img src="../../../public/assets/users/saonelocal-isabelle-producteur.jpg" class="w-[90px] h-[90px] rounded-[18px] object-cover"/>
                         </div>
 
                         <div class="mt-2 border border-saone-cream rounded-xl p-3 text-[12px] w-full">
