@@ -22,7 +22,7 @@ import  Search2  from "./pages/search/Search2.jsx";
 import  Search3  from "./pages/search/Search3.jsx";
 import ProductDetail from './pages/catalog/fiche_produit.jsx';
 import ProducerDetail from './pages/fiche-producer.jsx/Karim.jsx';
-import  Wine_sort_product from './pages/catalog/Wine-sort-product.jsx';
+import  Wine_Sort_Product from './pages/catalog/Wine-sort-product.jsx';
 
 export const routes = [
   {
@@ -170,7 +170,7 @@ export const routes = [
   {
     path: "/wine-sort-product",
     label: "Catalogue de nos Produits",
-    component: Wine_sort_product,
+    component: Wine_Sort_Product,
     showInNav: true,
   },
   {

@@ -3,7 +3,7 @@ import Header from '../../component/Header';
 import Navbar from '../../component/Navbar';
 import Footer from '../../component/Footer';
 
-export default function Wine_sort_product() {
+export default function Wine_Sort_Product() {
   return (
     <div className="bg-saone-cream min-h-screen flex flex-col items-center">
         <main class="w-full max-w-md min-h-screen relative shadow-2xl flex flex-col items-center gap-3">
