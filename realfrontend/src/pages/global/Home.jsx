@@ -9,9 +9,9 @@ export default function Home() {
       <div className="w-full max-w-md min-h-screen relative shadow-2xl">
 
         <header>
-            <img class="w-[180px] h-[180px] object-cover" src="../../assets/Logo-principal.png" alt="logo"/>
+            <img class="w-[180px] h-[180px] object-cover" src="../../../assets/Logo-principal.png" alt="logo"/>
             <a href="/" class="absolute w-[40px] top-0 right-0 mt-[65px] mr-[30px]">
-              <img src="../../assets/icon/picto-acceuil.png" alt="acceuil"/>
+              <img src="../../../assets/icon/picto-acceuil.png" alt="acceuil"/>
             </a>
         </header>
         
