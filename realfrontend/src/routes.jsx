@@ -21,6 +21,7 @@ import  Event  from "./pages/global/Event.jsx";
 import  Search1  from "./pages/search/Search1.jsx";
 import  Search2  from "./pages/search/Search2.jsx";
 import  Search3  from "./pages/search/Search3.jsx";
+import  Wine_sort_product from './pages/catalog/Wine-sort-product.jsx';
 
 export const routes = [
   {
@@ -151,6 +152,12 @@ export const routes = [
     path: "/search3",
     label: "Rechercher",
     component: Search3,
+    showInNav: true,
+  },
+  {
+    path: "/wine-sort-product",
+    label: "Catalogue de nos Produits",
+    component: Wine_sort_product,
     showInNav: true,
   },
   {

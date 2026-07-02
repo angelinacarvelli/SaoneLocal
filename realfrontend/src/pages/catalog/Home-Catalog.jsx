@@ -33,11 +33,11 @@ export default function Home_Catalog() {
                             <h2 className="text-[12px] text-saone-cream font-montserrat bg-saone-terracotta opacity-90">FRUITS & LÉGUMES</h2>
                         </div>
                     </button>
-                    <button type="button">
-                        <div className="bg-[url(../../../assets/products/Vins/catalogue-categorie-vins.jpg)] bg-cover text-center rounded-2xl py-[40px] px-[110px]">
+                    <link to="/wine-sort-product">
+                        <div className="bg-[url(../../public/assets/products/Vins/catalogue-categorie-vins.jpg)] bg-cover text-center rounded-2xl py-[40px] px-[110px]">
                             <h2 className="text-[12px] text-saone-cream font-montserrat bg-saone-terracotta opacity-90">VINS</h2>
                         </div>
-                    </button>
+                    </link>
                 </div>
             </div>    
             <Navbar />
