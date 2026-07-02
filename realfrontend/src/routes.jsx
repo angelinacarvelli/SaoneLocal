@@ -32,7 +32,7 @@ export const routes = [
   },
   {
     path: "/a-propos",
-    label: "À propos",
+    label: "À propos de nous",
     component: More_On_Us,
     showInNav: true,
   },
