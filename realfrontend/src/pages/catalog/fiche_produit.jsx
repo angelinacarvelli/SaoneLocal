@@ -6,8 +6,8 @@ import Footer from '../../component/Footer';
 
 export default function ProductDetail() {
   return (
-    <div className="bg-[#fcfaf5] min-h-screen flex justify-center p-4">
-      <main className="w-full max-w-md bg-[#fcfaf5] flex flex-col gap-4">
+    <div className="bg-saone-cream min-h-screen flex flex-col items-center">
+      <main className="w-full max-w-md min-h-screen relative shadow-2xl flex flex-col gap-4">
         
         {/* En-tête avec bouton retour et maison */}
         <div className="flex justify-between items-center py-2">
