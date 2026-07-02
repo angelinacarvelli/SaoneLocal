@@ -9,7 +9,7 @@ export default function Profile_Producer() {
 
                 <header class="pt-[60px]">
                     <div class="flex items-center gap-3">
-                        <img src="../../../public/assets/users/saonelocal-isabelle-producteur.jpg" class="w-[60px] h-[60px] rounded-[18px] object-cover"/>
+                        <img src="../../../assets/users/saonelocal-isabelle-producteur.jpg" class="w-[60px] h-[60px] rounded-[18px] object-cover"/>
 
                         <div class="flex-1">
                             <h1 class="font-caveat text-[16px]">Isabelle</h1>

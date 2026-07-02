@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function Header({title}) {
   return (
-    <header class="flex items-center justify-between mt-[30px] mb-[15px]">
+    <header class="flex items-center justify-between mt-[30px] mb-[15px] p-[10px]">
       <a href="/" class="text-saone-green text-[30px]">
         <h2>←</h2>
       </a>
