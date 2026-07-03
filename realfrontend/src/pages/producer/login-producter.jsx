@@ -2,33 +2,21 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../component/Header';
 import Navbar from '../../component/Navbar';
-
+import { AuthAPI } from '../../api/auth.api';
 
 export default function ProducerLoginPage() {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    
     const email = e.target.email.value;
     const password = e.target.password.value;
 
     try {
-      const response = await fetch('/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      });
-
-      if (response.ok) {
-        // Redirection uniquement si la connexion est réussie
-        navigate('/profile_producer'); 
-      } else {
-        alert("Email ou mot de passe incorrect.");
-      }
+      await AuthAPI.login(email, password);
+      navigate('/profile_producer');
     } catch (error) {
-      console.error("Erreur de connexion au serveur:", error);
-      alert("Une erreur est survenue, veuillez réessayer plus tard.");
+      alert(error.message || "Email ou mot de passe incorrect.");
     }
   };
 
@@ -55,7 +43,7 @@ export default function ProducerLoginPage() {
               className="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-saone-terracotta outline-none"
             />
           </div>
-          
+
           <div className="text-left">
             <label className="block text-gray-700 font-medium mb-1 font-montserrat text-sm">
               Mot de passe

@@ -3,10 +3,13 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  root: './', 
+  root: './',
   server: {
     proxy: {
-      '/api': 'http://localhost:3000'
+      '/api': { target: 'http://localhost:3000', changeOrigin: true },
+      '/login': 'http://localhost:3000',
+      '/signup': 'http://localhost:3000',
+      '/signup-producer': 'http://localhost:3000'
     }
   }
 })

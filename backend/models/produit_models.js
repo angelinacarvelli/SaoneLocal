@@ -1,13 +1,10 @@
-import db from "../config/db.js"; // Réutilise l'unique connexion partagée à la DB
+import db from "../config/db.js";
 
 export const Product = {
 
 // PRODUIT
     get_productId: async (productId) => {
-        const sql = `SELECT *
-            FROM product
-            WHERE id = $1`;
-
+        const sql = `SELECT * FROM product WHERE id = $1`;
         const result = await db.query(sql, [productId]);
         return result.rows[0];
     },
@@ -15,60 +12,53 @@ export const Product = {
 // RATING
     rating_moyenne: async (productId) => {
         const sql = `
-            SELECT 
+            SELECT
                 COALESCE(ROUND(AVG(rating), 1), 0) AS average_rating,
                 COUNT(*) AS total_reviews
             FROM review
-            WHERE product_id = $1
-        `;
-
+            WHERE product_id = $1`;
         const result = await db.query(sql, [productId]);
         return result.rows[0];
     },
 
-    
 // COMMENTAIRES
     comment_product: async (productId) => {
-        const sql = `SELECT 
-                r.id,
-                r.comment,
-                r.rating,
-                r.date,
-                u.firstname,
-                u.lastname
+        const sql = `SELECT r.id, r.comment, r.rating, r.date, u.firstname, u.lastname
             FROM "review" r
             JOIN "users" u ON u.id = r.user_id
             WHERE r.product_id = $1
-            ORDER BY r.date DESC
-        `;
-
+            ORDER BY r.date DESC`;
         const result = await db.query(sql, [productId]);
         return result.rows;
     },
 
-//Panier
-    addToBasket: async (id, product_id, quantity) => {
+    addToBasket: async (userId, productId, quantity = 1) => {
+        // 1) garantir l'existence du panier
+        await db.query(
+            'INSERT INTO "basket" (user_id) VALUES ($1) ON CONFLICT (user_id) DO NOTHING',
+            [userId]
+        );
         const sql = `
             INSERT INTO "basket_item" (basket_id, product_id, quantity)
-            VALUES ((SELECT id FROM basket WHERE user_id = $1), $2, $3)`;
-
-        return await db.query(sql, [
-            id,
-            product_id,
-            quantity
-        ]);
+            VALUES ((SELECT id FROM basket WHERE user_id = $1), $2, $3)
+            ON CONFLICT (basket_id, product_id)
+            DO UPDATE SET quantity = basket_item.quantity + EXCLUDED.quantity
+            RETURNING *`;
+        const result = await db.query(sql, [userId, productId, quantity]);
+        return result.rows[0];
     },
 
-// FAVORIS
+// FAVORIS 
     favorites_product: async (userId, productId) => {
         const sql = `INSERT INTO "favorite_product" (user_id, product_id)
             VALUES ($1, $2)
-        `;
+            ON CONFLICT (user_id, product_id) DO NOTHING`;
+        return await db.query(sql, [userId, productId]);
+    },
 
-        return await db.query(sql, [
-            userId,
-            productId
-        ]);
+    remove_favorite: async (userId, productId) => {
+        const sql = `DELETE FROM "favorite_product" WHERE user_id = $1 AND product_id = $2`;
+        return await db.query(sql, [userId, productId]);
     },
 
 // CATALOGUE

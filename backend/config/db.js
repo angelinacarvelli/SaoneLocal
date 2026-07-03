@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const db = new pg.Client({
+const db = new pg.Pool({
     user: process.env.POSTGRES_USER || process.env.user,
     host: process.env.POSTGRES_HOST || process.env.host,
     database: process.env.POSTGRES_DB || process.env.name,
@@ -12,7 +12,10 @@ const db = new pg.Client({
 });
 
 db.connect()
-    .then(() => console.log("Connexion réussie à la base de données PostgreSQL !"))
+    .then((client) => {
+        console.log("Connexion réussie à la base de données PostgreSQL !");
+        client.release();
+    })
     .catch((err) => console.error("Erreur de connexion à la base de données :", err));
 
 export default db;

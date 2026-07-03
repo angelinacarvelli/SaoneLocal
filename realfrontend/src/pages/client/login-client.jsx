@@ -2,32 +2,21 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../component/Header';
 import Navbar from '../../component/Navbar';
+import { AuthAPI } from '../../api/auth.api';
 
 export default function LoginPage() {
   const navigate = useNavigate();
 
-const handleLogin = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    
-    // Récupération des valeurs des inputs
     const email = e.target[0].value;
     const password = e.target[1].value;
 
     try {
-      const response = await fetch('/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      });
-
-      if (response.ok) {
-        // Succès : redirige l'utilisateur vers sa fiche client
-        navigate('/profile_client');
-      } else {
-        alert("Identifiants incorrects");
-      }
+      await AuthAPI.login(email, password);
+      navigate('/profile_client');
     } catch (error) {
-      console.error("Erreur de connexion:", error);
+      alert(error.message || "Identifiants incorrects");
     }
   };
 
@@ -52,7 +41,7 @@ const handleLogin = async (e) => {
               className="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-saone-green outline-none"
             />
           </div>
-          
+
           <div className="text-left">
             <label className="block text-gray-700 font-medium mb-1 font-montserrat text-sm">
               Mot de passe

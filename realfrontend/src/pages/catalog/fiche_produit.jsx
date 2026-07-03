@@ -1,10 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../component/Header';
 import Navbar from '../../component/Navbar';
 import Footer from '../../component/Footer';
+import { ProductAPI } from '../../api/product.api';
+
+const PRODUCT_ID = 3;
 
 export default function ProductDetail() {
+  const [qty, setQty] = useState(1);
+
+  const handleAddToCart = async () => {
+    try {
+      await ProductAPI.addToCart(PRODUCT_ID, qty);
+      alert("Produit ajouté au panier !");
+    } catch (err) {
+      alert(err.message);
+    }
+  };
+
+  const handleFavorite = async () => {
+    try {
+      await ProductAPI.addFavorite(PRODUCT_ID);
+      alert("Produit ajouté aux favoris !");
+    } catch (err) {
+      alert(err.message);
+    }
+  };
+
   return (
     <div className="bg-saone-cream min-h-screen flex flex-col items-center">
       <main className="w-full max-w-md min-h-screen relative shadow-2xl flex flex-col gap-4">
@@ -24,13 +47,13 @@ export default function ProductDetail() {
             <h2 className="font-bold text-xl">Pain aux céréales</h2>
             <div className="flex items-center gap-2">
               <span>Qté :</span>
-              <button className="bg-gray-200 px-2 rounded">-</button>
-              <span>1</span>
-              <button className="bg-gray-200 px-2 rounded">+</button>
+              <button onClick={() => setQty((q) => Math.max(1, q - 1))} className="bg-gray-200 px-2 rounded">-</button>
+              <span>{qty}</span>
+              <button onClick={() => setQty((q) => q + 1)} className="bg-gray-200 px-2 rounded">+</button>
             </div>
             <div className="flex gap-2">
-              <button className="bg-[#a04a37] text-white px-3 py-1 rounded-full text-xs">Mettre en favoris</button>
-              <button className="bg-[#a04a37] text-white px-3 py-1 rounded-full text-xs">Ajouter au panier</button>
+              <button onClick={handleFavorite} className="bg-[#a04a37] text-white px-3 py-1 rounded-full text-xs">Mettre en favoris</button>
+              <button onClick={handleAddToCart} className="bg-[#a04a37] text-white px-3 py-1 rounded-full text-xs">Ajouter au panier</button>
             </div>
           </div>
         </div>
