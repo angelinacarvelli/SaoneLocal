@@ -6,11 +6,10 @@ COPY ./realfrontend ./
 RUN npm run build
 
 FROM node:20-alpine
-WORKDIR /app/backend
-COPY ./backend/package*.json ./
+WORKDIR /app
+COPY package*.json ./
 RUN npm install --omit=dev
-COPY ./backend ./
-COPY --from=build-frontend /app/realfrontend/dist ../realfrontend/dist
-
+COPY . .
+COPY --from=build-frontend /app/realfrontend/dist ./realfrontend/dist
 EXPOSE 3000
-CMD ["node", "src/app.js"]
+CMD ["node", "backend/src/app.js"]
