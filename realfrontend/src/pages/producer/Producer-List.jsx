@@ -9,7 +9,7 @@ export default function Producer_List() {
         <main className="w-full max-w-md min-h-screen relative shadow-2xl flex flex-col text-[16px] bg-saone-cream font-montserrat">
             <Header title="fiches producteurs"/>
             
-            <div className="flex flex-row gap-2 m-[20px]">
+            <div className="flex justify-around m-[20px]">
                 {/* Karim */}
                 <div className="flex flex-col gap-1 items-center text-center text-[#383C40]">
                     <Link to="/ProducerDetail-Karim-Benchouia">

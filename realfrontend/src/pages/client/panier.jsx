@@ -6,21 +6,21 @@ import Footer from '../../component/Footer';
 
 export default function Cart() {
   const [cartItems, setCartItems] = useState([
-    { id: 1, name: 'Pain de campagne', info: '500g (unité)', price: '5,60€', qty: 2, img: '...' },
-    { id: 2, name: 'Pommes de terre', info: '5kg', price: '6,50€', qty: 1, img: '...' },
-    { id: 3, name: 'Radis', info: 'botte', price: '2,40€', qty: 2, img: '...' },
-    { id: 4, name: 'Mercurey blanc 2022', info: '75cl (unité)', price: '39€', qty: 3, img: '...' },
+    { id: 1, name: 'Pain de campagne', info: '500g (unité)', price: '5,60€', qty: 2, img: '../../../assets/products/Boulangerie/boulangerie-pain-campagne.jpg' },
+    { id: 2, name: 'Pommes de terre', info: '5kg', price: '6,50€', qty: 1, img: '../../../assets/products/Fruits-légumes/legumes-patates.jpg' },
+    { id: 3, name: 'Radis', info: 'botte', price: '2,40€', qty: 2, img: '../../../assets/products/Fruits-légumes/legumes-radis.jpg' },
+    { id: 4, name: 'Mercurey blanc 2022', info: '75cl (unité)', price: '39€', qty: 3, img: '../../../assets/products/Vins/vins-mercurey-blanc.jpg' },
   ]);
 
   return (
     <div className="bg-saone-cream min-h-screen flex flex-col items-center">
-      <main className="w-full max-w-md min-h-screen relative shadow-2xl flex flex-col items-center pb-24 px-4">
+      <main className="w-full max-w-md min-h-screen relative shadow-2xl flex flex-col pb-24 px-4">
         <Header title="Mon panier" />
         
         <div className="w-full mt-6">
           <div className="flex justify-between items-center mb-6">
             <h2 className="font-caveat text-saone-green text-[18px]">Bonne dégustation !</h2>
-            <span className="text-xl">♥</span>
+            <span className="text-xl">♡</span>
           </div>
 
           {/* Liste des produits */}
