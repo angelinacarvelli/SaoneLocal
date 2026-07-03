@@ -1,5 +1,5 @@
 import {Client} from 'pg'
-import bcrypt from "bcrypt"
+import bcrypt from "bcryptjs"
 import dotenv from "dotenv"
 
 dotenv.config()
@@ -45,22 +45,22 @@ try {
 
     // USERS :
     const users = [{firstname: "Clémence", lastname: "Langlais", password: process.env.MDP_ADMIN, email: "clemencel@gmail.com", phone: "06 94 48 30 24", inscription: "2026-02-16", last_connexion: "2026-05-20", event_id: null, role_id: roleMap["admin"]},
-        {firstname: "Karim", lastname: "Benchouia", password: process.env.MDP_PRODUCER1, email: "karimeb@outlook.com", phone: "06 11 22 33 44", inscription: "2026-06-14", last_conexion: "2026-05-22", event_id: eventMap["petit marché"], role_id: roleMap["producer"],},
-        {firstname: "Michel", lastname: "Durand", password: process.env.MDP_PRODUCER2, email: "mdurand@gmail.com", phone: "06 98 76 54 32", inscription: "2026-04-11", last_conexion: "2026-05-17", event_id: eventMap["vente de noël"], role_id: roleMap["producer"]}]
+        {firstname: "Karim", lastname: "Benchouia", password: process.env.MDP_PRODUCER1, email: "karimeb@outlook.com", phone: "06 11 22 33 44", inscription: "2026-06-14", last_connexion: "2026-05-22", event_id: eventMap["petit marché"], role_id: roleMap["producer"],},
+        {firstname: "Michel", lastname: "Durand", password: process.env.MDP_PRODUCER2, email: "mdurand@gmail.com", phone: "06 98 76 54 32", inscription: "2026-04-11", last_connexion: "2026-05-17", event_id: eventMap["vente de noël"], role_id: roleMap["producer"]}]
 
     
 
     for (const user of users) {
     const protected_password = await bcrypt.hash(user.password, 10)
 
-    await client.query("INSERT INTO users (firstname, lastname, password, email, phone, inscription, last_conexion, event_id, role_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) ON CONFLICT (email) DO NOTHING", [
+    await client.query("INSERT INTO users (firstname, lastname, password, email, phone, inscription, last_connexion, event_id, role_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) ON CONFLICT (email) DO NOTHING", [
     user.firstname,
     user.lastname,
     protected_password,
     user.email,
     user.phone,
     user.inscription,
-    user.lastconnexion,
+    user.last_connexion,
     user.event_id,
     user.role_id,
 
@@ -76,7 +76,7 @@ try {
     {siret: "987 654 321 00057", presentation: "Vend des fruits et légumes", compagnyname: "LeSaladier", user_id: userMap["mdurand@gmail.com"], event_id: null}]
 
     for (const producer of producers) {
-    await client.query("INSERT INTO producer (siret, presentation, compagnyname, user_id, event_id) VALUES ($1, $2, $3, $4, $5) ON CONFLICT (siret) DO NOTHING", [
+    await client.query('INSERT INTO producer (siret, presentation, "compagnyName", user_id, event_id) VALUES ($1, $2, $3, $4, $5) ON CONFLICT (siret) DO NOTHING', [
     producer.siret,
     producer.presentation,
     producer.compagnyname,

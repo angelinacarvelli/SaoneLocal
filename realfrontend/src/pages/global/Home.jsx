@@ -9,9 +9,9 @@ export default function Home() {
       <div className="w-full max-w-md min-h-screen relative shadow-2xl">
 
         <header>
-            <img class="w-[180px] h-[180px] object-cover" src="../../../assets/Logo-principal.png" alt="logo"/>
+            <img class="w-[180px] h-[180px] object-cover" src="/assets/Logo-principal.png" alt="logo"/>
             <a href="/" class="absolute w-[40px] top-0 right-0 mt-[65px] mr-[30px]">
-              <img src="../../../assets/icon/picto-acceuil.png" alt="acceuil"/>
+              <img src="/assets/icon/picto-acceuil.png" alt="acceuil"/>
             </a>
         </header>
         
@@ -34,9 +34,9 @@ export default function Home() {
             <p className="text-sm opacity-90 mb-5 leading-relaxed font-montserrat">Il faut mettre en bouche ces délices pour ressentir la Bourgogne et tout ce savoir-faire.</p>
 
             <div class="flex flex-row gap-2 justify-center">
-              <img src="../../../assets/products/Boulangerie/boulangerie-pain-campagne.jpg" alt="pain-campagne" class="w-[105px] h-[105px] object-cover rounded-3xl"/>
-              <img src="../../../assets/products/Fruits-légumes/legumes-patates.jpg" alt="patates" class="w-[105px] h-[105px] object-cover rounded-3xl"/>
-              <img src="../../../assets/products/Vins/vins-mercurey-blanc.jpg" alt="mercurey-blanc" class="w-[105px] h-[105px] object-cover rounded-3xl"/>
+              <img src="/assets/products/Boulangerie/boulangerie-pain-campagne.jpg" alt="pain-campagne" class="w-[105px] h-[105px] object-cover rounded-3xl"/>
+              <img src="/assets/products/Fruits-légumes/legumes-patates.jpg" alt="patates" class="w-[105px] h-[105px] object-cover rounded-3xl"/>
+              <img src="/assets/products/Vins/vins-mercurey-blanc.jpg" alt="mercurey-blanc" class="w-[105px] h-[105px] object-cover rounded-3xl"/>
             </div>
 
             <a href="/home-catalog">

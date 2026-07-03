@@ -6,7 +6,7 @@ dotenv.config();
 const db = new pg.Client({
     user: process.env.POSTGRES_USER || process.env.user,
     host: process.env.POSTGRES_HOST || process.env.host,
-    database: process.env.POSTGRES_NAME || process.env.name,
+    database: process.env.POSTGRES_DB || process.env.name,
     password: process.env.POSTGRES_PASSWORD || process.env.password,
     port: process.env.POSTGRES_PORT || process.env.port || 5432,
 });

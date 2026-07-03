@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../component/Header';
-import Navbar from '../../component/Header';
+import Navbar from '../../component/Navbar';
 
 
 export default function ProducerLoginPage() {
@@ -22,7 +22,7 @@ export default function ProducerLoginPage() {
 
       if (response.ok) {
         // Redirection uniquement si la connexion est réussie
-        navigate('/Profile-producer'); 
+        navigate('/profile_producer'); 
       } else {
         alert("Email ou mot de passe incorrect.");
       }

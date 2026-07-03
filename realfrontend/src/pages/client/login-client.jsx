@@ -22,7 +22,7 @@ const handleLogin = async (e) => {
 
       if (response.ok) {
         // Succès : redirige l'utilisateur vers sa fiche client
-        navigate('/Profile-client');
+        navigate('/profile_client');
       } else {
         alert("Identifiants incorrects");
       }

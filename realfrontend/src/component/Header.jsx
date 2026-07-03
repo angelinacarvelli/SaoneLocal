@@ -8,7 +8,7 @@ export default function Header({title}) {
       </a>
       <h1 className="text-saone-terracotta font-caveat text-[22px] uppercase">{title}</h1>
       <a href="/" className="w-[40px]">
-        <img src="../../assets/icon/picto-acceuil.png" alt="home"/>
+        <img src="/assets/icon/picto-acceuil.png" alt="home"/>
       </a>
     </header>
   );
