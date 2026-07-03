@@ -8,7 +8,7 @@ import   More_On_Us  from "./pages/global/More-On-Us.jsx";
 import  Legal_Notice  from "./pages/global/Legal-Notice.jsx";
 import  Contact  from "./pages/global/Contact.jsx";
 import  Account_Home  from "./pages/global/Account-Home.jsx";
-import  Success_Order  from "./pages/global/Success-Order.jsx";
+import  Success_Order  from "./pages/global/Success_Order.jsx";
 import  Producer_List  from './pages/producer/Producer-List.jsx';
 import  Home_Catalog  from './pages/catalog/Home-Catalog.jsx';
 import  Profile_Admin  from './pages/producer/Profile-Admin.jsx';
@@ -17,6 +17,8 @@ import ProducerLoginPage from './pages/producer/login-producter.jsx';
 import SignupProducerPage from './pages/producer/signup-producter.jsx';
 import SignupClientPage from './pages/client/signup-client.jsx';
 import  Event  from "./pages/global/Event.jsx";
+import  Favorites  from "./pages/client/favoris.jsx";
+import  Cart  from "./pages/client/panier.jsx";
 import  Search1  from "./pages/search/Search1.jsx";
 import  Search2  from "./pages/search/Search2.jsx";
 import  Search3  from "./pages/search/Search3.jsx";
@@ -28,6 +30,7 @@ import  Bakery_Sort_Product from './pages/catalog/Bakery-sort-product.jsx';
 import  Bakery_Sort_Producer from './pages/catalog/Bakery-sort-producer.jsx';
 import  Vegetables_Sort_Product from './pages/catalog/Vegetables-sort-product.jsx';
 import  Vegetables_Sort_Producer from './pages/catalog/Vegetables-sort-producer.jsx';
+
 
 export const routes = [
   {
@@ -149,6 +152,12 @@ export const routes = [
     showInNav: true,
   },
   {
+    path: "/success",
+    label: "Commande Réussie",
+    component: Success_Order,
+    showInNav: true,
+  },
+  {
     path: "/event",
     label: "Calendrier",
     component: Event,
@@ -181,6 +190,7 @@ export const routes = [
   {
     path: "/wine-sort-producer",
     label: "Catalogue de nos Produits",
+    label: "Tri des Producteurs",
     component: Wine_Sort_Producer,
     showInNav: true,
   },
@@ -209,6 +219,18 @@ export const routes = [
     showInNav: true,
   },
   {
+    path: "/favoris",
+    label: "Mes favoris",
+    component: Favorites,
+    showInNav: true,
+  },
+    {
+    path: "/panier",
+    label: "Mon panier",
+    component: Cart,
+    showInNav: true,
+  },
+  { 
     path: "*",
     label: "Page introuvable",
     component: NotFoundPage,

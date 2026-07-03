@@ -14,7 +14,7 @@ export default function Producer_List() {
                 <div className="flex flex-col gap-1 items-center text-center text-[#383C40]">
                     <Link to="/ProducerDetail-Karim-Benchouia">
                         <img 
-                            src="../../../assets/users/saonelocal-karim-producteur.png" 
+                            src="/assets/users/saonelocal-karim-producteur.png" 
                             alt="Karim" 
                             className="w-[120px] h-[120px] object-cover rounded-2xl cursor-pointer"
                         />
@@ -27,7 +27,7 @@ export default function Producer_List() {
                 <div className="flex flex-col gap-1 items-center text-center text-[#383C40]">
                     <Link to="/ProducerDetail-Michel-Durand">
                         <img 
-                            src="../../../assets/users/saonelocal-michel-producteur.png" 
+                            src="/assets/users/saonelocal-michel-producteur.png" 
                             alt="Michel" 
                             className="w-[120px] h-[120px] object-cover rounded-2xl cursor-pointer"
                         />
@@ -37,7 +37,7 @@ export default function Producer_List() {
                 </div>
 
                 <div className="flex flex-col gap-1 items-center text-center text-[#383C40]">
-                    <button><img src="../../../assets/users/saonelocal-isabelle-producteur.png" alt="Isabelle" className="w-[120px] h-[120px] object-cover rounded-2xl"/></button>
+                    <button><img src="/assets/users/saonelocal-isabelle-producteur.png" alt="Isabelle" className="w-[120px] h-[120px] object-cover rounded-2xl"/></button>
                     <h2 className="text-saone-green font-caveat text-[14px]">Isabelle <br/>FONTAINE-MARCHAIS</h2>
                     <p>Vigneronne</p>
                 </div>

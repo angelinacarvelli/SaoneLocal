@@ -13,7 +13,7 @@ export default function ProducerDetail() {
 
         {/* Profil Producteur */}
         <div className="flex gap-4 items-start mt-4">
-        <img src="../../../assets/users/saonelocal-karim-producteur.png" alt="Karim Benchouia" className="w-24 h-24 rounded-2xl object-cover" />
+        <img src="/assets/users/saonelocal-karim-producteur.png" alt="Karim Benchouia" className="w-24 h-24 rounded-2xl object-cover" />
           <div>
             <h2 className="font-bold text-lg text-saone-green">Karim Benchouia</h2>
             <p className="text-sm font-semibold">Boulanger artisan</p>
@@ -38,21 +38,21 @@ export default function ProducerDetail() {
           
         {/* Produit */}
           <Link to="/produit/baguette-tradition" className="flex flex-col gap-1">
-            <img src="../../../assets/products/Boulangerie/boulangerie-baguette-tradition.jpg" alt="Baguette" className="w-full aspect-square rounded-xl object-cover" />
+            <img src="/assets/products/Boulangerie/boulangerie-baguette-tradition.jpg" alt="Baguette" className="w-full aspect-square rounded-xl object-cover" />
             <h4 className="text-[10px] font-bold leading-tight">Baguette tradition</h4>
             <p className="text-[10px] text-gray-600">1,20€</p>
           </Link>
 
           {/* Produit */}
           <Link to="/produit/flute" className="flex flex-col gap-1">
-            <img src="../../../assets/products/Boulangerie/boulangerie-flute.jpg" alt="Flûte" className="w-full aspect-square rounded-xl object-cover" />
+            <img src="/assets/products/Boulangerie/boulangerie-flute.jpg" alt="Flûte" className="w-full aspect-square rounded-xl object-cover" />
             <h4 className="text-[10px] font-bold leading-tight">Flûte</h4>
             <p className="text-[10px] text-gray-600">0,90€</p>
           </Link>
 
           {/* Produit */}
           <Link to="/ProductDetail-Pain-aux-céréales" className="flex flex-col gap-1">
-            <img src="../../../assets/products/Boulangerie/boulangerie-pain-cereales.jpg" alt="Pain aux céréales" className="w-full aspect-square rounded-xl object-cover" />
+            <img src="/assets/products/Boulangerie/boulangerie-pain-cereales.jpg" alt="Pain aux céréales" className="w-full aspect-square rounded-xl object-cover" />
             <h4 className="text-[10px] font-bold leading-tight">Pain aux céréales</h4>
             <p className="text-[10px] text-gray-600">3,20€</p>
           </Link>

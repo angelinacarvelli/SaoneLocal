@@ -1,4 +1,4 @@
-import { Customer } from "../models/customer_models.js";
+import { Customer } from "../models/client_models.js";
 
 // ID client simulé en dur (id = 1) comme convenu dans votre architecture actuelle
 const get_customerID = (req) => 1;
@@ -67,31 +67,10 @@ export const get_basket = async (req, res) => {
         res.status(500).json({ error: "Erreur récupération du panier" });
     }
 };
-export const customer_purchase_History = async (req, res) => {
-    try {
-        const history = await Customer.purchase_history(get_customerID(req));
-        res.status(200).json(history);
-    } catch (error) { res.status(500).json({ error: "Erreur" }); }
-};
-
-export const get_favorites = async (req, res) => {
-    try {
-        const favorites = await Customer.list_favorites(get_customerID(req));
-        res.status(200).json(favorites);
-    } catch (error) { res.status(500).json({ error: "Erreur" }); }
-};
-
 export const getAllEvents = async (req, res) => {
     try {
         const events = await Customer.listAllEvents();
         res.status(200).json(events);
-    } catch (error) { res.status(500).json({ error: "Erreur" }); }
-};
-
-export const joinEvent = async (req, res) => {
-    try {
-        await Customer.joinEvent(get_customerID(req), req.body.event_id);
-        res.status(200).json({ message: "Inscrit" });
     } catch (error) { res.status(500).json({ error: "Erreur" }); }
 };
 

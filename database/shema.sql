@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS "users"(
     password VARCHAR(255),
     event_id INT,
     inscription DATE,
-    last_conexion DATE,
+    last_connexion DATE,
     UNIQUE (email),
     UNIQUE (phone)
 );
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS "producer"(
     user_id INT,
     siret VARCHAR(100),
     presentation VARCHAR(255),
-    compagnyName VARCHAR(255),
+    "compagnyName" VARCHAR(255),
     event_id INT,
     UNIQUE (siret)
 );
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS "product"(
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name VARCHAR(255),
     description VARCHAR(255),
-    price MONEY,
+    price NUMERIC(10,2),
     image VARCHAR(255),
     producer_id INT,
     category_id INT,

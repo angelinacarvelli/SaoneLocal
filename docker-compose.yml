@@ -2,7 +2,7 @@ services:
   saonelocal:
     build: .
     ports:
-      - "8080:80"
+      - "8080:3000"
     depends_on:
       - postgres
     env_file:

@@ -12,13 +12,13 @@ export default function ProductDetail() {
         <div className="flex justify-between items-center py-2">
           <button className="text-2xl">←</button>
           <a href="/" className="w-[40px]">
-            <img src="../../assets/icon/picto-acceuil.png" alt="home"/>
+            <img src="/assets/icon/picto-acceuil.png" alt="home"/>
           </a>
         </div>
 
         {/* Image et Actions */}
         <div className="flex gap-4">
-        <img src="../../../assets/products/Boulangerie/boulangerie-pain-cereales.jpg" alt="Pain aux céréales" className="w-1/3 rounded-xl object-cover" />
+        <img src="/assets/products/Boulangerie/boulangerie-pain-cereales.jpg" alt="Pain aux céréales" className="w-1/3 rounded-xl object-cover" />
           <div className="flex flex-col justify-between">
             <div className="text-2xl text-yellow-600">★★★★☆</div>
             <h2 className="font-bold text-xl">Pain aux céréales</h2>

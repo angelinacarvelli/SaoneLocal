@@ -9,7 +9,7 @@ export default function Legal_Notice() {
             <main className="w-full max-w-md min-h-screen relative shadow-2xl bg-saone-cream">
                 <Header title="mentions légales"/>
                 <div className="flex flex-col items-center">
-                    <img src="../../../assets/Logo-principal.png" alt="Logo" className="w-[200px] h-[200px] object-cover"/>
+                    <img src="/assets/Logo-principal.png" alt="Logo" className="w-[200px] h-[200px] object-cover"/>
                 </div>
                 <div class="mr-[20px] ml-[20px]">
                     <div className="text-[13px] text-saone-green font-montserrat mb-[20px]">

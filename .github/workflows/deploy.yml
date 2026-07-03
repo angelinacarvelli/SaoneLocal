@@ -41,5 +41,4 @@ jobs:
 
             echo "VÉRIFICATION DU DÉPLOIEMENT"
             sudo docker ps -a
-            sudo docker logs saonelocal
-            
+            sudo docker logs saonelocal 

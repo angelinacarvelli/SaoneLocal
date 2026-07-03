@@ -34,7 +34,7 @@ export default function Home_Catalog() {
                         </div>
                     </a>
                     <a href="/wine-sort-product" class="button">
-                        <div className="bg-[url(../../public/assets/products/Vins/catalogue-categorie-vins.jpg)] bg-cover text-center rounded-2xl py-[40px] px-[110px]">
+                        <div className="bg-[url(/assets/products/Vins/catalogue-categorie-vins.jpg)] bg-cover text-center rounded-2xl py-[40px] px-[110px]">
                             <h2 className="text-[12px] text-saone-cream font-montserrat bg-saone-terracotta opacity-90">VINS</h2>
                         </div>
                     </a>

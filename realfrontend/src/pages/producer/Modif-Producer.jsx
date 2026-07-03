@@ -12,7 +12,7 @@ export default function Modif_Producer() {
             <div class="mt-[22px] text-center">
 
                 <label for="photo" class="text-[10px] font-semibold text-saone-green cursor-pointer relative inline-block">
-                    <img src="../../../assets/users/saonelocal-isabelle-producteur.jpg" class="w-[70px] h-[70px] rounded-full object-cover"/>
+                    <img src="/assets/users/saonelocal-isabelle-producteur.jpg" class="w-[70px] h-[70px] rounded-full object-cover"/>
                     <p class="absolute top-0 right-0 mt-6 mr-6 bg-saone-terracotta text-white rounded-full w-5 h-5 pt-0.5">+</p>
                 </label>
 
