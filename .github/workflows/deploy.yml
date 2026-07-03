@@ -6,22 +6,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  ci:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Récupérer le code
-        uses: actions/checkout@v4
-
-      - name: Vérifier le build Docker
-        run: |
-          docker build -t saonelocal-test .
-
   deploy:
     runs-on: ubuntu-latest
-    needs: ci
     steps:
-      - name: Connexion au serveur EC2 et Déploiement
-        uses: appleboy/ssh-action@master
+      - name: Déploiement sur EC2
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ec2-user
@@ -31,14 +20,9 @@ jobs:
             git clone https://github.com/angelinacarvelli/SaoneLocal.git
             cd SaoneLocal
 
-            sudo docker stop mon-app || true
-            sudo docker rm mon-app || true
-            sudo docker stop saonelocal || true
-            sudo docker rm saonelocal || true
+            cp ~/saonelocal.env .env
 
-            sudo docker build --no-cache -t saonelocal .
-            sudo docker run -d --name saonelocal -p 80:80 --restart always saonelocal
-
-            echo "VÉRIFICATION DU DÉPLOIEMENT"
-            sudo docker ps -a
-            sudo docker logs saonelocal 
+            sudo docker compose down || true
+            sudo docker compose up -d --build
+            sudo docker compose exec -T saonelocal npm run seed || true
+            sudo docker compose ps

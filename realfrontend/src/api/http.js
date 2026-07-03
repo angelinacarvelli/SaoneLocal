@@ -1,25 +1,29 @@
-const API_URL = "http://localhost:3000";
+const API_URL = "";
 
 async function http(endpoint, options = {}) {
-    const token = localStorage.getItem("token");
-
     const res = await fetch(`${API_URL}${endpoint}`, {
         method: options.method || "GET",
         headers: {
             "Content-Type": "application/json",
-            ...(token ? { Authorization: `Bearer ${token}` } : {}),
             ...options.headers
         },
-        credentials: "include",
+        credentials: "include", // envoie le cookie de session (JWT httpOnly)
         body: options.body ? JSON.stringify(options.body) : undefined
     });
 
     if (!res.ok) {
-        const error = await res.text();
-        throw new Error(error || "API Error");
+        let message = "Erreur API";
+        try {
+            const data = await res.json();
+            message = data.error || message;
+        } catch {
+            message = (await res.text()) || message;
+        }
+        throw new Error(message);
     }
 
-    return res.json();
+    const text = await res.text();
+    return text ? JSON.parse(text) : {};
 }
 
 export default http;

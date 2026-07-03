@@ -1,12 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../component/Header';
 import Navbar from '../../component/Navbar';
+import { AuthAPI } from '../../api/auth.api';
 
 export default function SignupProducerPage() {
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Récupération des données
     const formData = {
       firstname: e.target.firstname.value,
       siret: e.target.siret.value,
@@ -16,19 +18,11 @@ export default function SignupProducerPage() {
     };
 
     try {
-      const response = await fetch('/signup-producer', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        alert("Profil producteur créé avec succès !");
-      } else {
-        alert("Erreur lors de la création du profil.");
-      }
+      await AuthAPI.registerProducer(formData);
+      alert("Profil producteur créé avec succès !");
+      navigate('/profile_producer');
     } catch (error) {
-      console.error("Erreur:", error);
+      alert(error.message || "Erreur lors de la création du profil.");
     }
   };
 
@@ -45,7 +39,7 @@ export default function SignupProducerPage() {
           <input type="text" name="phonenumber" placeholder="Numéro de téléphone" className="w-full p-3 border rounded-xl" />
           <input type="email" name="email" placeholder="Email professionnel" className="w-full p-3 border rounded-xl" required />
           <input type="password" name="password" placeholder="Mot de passe" className="w-full p-3 border rounded-xl" required />
-          
+
           <button type="submit" className="w-full bg-saone-terracotta text-white py-3 rounded-xl font-bold hover:bg-[#8e362b]">
             Créer mon profil pro
           </button>

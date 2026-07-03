@@ -1,11 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../component/Header';
 import Navbar from '../../component/Navbar';
+import { AuthAPI } from '../../api/auth.api';
 
 export default function SignupPage() {
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Récupération des données du formulaire
     const formData = {
       firstname: e.target.firstname.value,
       lastname: e.target.lastname.value,
@@ -15,19 +18,11 @@ export default function SignupPage() {
     };
 
     try {
-      const response = await fetch('/signup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        alert("Inscription réussie !");
-      } else {
-        alert("Erreur lors de l'inscription.");
-      }
+      await AuthAPI.register(formData);
+      alert("Inscription réussie !");
+      navigate('/profile_client');
     } catch (error) {
-      console.error("Erreur:", error);
+      alert(error.message || "Erreur lors de l'inscription.");
     }
   };
 
@@ -44,7 +39,7 @@ export default function SignupPage() {
           <input type="text" name="phonenumber" placeholder="Numéro de téléphone" className="w-full p-3 border rounded-xl" />
           <input type="email" name="email" placeholder="Email" className="w-full p-3 border rounded-xl" required />
           <input type="password" name="password" placeholder="Mot de passe" className="w-full p-3 border rounded-xl" required />
-          
+
           <button type="submit" className="w-full bg-saone-green text-white py-3 rounded-xl font-bold hover:bg-green-700">
             S'inscrire
           </button>

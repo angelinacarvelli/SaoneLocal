@@ -1,6 +1,12 @@
 import db from "../config/db.js"; // Réutilise l'unique connexion partagée à la DB
 
 export const ProducterModel = {
+    // Résout l'id de la fiche producteur à partir de l'id utilisateur connecté
+    getIdByUser: async (userId) => {
+        const result = await db.query('SELECT id FROM "producer" WHERE user_id = $1', [userId]);
+        return result.rows[0]?.id ?? null;
+    },
+
     // modifier le nom et la présentation
     updateProfile: async (id, name, desc) => {
         const sql = `UPDATE "producer" SET "compagnyName" = $1, presentation = $2 WHERE id = $3`;

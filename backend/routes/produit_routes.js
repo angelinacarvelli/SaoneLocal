@@ -1,23 +1,26 @@
 import express from "express";
+import { authRequired } from "../middleware/auth.js";
 import {
     getAllProducts,
     Product_info,
     addProductToBasket,
     addToFavorites,
+    removeFromFavorites,
     getCatalogBySubcategory,
     getCatalogByProducer
 } from "../controller/produit_controller.js";
 
 const router = express.Router();
 
+// Public : catalogue et fiche produit
 router.get("/", getAllProducts);
-
-// Routes communes dynamiques (remplace l'ancien fichier vin séparé)
 router.get("/common/subcategory", getCatalogBySubcategory);
 router.get("/common/producer", getCatalogByProducer);
-
 router.get("/:id", Product_info);
-router.post("/:id/cart", addProductToBasket);
-router.post("/:id/favorite", addToFavorites);
+
+// Protégé : panier et favoris
+router.post("/:id/cart", authRequired, addProductToBasket);
+router.post("/:id/favorite", authRequired, addToFavorites);
+router.delete("/:id/favorite", authRequired, removeFromFavorites);
 
 export default router;
