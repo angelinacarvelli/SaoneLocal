@@ -6,7 +6,6 @@ import Footer from '../../component/Footer';
 import { ClientAPI } from '../../api/client.api';
 
 export default function Cart() {
-<<<<<<< HEAD
   const navigate = useNavigate();
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -57,14 +56,12 @@ export default function Cart() {
   };
 
   const total = cartItems.reduce((sum, it) => sum + Number(it.price) * it.quantity, 0);
-=======
   const [cartItems, setCartItems] = useState([
     { id: 1, name: 'Pain de campagne', info: '500g (unité)', price: '5,60€', qty: 2, img: '../../../assets/products/Boulangerie/boulangerie-pain-campagne.jpg' },
     { id: 2, name: 'Pommes de terre', info: '5kg', price: '6,50€', qty: 1, img: '../../../assets/products/Fruits-légumes/legumes-patates.jpg' },
     { id: 3, name: 'Radis', info: 'botte', price: '2,40€', qty: 2, img: '../../../assets/products/Fruits-légumes/legumes-radis.jpg' },
     { id: 4, name: 'Mercurey blanc 2022', info: '75cl (unité)', price: '39€', qty: 3, img: '../../../assets/products/Vins/vins-mercurey-blanc.jpg' },
   ]);
->>>>>>> refs/remotes/origin/main
 
   return (
     <div className="bg-saone-cream min-h-screen flex flex-col items-center">
