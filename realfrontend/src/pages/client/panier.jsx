@@ -20,7 +20,9 @@ export default function Cart() {
         <div className="w-full mt-6">
           <div className="flex justify-between items-center mb-6">
             <h2 className="font-caveat text-saone-green text-[18px]">Bonne dégustation !</h2>
-            <span className="text-xl">♡</span>
+            <a href="/favoris">
+            <p className="text-xl">♡</p>
+            </a>
           </div>
 
           {/* Liste des produits */}

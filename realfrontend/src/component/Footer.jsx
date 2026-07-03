@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="p-6 text-center text-saone-green text-xs pb-20 font-montserrat mt-[200px]">
+    <footer className="p-6 text-center text-saone-green text-xs pb-20 font-montserrat">
       <p className="font-bold">Fabriqué en Bourgogne.</p>
       <div className="flex justify-center gap-4 mt-2">
         <a href="/contact">Nous contacter</a>
