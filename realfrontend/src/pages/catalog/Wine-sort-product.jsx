@@ -48,9 +48,9 @@ export default function Wine_Sort_Product() {
 
                 <h2 class="font-caveat text-saone-green uppercase text-[16px] mt-[20px]">autres ⌄</h2>
                         <div class="flex flex-col gap-2">
-                            <img src="../../../assets/products/Vins/vins-mercurey-rouge.jpg" class="w-[100px] h-[100px] object-cover rounded-2xl"/>
-                            <p>Mercurey rouge <br/> 2021</p>
-                            <p class="font-medium">14,50€(75cl)</p>
+                            <img src="../../../assets/products/Vins/vins-cremant-bourgogne.jpg" class="w-[100px] h-[100px] object-cover rounded-2xl"/>
+                            <p>Cremant de<br/> Bourgogne</p>
+                            <p class="font-medium">11,50€(75cl)</p>
                             <button class="bg-saone-terracotta text-saone-cream rounded-full text-[13px] font-montserrat shadow-md hover:bg-[#8e362b] transition-colors p-[5px] w-[120px]">
                             Ajouter au panier
                             </button>
@@ -60,18 +60,18 @@ export default function Wine_Sort_Product() {
                 <h2 class="font-caveat text-saone-green uppercase text-[16px] mt-[20px]">lots ⌄</h2>
                     <div class="w-full flex flex-around gap-2 m-[10px]">
                         <div class="flex flex-col gap-2">
-                            <img src="../../../assets/products/Vins/vins-mercurey-rouge.jpg" class="w-[100px] h-[100px] object-cover rounded-2xl"/>
-                            <p>Mercurey rouge <br/> 2021</p>
-                            <p class="font-medium">14,50€(75cl)</p>
+                            <img src="../../../assets/products/Vins/vins-lots-decouverte.jpg" class="w-[100px] h-[100px] object-cover rounded-2xl"/>
+                            <p>Lot Découverte</p>
+                            <p class="font-medium">35€(3 bouteilles)</p>
                             <button class="bg-saone-terracotta text-saone-cream rounded-full text-[13px] font-montserrat shadow-md hover:bg-[#8e362b] transition-colors p-[5px]">
                             Ajouter au <br/> panier
                             </button>
                         </div>
 
                         <div class="flex flex-col gap-2">
-                            <img src="../../../assets/products/Vins/vins-bourgogne-rouge.jpg" class="w-[100px] h-[100px] object-cover rounded-2xl"/>
-                            <p>Bourgogne rouge <br/> 2022</p>
-                            <p class="font-medium">9,50€(75cl)</p>
+                            <img src="../../../assets/products/Vins/vins-lot-cave.jpg" class="w-[100px] h-[100px] object-cover rounded-2xl"/>
+                            <p>Lot Cave</p>
+                            <p class="font-medium">80€(6 Mercurey rouge)</p>
                             <button class="bg-saone-terracotta text-saone-cream rounded-full text-[13px] font-montserrat shadow-md hover:bg-[#8e362b] transition-colors p-[5px]">
                             Ajouter au <br/> panier
                             </button>
