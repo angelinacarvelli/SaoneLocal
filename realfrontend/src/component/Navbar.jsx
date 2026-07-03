@@ -13,7 +13,7 @@ export default function Navbar() {
         <a href="/event" className="transition hover:scale-110 w-[50px]">
           <img src="/assets/icon/picto-calendrier.png" alt="home"/>
         </a>
-        <a href="/cart" className="transition hover:scale-110 w-[50px]">
+        <a href="/panier" className="transition hover:scale-110 w-[50px]">
           <img src="/assets/icon/picto-panier.png" alt="home"/>
         </a>
         <a href="/account-home" className="transition hover:scale-110 w-[50px]">

@@ -196,7 +196,7 @@ export const routes = [
     showInNav: true,
   },
     {
-    path: "/Cart",
+    path: "/panier",
     label: "Mon panier",
     component: Cart,
     showInNav: true,
