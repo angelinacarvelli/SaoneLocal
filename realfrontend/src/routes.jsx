@@ -16,12 +16,15 @@ import LoginPage from './pages/client/login-client.jsx';
 import ProducerLoginPage from './pages/producer/login-producter.jsx';
 import SignupProducerPage from './pages/producer/signup-producter.jsx';
 import SignupClientPage from './pages/client/signup-client.jsx';
-import  Event  from "./pages/global/Event.jsx";
+import Panier from './app/panier.jsx';
+import favoris from './app/favoris.jsx';
+import  Event  from "./pages/global/Even.jsx";
 import  Search1  from "./pages/search/Search1.jsx";
 import  Search2  from "./pages/search/Search2.jsx";
 import  Search3  from "./pages/search/Search3.jsx";
 import ProductDetail from './pages/catalog/fiche_produit.jsx';
 import ProducerDetail from './pages/fiche-producer.jsx/Karim.jsx';
+import  Wine_Sort_Product from './pages/catalog/Wine-sort-product.jsx';
 
 export const routes = [
   {
@@ -164,6 +167,24 @@ export const routes = [
     path: "/search3",
     label: "Rechercher",
     component: Search3,
+    showInNav: true,
+  },
+  {
+    path: "/wine-sort-product",
+    label: "Catalogue de nos Produits",
+    component: Wine_Sort_Product,
+    showInNav: true,
+  },
+  {
+    path: "/panier",
+    label: "Mon Panier",
+    component: Panier,
+    showInNav: true,
+  },
+  {
+    path: "/favoris",
+    label: "Mes Favoris",
+    component: Favoris,
     showInNav: true,
   },
   {
