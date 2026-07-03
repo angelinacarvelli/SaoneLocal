@@ -26,6 +26,10 @@ import ProductDetail from './pages/catalog/fiche_produit.jsx';
 import ProducerDetail from './pages/fiche-producer.jsx/Karim.jsx';
 import  Wine_Sort_Product from './pages/catalog/Wine-sort-product.jsx';
 import  Wine_Sort_Producer from './pages/catalog/Wine-sort-producer.jsx';
+import  Bakery_Sort_Product from './pages/catalog/Bakery-sort-product.jsx';
+import  Bakery_Sort_Producer from './pages/catalog/Bakery-sort-producer.jsx';
+import  Vegetables_Sort_Product from './pages/catalog/Vegetables-sort-product.jsx';
+import  Vegetables_Sort_Producer from './pages/catalog/Vegetables-sort-producer.jsx';
 
 
 export const routes = [
@@ -179,14 +183,38 @@ export const routes = [
   },
   {
     path: "/wine-sort-product",
-    label: "Catalogue de nos Produits",
+    label: "Catalogue vin tri produit",
     component: Wine_Sort_Product,
     showInNav: true,
   },
   {
     path: "/wine-sort-producer",
-    label: "Tri des Producteurs",
+    label: "Catalogue vin tri producteur",
     component: Wine_Sort_Producer,
+    showInNav: true,
+  },
+  {
+    path: "/bakery-sort-product",
+    label: "Catalogue boulangerie tri produit",
+    component: Bakery_Sort_Product,
+    showInNav: true,
+  },
+  {
+    path: "/bakery-sort-producer",
+    label: "Catalogue boulangerie tri producteur",
+    component: Bakery_Sort_Producer,
+    showInNav: true,
+  },
+  {
+    path: "/vegetables-sort-product",
+    label: "Catalogue fruits et légumes tri produit",
+    component: Vegetables_Sort_Product,
+    showInNav: true,
+  },
+  {
+    path: "/vegetables-sort-producer",
+    label: "Catalogue fruits et légumes tri producteur",
+    component: Vegetables_Sort_Producer,
     showInNav: true,
   },
   {

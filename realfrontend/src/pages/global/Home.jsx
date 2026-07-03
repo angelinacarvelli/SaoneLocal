@@ -39,8 +39,8 @@ export default function Home() {
               <img src="/assets/products/Vins/vins-mercurey-blanc.jpg" alt="mercurey-blanc" class="w-[105px] h-[105px] object-cover rounded-3xl"/>
             </div>
 
-            <a href="/home-catalog">
-              <button className="bg-saone-terracotta text-saone-cream px-6 py-2 mt-[20px] rounded-full text-sm font-montserrat shadow-md hover:bg-[#8e362b] transition-colors ml-[220px]">
+            <a href="/home-catalog" class="grid grid-flow-col justify-items-end">
+              <button className="bg-saone-terracotta text-saone-cream mt-[20px] rounded-full text-sm font-montserrat shadow-md hover:bg-[#8e362b] transition-colors text-[14px] py-[5px] px-[10px]">
                   Goûter
               </button>
             </a>
