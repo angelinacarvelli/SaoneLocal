@@ -77,12 +77,18 @@ export const login = async (req, res) => {
         const ok = await comparePass(password, user.password);
         if (!ok) return res.status(401).json({ error: "Identifiants incorrects" });
 
-        // Sécurité : on garantit qu'un panier existe
-        await db.query('INSERT INTO "basket" (user_id) VALUES ($1) ON CONFLICT (user_id) DO NOTHING', [user.id]);
+        // MODIFICATION ICI : On vérifie d'abord si le panier existe
+        const basketExists = await db.query('SELECT id FROM "basket" WHERE user_id = $1', [user.id]);
+        
+        // Si aucun panier n'existe pour cet utilisateur, on le crée
+        if (basketExists.rows.length === 0) {
+            await db.query('INSERT INTO "basket" (user_id) VALUES ($1)', [user.id]);
+        }
+
         await db.query('UPDATE "users" SET last_connexion = CURRENT_DATE WHERE id = $1', [user.id]);
 
         res.cookie("jwt", signToken(user), cookieOptions);
-        delete user.password; // jamais renvoyer le hash
+        delete user.password; 
         res.json({ message: "Connexion réussie", user });
     } catch (error) {
         console.error("Erreur login :", error);
