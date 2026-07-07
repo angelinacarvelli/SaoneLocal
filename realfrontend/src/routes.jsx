@@ -87,7 +87,7 @@ export const routes = [
     showInNav: true,
   },
       {
-    path: "/signup-producer",
+    path: "/sign-up-producer",
     label: "Inscription Producteur",
     component: SignupProducerPage,
   },

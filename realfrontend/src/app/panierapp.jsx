@@ -9,6 +9,14 @@ export default function Panier() {
             .then(setBasket)
             .catch(console.error);
     }, []);
+    useEffect(() => {
+  const savedCart = localStorage.getItem('cart');
+  if (savedCart) setCartItems(JSON.parse(savedCart));
+}, []);
+
+useEffect(() => {
+  localStorage.setItem('cart', JSON.stringify(cartItems));
+}, [cartItems]);
 
     return (
         <div>

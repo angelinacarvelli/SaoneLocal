@@ -67,7 +67,7 @@ export default function ProducerLoginPage() {
 
         <p className="text-center text-sm text-gray-600 mt-6 font-montserrat">
           Nouveau producteur ?{' '}
-          <a href="/signup-producer" className="text-saone-green font-bold hover:underline">
+          <a href="/sign-up-producer" className="text-saone-green font-bold hover:underline">
             Crée ton profil
           </a>
         </p>
