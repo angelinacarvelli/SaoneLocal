@@ -64,7 +64,7 @@ export const routes = [
     showInNav: true,
   },
     {
-    path: "/signup-client",
+    path: "/sign-up-client",
     label: "Inscription Client",
     component: SignupClientPage,
   },

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../component/Header';
 import Navbar from '../../component/Navbar';
 import { AuthAPI } from '../../api/auth.api';
+import { Link } from 'react-router-dom';
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -64,7 +65,7 @@ export default function LoginPage() {
 
         <p className="text-center text-sm text-gray-600 mt-6 mb-6 font-montserrat">
           Pas encore de compte ?{' '}
-          <a href="/signup-client" className="text-saone-terracotta font-bold hover:underline">
+          <a href="/sign-up-client" className="text-saone-terracotta font-bold hover:underline">
             Inscris-toi ici
           </a>
         </p>

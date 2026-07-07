@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../component/Header';
 import Navbar from '../../component/Navbar';
 import { AuthAPI } from '../../api/auth.api';
+import { Link } from 'react-router-dom';
 
-export default function SignupPage() {
+export default function SignupClientPage() {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
