@@ -6,10 +6,10 @@ export default defineConfig({
   root: './',
   server: {
     proxy: {
-      '/api': { target: 'http://localhost:3000', changeOrigin: true },
-      '/login': 'http://localhost:3000',
-      '/signup': 'http://localhost:3000',
-      '/signup-producer': 'http://localhost:3000'
+      '/api': { target: 'http://saonelocal.webhop.me', changeOrigin: true },
+      '/login': 'http://saonelocal.webhop.me',
+      '/signup': 'http://saonelocal.webhop.me',
+      '/signup-producer': 'http://saonelocal.webhop.me'
     }
   }
 })
